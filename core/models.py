@@ -86,6 +86,16 @@ class Artwork(Base):
     OriginalLanguage = models.ForeignKey(Language, null=True, blank=True, on_delete=models.DO_NOTHING)
     Genres = models.ManyToManyField(Genre, blank=True, null=True)
     Distributors = models.ManyToManyField(Distributor, blank=True, null=True)
+    Members = models.ManyToManyField(Person, blank=True, null=True, through='Membership')
 
     def __str__(self):
         return self.NameEN if self.NameEN else self.OriginalName
+
+
+class Membership(models.Model):
+    Person = models.ForeignKey(Person, on_delete=models.CASCADE)
+    Artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE)
+    Role = models.ForeignKey(Role, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.Artwork} - {self.Person} ({self.Role})'

@@ -10,4 +10,5 @@ admin.site.register(Genre)
 admin.site.register(Language)
 admin.site.register(TypeOfArtwork)
 admin.site.register(Artwork)
+admin.site.register(Membership)
 
