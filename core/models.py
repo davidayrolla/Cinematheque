@@ -85,6 +85,7 @@ class Artwork(Base):
     Image = models.ImageField(upload_to='artwork_photos', null=True, blank=True)
     OriginalLanguage = models.ForeignKey(Language, null=True, blank=True, on_delete=models.DO_NOTHING)
     Genres = models.ManyToManyField(Genre, blank=True, null=True)
+    Distributors = models.ManyToManyField(Distributor, blank=True, null=True)
 
     def __str__(self):
         return self.NameEN if self.NameEN else self.OriginalName
