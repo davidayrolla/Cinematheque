@@ -1,9 +1,10 @@
 from django.db import models
+from datetime import datetime
 
 
 class Base(models.Model):
-    DateTimeOfInsert = models.DateTimeField(auto_now=True)
-    DateTimeOfLastUpdate = models.DateTimeField(auto_now=False, null=True, blank=True)
+    DateTimeOfInsert = models.DateTimeField(auto_now_add=True,auto_now=False)
+    DateTimeOfLastUpdate = models.DateTimeField(auto_now=True)
     InsertUserId = models.IntegerField()
     LastUpdateUserId = models.IntegerField(null=True, blank=True)
 
@@ -84,9 +85,9 @@ class Artwork(Base):
     RunTime = models.IntegerField(null=True, blank=True)
     Image = models.ImageField(upload_to='artwork_photos', null=True, blank=True)
     OriginalLanguage = models.ForeignKey(Language, null=True, blank=True, on_delete=models.DO_NOTHING)
-    Genres = models.ManyToManyField(Genre, blank=True, null=True)
-    Distributors = models.ManyToManyField(Distributor, blank=True, null=True)
-    Members = models.ManyToManyField(Person, blank=True, null=True, through='Membership')
+    Genres = models.ManyToManyField(Genre)
+    Distributors = models.ManyToManyField(Distributor)
+    Members = models.ManyToManyField(Person, through='Membership')
 
     def __str__(self):
         return self.NameEN if self.NameEN else self.OriginalName
@@ -99,3 +100,4 @@ class Membership(models.Model):
 
     def __str__(self):
         return f'{self.Artwork} - {self.Person} ({self.Role})'
+

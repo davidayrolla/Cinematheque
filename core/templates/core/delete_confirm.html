@@ -1,4 +1,4 @@
-{% extends 'logado.html' %}
+{% extends 'logged.html' %}
 
 {% block main %}
 
@@ -9,6 +9,7 @@
 
       <form method="POST">
         {% csrf_token %}
+        <a class="btn btn-warning" href="javascript:history.go(-1)">Não quero excluir</a>&nbsp;&nbsp;&nbsp;
         <button type="submit" class="btn btn-danger">Confirmo exclusão</button>
       </form>
 
