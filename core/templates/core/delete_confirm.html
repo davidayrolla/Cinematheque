@@ -1,0 +1,18 @@
+{% extends 'logado.html' %}
+
+{% block main %}
+
+<div class="row">
+    <div class="col">
+
+      <h2> Confirma exclusão de {{obj}}?</h2>
+
+      <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmo exclusão</button>
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}
