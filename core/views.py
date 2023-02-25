@@ -31,7 +31,7 @@ def genreInsert(request):
 
         if form.is_valid():
             genre = form.save(commit=False)
-            genre.InsertUserId = 1
+            genre.InsertUserId = request.user
             genre.save()
         return redirect('core_genre_list')
 
@@ -47,7 +47,7 @@ def genreUpdate(request, id):
     if request.method == 'POST':
         if form.is_valid():
             genre = form.save(commit=False)
-            genre.LastUpdateUserId = 1
+            genre.LastUpdateUserId = request.user
             genre.save()
             return redirect('core_genre_list')
     else:
