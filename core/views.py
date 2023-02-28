@@ -4,8 +4,12 @@ from datetime import datetime
 from .forms import *
 
 
-def home(request):
+def index(request):
     return render(request, 'core/index.html' )
+
+
+def home(request):
+    return render(request, 'core/home.html' )
 
 
 #-------- Genre views
