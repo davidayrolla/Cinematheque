@@ -3,12 +3,12 @@
 
 {% block contents %}
 
-<nav class="navbar navbar-dark bg-dark ">
+<nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasDarkNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">Cinematheque</a>
+    <a class="navbar-brand" href="#"><img src="{% static 'img/logoCinematheque.png' %}" width="170px"></img> </a>
   </div>
 </nav>
 
@@ -17,9 +17,28 @@
     <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
+
   <div class="offcanvas-body">
-    <p>Try scrolling the rest of the page to see this option in action.</p>
+
+    <nav class="navbar bg-dark navbar-dark">
+
+      <ul class="navbar-nav navbar-custom container-fluid" >
+        <li class="nav-item navbar-custom nav-item-local container-fluid" >
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item navbar-custom nav-item-local container-fluid">
+          <a class="nav-link" href="#">Genres</a>
+        </li>
+        <li class="nav-item navbar-custom nav-item-local container-fluid">
+          <a class="nav-link" href="#">Countries</a>
+        </li>
+      </ul>
+
+    </nav>
+
   </div>
+
+
 </div>
 
     {% block main %}
