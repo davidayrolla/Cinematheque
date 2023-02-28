@@ -10,7 +10,7 @@ def index(request):
 
 
 def home(request):
-    data = {'username': request.user.username.capitalize()}
+    data = {'userName': request.user.username.capitalize()}
     return render(request, 'core/home.html', data )
 
 
@@ -51,7 +51,7 @@ def genreUpdate(request, id):
     data = {}
     genre = Genre.objects.get(id=id)
     form = GenreForm( request.POST or None, instance=genre)
-    data['username'] = request.user.username.capitalize()
+    data['userName'] = request.user.username.capitalize()
     data['className'] = Genre.__name__
     data['object'] = genre
     data['genre'] = genre
