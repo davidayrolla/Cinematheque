@@ -1,22 +1,9 @@
-{% extends 'logged.html' %}
+{% extends 'baseinsert.html' %}
 {% load bootstrap %}
 
-{% block main %}
-<div class="row">
-    <div class="col">
-
-        <h2>New genre:</h2>
-
-        <form action="{% url 'core_genre_insert' %}" method="POST">
-          {%  csrf_token %}
-
-          {{form|bootstrap}}
-
-          <button type="submit" class="btn btn-primary">Save</button>
-            <a class="btn btn-warning" href="javascript:history.go(-1)">Cancel</a>&nbsp;
-        </form>
-
-    </div>
-</div>
-
+{% block form %}
+    <form id="frmData" action="{% url 'core_genre_insert' %}" method="POST">
+      {%  csrf_token %}
+      {{form|bootstrap}}
+    </form>
 {% endblock %}

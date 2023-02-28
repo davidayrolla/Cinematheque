@@ -8,7 +8,9 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasDarkNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#"><img src="{% static 'img/logoCinematheque.png' %}" width="170px"> </a>
+    <a class="navbar-brand" href="{% url 'core_home' %}">
+      <img src="{% static 'img/logoCinematheque.png' %}" width="170px">
+    </a>
   </div>
 </nav>
 
@@ -18,7 +20,7 @@
   <div class="offcanvas-header" style="padding-bottom: 5px;">
     <div style="width: 70%">
       <img src="{% static 'img/userthumb.png' %}" style="height: 40px; float: left; padding-right: 10px;">
-      <h6 style="line-height:40px;">Usuário</h6>
+      <h6 style="line-height:40px;">{{userName}}</h6>
     </div>
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
@@ -29,7 +31,7 @@
 
       <ul class="navbar-nav navbar-custom container-fluid" >
         <li class="nav-item navbar-custom nav-item-local container-fluid" >
-          <a class="nav-link" href="core_home">Home</a>
+          <a class="nav-link" href="{% url 'core_home' %}">Home</a>
         </li>
         <li class="nav-item navbar-custom nav-item-local container-fluid">
           <a class="nav-link" href="{% url 'core_genre_list' %}">Genres</a>

@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from datetime import datetime
+from django.urls import reverse
 from .forms import *
+
 
 
 def index(request):
@@ -9,7 +10,8 @@ def index(request):
 
 
 def home(request):
-    return render(request, 'core/home.html' )
+    data = {'username': request.user.username.capitalize()}
+    return render(request, 'core/home.html', data )
 
 
 #-------- Genre views
@@ -17,7 +19,9 @@ def home(request):
 @login_required
 def genreList(request):
     genres = Genre.objects.all()
-    data = {'genres': genres}
+    data = {'userName': request.user.username.capitalize(),
+            'className' : Genre.__name__,
+            'genres': genres}
     return render(request, 'core/genrelist.html', data )
 
 
@@ -27,6 +31,8 @@ def genreInsert(request):
         data = {}
         genre = Genre()
         form = GenreForm(instance=genre)
+        data['userName'] = request.user.username.capitalize()
+        data['className'] = Genre.__name__
         data['genre'] = genre
         data['form'] = form
         return render(request, 'core/genreinsert.html', data)
@@ -45,6 +51,9 @@ def genreUpdate(request, id):
     data = {}
     genre = Genre.objects.get(id=id)
     form = GenreForm( request.POST or None, instance=genre)
+    data['username'] = request.user.username.capitalize()
+    data['className'] = Genre.__name__
+    data['object'] = genre
     data['genre'] = genre
     data['form'] = form
 

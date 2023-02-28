@@ -1,0 +1,21 @@
+{% extends 'logged.html' %}
+
+{% block main %}
+<div class="row">
+    <div class="col">
+
+        <h2>New {{className}}:</h2>
+
+        {% block form %}
+
+        {% endblock %}
+        <div class="row" style="padding-top: 20px">
+            <div class="col">
+                <button type="submit" form="frmData" class="btn btn-primary">Save</button>
+                <a class="btn btn-warning" href="javascript:history.go(-1)">Cancel</a>&nbsp;
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

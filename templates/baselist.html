@@ -1,0 +1,20 @@
+{% extends 'logged.html' %}
+
+{% block main %}
+
+     <div class="row">
+        <!--<div class="col-9"></div>-->
+        <div class="col" align="right">
+            <a href="{% url 'core_genre_insert' %}" class="btn btn-danger">Add {{className}}</a>
+        </div>
+     </div>
+     <div class="row">
+
+        {% block list %}
+
+        {% endblock %}
+
+      </div>
+
+
+{% endblock %}

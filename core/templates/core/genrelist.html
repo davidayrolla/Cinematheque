@@ -1,34 +1,23 @@
-{% extends 'logged.html' %}
+{% extends 'baselist.html' %}
 
-{% block main %}
+{% block list %}
 
-     <div class="row">
-        <!--<div class="col-9"></div>-->
-        <div class="col" align="right">
-            <a href="{% url 'core_genre_insert' %}" class="btn btn-danger">Add genre</a>
-        </div>
-     </div>
-     <div class="row">
+     <div class="col">
+         <table class="table">
+             <thead class="table-light">
+               <tr>
+                 <th scope="col">Genre name</th>
+               </tr>
+             </thead>
+             <tbody>
+             {% for genre in genres %}
+               <tr>
+                 <td><a href="{% url 'core_genre_update' genre.id %}">{{genre.NameEN}}</a></td>
+               </tr>
+               {% endfor%}
+             </tbody>
+         </table>
 
-         <div class="col">
-             <table class="table">
-                 <thead class="table-light">
-                   <tr>
-                     <th scope="col">Genre name</th>
-                   </tr>
-                 </thead>
-                 <tbody>
-                 {% for genre in genres %}
-                   <tr>
-                     <td><a href="{% url 'core_genre_update' genre.id %}">{{genre.NameEN}}</a></td>
-                   </tr>
-                   {% endfor%}
-                 </tbody>
-             </table>
-
-        </div>
-
-      </div>
-
+    </div>
 
 {% endblock %}
