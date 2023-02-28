@@ -1,18 +1,22 @@
 {% extends 'baselist.html' %}
 
+{% block insertButton %}
+    <a href="{% url 'core_country_insert' %}" class="btn btn-success">Add {{className}}</a>
+{% endblock %}
+
 {% block list %}
 
      <div class="col">
          <table class="table">
              <thead class="table-light">
                <tr>
-                 <th scope="col">Genre name</th>
+                 <th scope="col">Country name</th>
                </tr>
              </thead>
              <tbody>
-             {% for genre in genres %}
+             {% for country in countries %}
                <tr>
-                 <td><a href="{% url 'core_genre_update' genre.id %}">{{genre.NameEN}}</a></td>
+                 <td><a href="{% url 'core_country_update' country.id %}">{{country.NameEN}}</a></td>
                </tr>
                {% endfor%}
              </tbody>

@@ -38,7 +38,6 @@ def genreInsert(request):
         return render(request, 'core/genreinsert.html', data)
     else:
         form = GenreForm( request.POST or None )
-
         if form.is_valid():
             genre = form.save(commit=False)
             genre.InsertUserId = request.user
@@ -75,4 +74,67 @@ def genreDelete(request, id):
         return redirect('core_genre_list')
     else:
         return render(request, 'core/delete_confirm.html', {'obj': genre})
+
+
+#-------- Country views
+
+@login_required
+def countryList(request):
+    countries = Country.objects.all()
+    data = {'userName': request.user.username.capitalize(),
+            'className' : Country.__name__,
+            'countries': countries}
+    return render(request, 'core/countrylist.html', data )
+
+
+@login_required
+def countryInsert(request):
+    if request.method == 'GET':
+        data = {}
+        country = Country()
+        form = CountryForm(instance=country)
+        data['userName'] = request.user.username.capitalize()
+        data['className'] = Country.__name__
+        data['country'] = country
+        data['form'] = form
+        return render(request, 'core/countryinsert.html', data)
+    else:
+        form = CountryForm( request.POST or None )
+        if form.is_valid():
+            country = form.save(commit=False)
+            country.InsertUserId = request.user
+            country.save()
+        return redirect('core_country_list')
+
+
+@login_required
+def countryUpdate(request, id):
+    data = {}
+    country = Country.objects.get(id=id)
+    form = CountryForm( request.POST or None, instance=country)
+    data['userName'] = request.user.username.capitalize()
+    data['className'] = Country.__name__
+    data['object'] = country
+    data['country'] = country
+    data['form'] = form
+
+    if request.method == 'POST':
+        if form.is_valid():
+            country = form.save(commit=False)
+            country.LastUpdateUserId = request.user
+            country.save()
+            return redirect('core_country_list')
+    else:
+        return render(request, 'core/countryupdate.html', data)
+
+
+@login_required
+def countryDelete(request, id):
+    country = Country.objects.get(id=id)
+    if request.method == 'POST':
+        country.delete()
+        return redirect('core_country_list')
+    else:
+        return render(request, 'core/delete_confirm.html', {'obj': country})
+
 

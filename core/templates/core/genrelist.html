@@ -1,5 +1,9 @@
 {% extends 'baselist.html' %}
 
+{% block insertButton %}
+    <a href="{% url 'core_genre_insert' %}" class="btn btn-success">Add {{className}}</a>
+{% endblock %}
+
 {% block list %}
 
      <div class="col">

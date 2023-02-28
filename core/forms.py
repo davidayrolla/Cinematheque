@@ -6,3 +6,10 @@ class GenreForm(ModelForm):
         model = Genre
         fields = '__all__'
         fields = ['NameEN', 'NamePT_BR']
+
+
+class CountryForm(ModelForm):
+    class Meta:
+        model = Country
+        fields = '__all__'
+        fields = ['NameEN', 'NamePT_BR']
