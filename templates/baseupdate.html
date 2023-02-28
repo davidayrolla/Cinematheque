@@ -24,9 +24,9 @@
         </div>
 
         <p style="font-size: 12px">
-        Inserted by {{object.InsertUserId|capfirst}}, on {{object.DateTimeOfInsert|date:"d M Y H:i"}}.<BR>
-        {% if object.LastUpdateUserId %}
-            Last changed by {{object.InsertUserId|capfirst}}, on {{object.DateTimeOfLastUpdate|date:"d M Y H:i"}}.
+        Inserted by {{object.InsertUser|capfirst}}, on {{object.DateTimeOfInsert|date:"d M Y H:i"}}.<BR>
+        {% if object.LastUpdateUser %}
+            Last changed by {{object.InsertUser|capfirst}}, on {{object.DateTimeOfLastUpdate|date:"d M Y H:i"}}.
         {% endif %}
         </p>
 

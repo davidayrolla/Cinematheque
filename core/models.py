@@ -5,10 +5,10 @@ from django.conf import settings
 class Base(models.Model):
     DateTimeOfInsert = models.DateTimeField(auto_now_add=True,auto_now=False)
     DateTimeOfLastUpdate = models.DateTimeField(auto_now=True)
-    InsertUserId = models.ForeignKey( settings.AUTH_USER_MODEL, null=True, blank=True,
-                                      on_delete=models.CASCADE, related_name='+' )
-    LastUpdateUserId = models.ForeignKey( settings.AUTH_USER_MODEL, null=True, blank=True,
-                                          on_delete=models.CASCADE, related_name='+' )
+    InsertUser = models.ForeignKey( settings.AUTH_USER_MODEL, null=True, blank=True,
+                                    on_delete=models.CASCADE, related_name='+' )
+    LastUpdateUser = models.ForeignKey( settings.AUTH_USER_MODEL, null=True, blank=True,
+                                        on_delete=models.CASCADE, related_name='+' )
 
     class Meta:
         abstract = True
