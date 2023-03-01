@@ -26,4 +26,14 @@ urlpatterns = [
     re_path(r'distributorupdate/(?P<id>\d+)/$', distributorUpdate, name='core_distributor_update'),
     re_path(r'distributordelete/(?P<id>\d+)/$', distributorDelete, name='core_distributor_delete'),
 
+    re_path(r'languagelist', languageList, name='core_language_list'),
+    re_path(r'languageinsert', languageInsert, name='core_language_insert'),
+    re_path(r'languageupdate/(?P<id>\d+)/$', languageUpdate, name='core_language_update'),
+    re_path(r'languagedelete/(?P<id>\d+)/$', languageDelete, name='core_language_delete'),
+
+    re_path(r'typeofartworklist', typeofartworkList, name='core_typeofartwork_list'),
+    re_path(r'typeofartworkinsert', typeofartworkInsert, name='core_typeofartwork_insert'),
+    re_path(r'typeofartworkupdate/(?P<id>\d+)/$', typeofartworkUpdate, name='core_typeofartwork_update'),
+    re_path(r'typeofartworkdelete/(?P<id>\d+)/$', typeofartworkDelete, name='core_typeofartwork_delete'),
+
 ]

@@ -25,3 +25,15 @@ class DistributorForm(ModelForm):
         fields = ['Name']
 
 
+class LanguageForm(ModelForm):
+    class Meta:
+        model = Language
+        fields = ['NameEN', 'NamePT_BR']
+
+
+class TypeOfArtworkForm(ModelForm):
+    class Meta:
+        model = TypeOfArtwork
+        fields = ['NameEN', 'NamePT_BR']
+
+

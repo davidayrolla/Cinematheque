@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import *
-from django import template
-register = template.Library()
 
 
 def index(request):
@@ -252,6 +250,127 @@ def distributorDelete(request, id):
         return redirect('core_distributor_list')
     else:
         return render(request, 'core/delete_confirm.html', {'obj': distributor})
+
+
+
+#-------- Language views
+
+@login_required
+def languageList(request):
+    languages = Language.objects.all()
+    data = {'userName': request.user.username.capitalize(),
+            'class': Language,
+            'languages': languages}
+    return render(request, 'core/languagelist.html', data )
+
+
+@login_required
+def languageInsert(request):
+    if request.method == 'GET':
+        data = {}
+        language = Language()
+        form = LanguageForm(instance=language)
+        data['userName'] = request.user.username.capitalize()
+        data['object'] = language
+        data['form'] = form
+        return render(request, 'core/languageinsert.html', data)
+    else:
+        form = LanguageForm( request.POST or None, request.FILES or None )
+        if form.is_valid():
+            language = form.save(commit=False)
+            language.InsertUser = request.user
+            language.save()
+        return redirect('core_language_list')
+
+
+@login_required
+def languageUpdate(request, id):
+    data = {}
+    language = Language.objects.get(id=id)
+    form = LanguageForm( request.POST or None, request.FILES or None, instance=language)
+    data['userName'] = request.user.username.capitalize()
+    data['object'] = language
+    data['form'] = form
+
+    if request.method == 'POST':
+        if form.is_valid():
+            language = form.save(commit=False)
+            language.LastUpdateUser = request.user
+            language.save()
+            return redirect('core_language_list')
+    else:
+        return render(request, 'core/languageupdate.html', data)
+
+
+@login_required
+def languageDelete(request, id):
+    language = Language.objects.get(id=id)
+    if request.method == 'POST':
+        language.delete()
+        return redirect('core_language_list')
+    else:
+        return render(request, 'core/delete_confirm.html', {'obj': language})
+
+
+
+#-------- TypeOfArtwork views
+
+@login_required
+def typeofartworkList(request):
+    typesofartwork = TypeOfArtwork.objects.all()
+    data = {'userName': request.user.username.capitalize(),
+            'class': TypeOfArtwork,
+            'typesofartwork': typesofartwork}
+    return render(request, 'core/typeofartworklist.html', data )
+
+
+@login_required
+def typeofartworkInsert(request):
+    if request.method == 'GET':
+        data = {}
+        typeofartwork = TypeOfArtwork()
+        form = TypeOfArtworkForm(instance=typeofartwork)
+        data['userName'] = request.user.username.capitalize()
+        data['object'] = typeofartwork
+        data['form'] = form
+        return render(request, 'core/typeofartworkinsert.html', data)
+    else:
+        form = TypeOfArtworkForm( request.POST or None, request.FILES or None )
+        if form.is_valid():
+            typeofartwork = form.save(commit=False)
+            typeofartwork.InsertUser = request.user
+            typeofartwork.save()
+        return redirect('core_typeofartwork_list')
+
+
+@login_required
+def typeofartworkUpdate(request, id):
+    data = {}
+    typeofartwork = TypeOfArtwork.objects.get(id=id)
+    form = TypeOfArtworkForm( request.POST or None, request.FILES or None, instance=typeofartwork)
+    data['userName'] = request.user.username.capitalize()
+    data['object'] = typeofartwork
+    data['form'] = form
+
+    if request.method == 'POST':
+        if form.is_valid():
+            typeofartwork = form.save(commit=False)
+            typeofartwork.LastUpdateUser = request.user
+            typeofartwork.save()
+            return redirect('core_typeofartwork_list')
+    else:
+        return render(request, 'core/typeofartworkupdate.html', data)
+
+
+@login_required
+def typeofartworkDelete(request, id):
+    typeofartwork = TypeOfArtwork.objects.get(id=id)
+    if request.method == 'POST':
+        typeofartwork.delete()
+        return redirect('core_typeofartwork_list')
+    else:
+        return render(request, 'core/delete_confirm.html', {'obj': typeofartwork})
+
 
 
 

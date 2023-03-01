@@ -61,7 +61,8 @@ class TypeOfArtwork(Base):
         return self.NameEN
 
     class Meta:
-        verbose_name_plural = 'types of artwork'
+        verbose_name = 'Type of Artwork'
+        verbose_name_plural = 'Types of Artwork'
 
 
 class Distributor(Base):
