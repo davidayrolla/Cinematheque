@@ -1,0 +1,28 @@
+{% extends 'baselist.html' %}
+{% load filter %}
+
+{% block insertButton %}
+    <a href="{% url 'core_role_insert' %}" class="btn btn-success">Add {{class|get_class_name}}</a>
+{% endblock %}
+
+{% block list %}
+
+     <div class="col">
+         <table class="table">
+             <thead class="table-light">
+               <tr>
+                 <th scope="col">Role name</th>
+               </tr>
+             </thead>
+             <tbody>
+             {% for role in roles %}
+               <tr>
+                 <td><a href="{% url 'core_role_update' role.id %}">{{role.NameEN}}</a></td>
+               </tr>
+               {% endfor%}
+             </tbody>
+         </table>
+
+    </div>
+
+{% endblock %}
