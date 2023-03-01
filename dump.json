@@ -1,0 +1,327 @@
+[{"model": "admin.logentry", "pk": 1, "fields": {"action_time": "2023-02-22T23:40:31.074Z", "user": 1, "content_type": 8, "object_id": "1", "object_repr": "Brazil"
+, "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 2, "fields": {"action_time": "2023-02-22T23:40:43.262Z", "user": 1, 
+"content_type": 8, "object_id": "2", "object_repr": "United States", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 3
+, "fields": {"action_time": "2023-02-22T23:41:51.342Z", "user": 1, "content_type": 8, "object_id": "3", "object_repr": "England", "action_flag": 1, "change_message
+": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 4, "fields": {"action_time": "2023-02-23T00:01:08.113Z", "user": 1, "content_type": 8, "object_id": "3"
+, "object_repr": "England", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Flag\"]}}]"}}, {"model": "admin.logentry", "pk": 5, "fields": {"act
+ion_time": "2023-02-23T00:01:17.049Z", "user": 1, "content_type": 8, "object_id": "2", "object_repr": "United States", "action_flag": 2, "change_message": "[{\"cha
+nged\": {\"fields\": [\"Flag\"]}}]"}}, {"model": "admin.logentry", "pk": 6, "fields": {"action_time": "2023-02-23T00:01:28.557Z", "user": 1, "content_type": 8, "ob
+ject_id": "1", "object_repr": "Brazil", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Flag\"]}}]"}}, {"model": "admin.logentry", "pk": 7, "fi
+elds": {"action_time": "2023-02-23T00:01:43.544Z", "user": 1, "content_type": 8, "object_id": "4", "object_repr": "Austria", "action_flag": 1, "change_message": "[
+{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 8, "fields": {"action_time": "2023-02-23T00:30:17.749Z", "user": 1, "content_type": 8, "object_id": "4", "ob
+ject_repr": "Austria", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Flag\"]}}]"}}, {"model": "admin.logentry", "pk": 9, "fields": {"action_t
+ime": "2023-02-23T00:34:08.365Z", "user": 1, "content_type": 8, "object_id": "3", "object_repr": "England", "action_flag": 2, "change_message": "[{\"changed\": {\"
+fields\": [\"Flag\"]}}]"}}, {"model": "admin.logentry", "pk": 10, "fields": {"action_time": "2023-02-23T00:34:21.589Z", "user": 1, "content_type": 8, "object_id": 
+"2", "object_repr": "United States", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Flag\"]}}]"}}, {"model": "admin.logentry", "pk": 11, "fiel
+ds": {"action_time": "2023-02-23T00:34:28.457Z", "user": 1, "content_type": 8, "object_id": "1", "object_repr": "Brazil", "action_flag": 2, "change_message": "[{\"
+changed\": {\"fields\": [\"Flag\"]}}]"}}, {"model": "admin.logentry", "pk": 12, "fields": {"action_time": "2023-02-23T00:38:24.912Z", "user": 1, "content_type": 9,
+ "object_id": "1", "object_repr": "Director", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 13, "fields": {"action_t
+ime": "2023-02-23T00:39:18.560Z", "user": 1, "content_type": 9, "object_id": "2", "object_repr": "Actor/Actress", "action_flag": 1, "change_message": "[{\"added\":
+ {}}]"}}, {"model": "admin.logentry", "pk": 14, "fields": {"action_time": "2023-02-23T00:39:29.816Z", "user": 1, "content_type": 9, "object_id": "3", "object_repr"
+: "Producer", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 15, "fields": {"action_time": "2023-02-23T00:39:45.608Z"
+, "user": 1, "content_type": 9, "object_id": "4", "object_repr": "Writer", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "
+pk": 16, "fields": {"action_time": "2023-02-23T00:42:18.466Z", "user": 1, "content_type": 9, "object_id": "5", "object_repr": "Music by", "action_flag": 1, "change
+_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 17, "fields": {"action_time": "2023-02-23T00:53:51.283Z", "user": 1, "content_type": 7, "object
+_id": "1", "object_repr": "Arnold Schwarzenegger", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 18, "fields": {"act
+ion_time": "2023-02-23T00:55:47.575Z", "user": 1, "content_type": 7, "object_id": "2", "object_repr": "Clint Eastwood", "action_flag": 1, "change_message": "[{\"ad
+ded\": {}}]"}}, {"model": "admin.logentry", "pk": 19, "fields": {"action_time": "2023-02-23T00:57:39.032Z", "user": 1, "content_type": 7, "object_id": "3", "object
+_repr": "Steven Spielberg", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 20, "fields": {"action_time": "2023-02-23T
+01:00:31.579Z", "user": 1, "content_type": 8, "object_id": "5", "object_repr": "Scotland", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "ad
+min.logentry", "pk": 21, "fields": {"action_time": "2023-02-23T01:01:04.786Z", "user": 1, "content_type": 7, "object_id": "2", "object_repr": "Clint Eastwood", "ac
+tion_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"}}, {"model": "admin.logentry", "pk": 22, "fields": {"action_time": "2023-02-23T01:02:
+49.078Z", "user": 1, "content_type": 7, "object_id": "4", "object_repr": "Sean Connery", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admi
+n.logentry", "pk": 23, "fields": {"action_time": "2023-02-23T01:06:36.250Z", "user": 1, "content_type": 7, "object_id": "5", "object_repr": "Meryl Streep", "action
+_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 24, "fields": {"action_time": "2023-02-23T01:07:43.872Z", "user": 1, "content
+_type": 7, "object_id": "6", "object_repr": "John Williams", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 25, "fiel
+ds": {"action_time": "2023-02-23T01:32:51.556Z", "user": 1, "content_type": 13, "object_id": "1", "object_repr": "Movie", "action_flag": 1, "change_message": "[{\"
+added\": {}}]"}}, {"model": "admin.logentry", "pk": 26, "fields": {"action_time": "2023-02-23T01:33:08.515Z", "user": 1, "content_type": 13, "object_id": "2", "obj
+ect_repr": "Series", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 27, "fields": {"action_time": "2023-02-23T01:33:3
+9.397Z", "user": 1, "content_type": 12, "object_id": "1", "object_repr": "English", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.log
+entry", "pk": 28, "fields": {"action_time": "2023-02-23T01:33:51.514Z", "user": 1, "content_type": 12, "object_id": "2", "object_repr": "Portuguese", "action_flag"
+: 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 29, "fields": {"action_time": "2023-02-23T01:34:01.842Z", "user": 1, "content_type"
+: 12, "object_id": "3", "object_repr": "Spanish", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 30, "fields": {"acti
+on_time": "2023-02-23T01:34:17.414Z", "user": 1, "content_type": 12, "object_id": "4", "object_repr": "Italian", "action_flag": 1, "change_message": "[{\"added\": 
+{}}]"}}, {"model": "admin.logentry", "pk": 31, "fields": {"action_time": "2023-02-23T01:34:33.445Z", "user": 1, "content_type": 12, "object_id": "5", "object_repr"
+: "Japanese", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 32, "fields": {"action_time": "2023-02-23T01:34:41.031Z"
+, "user": 1, "content_type": 12, "object_id": "6", "object_repr": "Chinese", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry",
+ "pk": 33, "fields": {"action_time": "2023-02-23T01:34:54.116Z", "user": 1, "content_type": 12, "object_id": "7", "object_repr": "Germany", "action_flag": 1, "chan
+ge_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 34, "fields": {"action_time": "2023-02-23T01:36:14.807Z", "user": 1, "content_type": 11, "obj
+ect_id": "1", "object_repr": "Horror", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 35, "fields": {"action_time": "
+2023-02-23T01:36:24.355Z", "user": 1, "content_type": 11, "object_id": "2", "object_repr": "Comedy", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"m
+odel": "admin.logentry", "pk": 36, "fields": {"action_time": "2023-02-23T01:36:34.564Z", "user": 1, "content_type": 11, "object_id": "3", "object_repr": "Fantasy",
+ "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 37, "fields": {"action_time": "2023-02-23T01:36:41.669Z", "user": 1, 
+"content_type": 11, "object_id": "4", "object_repr": "Mistery", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 38, "f
+ields": {"action_time": "2023-02-23T01:36:50.107Z", "user": 1, "content_type": 11, "object_id": "5", "object_repr": "Triller", "action_flag": 1, "change_message": 
+"[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 39, "fields": {"action_time": "2023-02-23T01:37:29.224Z", "user": 1, "content_type": 11, "object_id": "6",
+ "object_repr": "Science fiction", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 40, "fields": {"action_time": "2023
+-02-23T01:37:37.675Z", "user": 1, "content_type": 11, "object_id": "7", "object_repr": "Drama", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model"
+: "admin.logentry", "pk": 41, "fields": {"action_time": "2023-02-23T01:38:10.324Z", "user": 1, "content_type": 11, "object_id": "8", "object_repr": "Documentary", 
+"action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 42, "fields": {"action_time": "2023-02-23T01:38:47.790Z", "user": 1, "
+content_type": 11, "object_id": "9", "object_repr": "Soap opera", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 43, 
+"fields": {"action_time": "2023-02-23T01:39:14.450Z", "user": 1, "content_type": 11, "object_id": "10", "object_repr": "Animation", "action_flag": 1, "change_messa
+ge": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 44, "fields": {"action_time": "2023-02-23T01:40:13.210Z", "user": 1, "content_type": 11, "object_id":
+ "11", "object_repr": "Kids", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 45, "fields": {"action_time": "2023-02-2
+3T01:40:41.992Z", "user": 1, "content_type": 11, "object_id": "12", "object_repr": "Sports", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "
+admin.logentry", "pk": 46, "fields": {"action_time": "2023-02-23T01:40:53.932Z", "user": 1, "content_type": 11, "object_id": "13", "object_repr": "Biography", "act
+ion_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 47, "fields": {"action_time": "2023-02-23T01:41:02.509Z", "user": 1, "cont
+ent_type": 11, "object_id": "14", "object_repr": "War", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 48, "fields": 
+{"action_time": "2023-02-23T01:42:40.875Z", "user": 1, "content_type": 10, "object_id": "1", "object_repr": "Orion Pictures", "action_flag": 1, "change_message": "
+[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 49, "fields": {"action_time": "2023-02-23T01:43:25.721Z", "user": 1, "content_type": 10, "object_id": "2", 
+"object_repr": "Globo Filmes", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 50, "fields": {"action_time": "2023-02-
+23T01:43:30.462Z", "user": 1, "content_type": 10, "object_id": "3", "object_repr": "Amazon", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "
+admin.logentry", "pk": 51, "fields": {"action_time": "2023-02-23T01:43:40.713Z", "user": 1, "content_type": 10, "object_id": "4", "object_repr": "Netflix", "action
+_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 52, "fields": {"action_time": "2023-02-23T01:44:03.261Z", "user": 1, "content
+_type": 10, "object_id": "5", "object_repr": "YouTube", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 53, "fields": 
+{"action_time": "2023-02-23T01:44:20.008Z", "user": 1, "content_type": 10, "object_id": "6", "object_repr": "Entertainment One", "action_flag": 1, "change_message"
+: "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 54, "fields": {"action_time": "2023-02-23T01:44:35.754Z", "user": 1, "content_type": 10, "object_id": "7
+", "object_repr": "Peacock", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 55, "fields": {"action_time": "2023-02-23
+T01:44:40.521Z", "user": 1, "content_type": 10, "object_id": "8", "object_repr": "PBS", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin
+.logentry", "pk": 56, "fields": {"action_time": "2023-02-23T01:44:49.504Z", "user": 1, "content_type": 10, "object_id": "9", "object_repr": "HBO", "action_flag": 1
+, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 57, "fields": {"action_time": "2023-02-23T01:44:59.544Z", "user": 1, "content_type": 1
+0, "object_id": "10", "object_repr": "Hulu", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 58, "fields": {"action_ti
+me": "2023-02-23T01:45:07.840Z", "user": 1, "content_type": 10, "object_id": "11", "object_repr": "Discovery", "action_flag": 1, "change_message": "[{\"added\": {}
+}]"}}, {"model": "admin.logentry", "pk": 59, "fields": {"action_time": "2023-02-23T01:45:18.877Z", "user": 1, "content_type": 10, "object_id": "12", "object_repr":
+ "Disney", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 60, "fields": {"action_time": "2023-02-23T01:45:43.900Z", "
+user": 1, "content_type": 10, "object_id": "13", "object_repr": "Universal", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry",
+ "pk": 61, "fields": {"action_time": "2023-02-23T01:46:11.894Z", "user": 1, "content_type": 10, "object_id": "14", "object_repr": "Paramount Pictures", "action_fla
+g": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 62, "fields": {"action_time": "2023-02-23T01:46:19.320Z", "user": 1, "content_typ
+e": 10, "object_id": "12", "object_repr": "Walt Disney", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"}}, {"model": "admin.logent
+ry", "pk": 63, "fields": {"action_time": "2023-02-23T01:46:32.360Z", "user": 1, "content_type": 10, "object_id": "15", "object_repr": "Warner Bros.", "action_flag"
+: 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 64, "fields": {"action_time": "2023-02-23T01:46:43.182Z", "user": 1, "content_type"
+: 10, "object_id": "16", "object_repr": "Sony Pictures", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 65, "fields":
+ {"action_time": "2023-02-23T01:46:53.827Z", "user": 1, "content_type": 10, "object_id": "17", "object_repr": "20th Century Studios", "action_flag": 1, "change_mes
+sage": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 66, "fields": {"action_time": "2023-02-23T01:46:59.912Z", "user": 1, "content_type": 10, "object_id
+": "18", "object_repr": "A24", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 67, "fields": {"action_time": "2023-02-
+23T01:47:12.025Z", "user": 1, "content_type": 10, "object_id": "19", "object_repr": "Focus Features", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"
+model": "admin.logentry", "pk": 68, "fields": {"action_time": "2023-02-23T01:47:24.369Z", "user": 1, "content_type": 10, "object_id": "20", "object_repr": "United 
+Artists", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 69, "fields": {"action_time": "2023-02-23T01:47:33.950Z", "u
+ser": 1, "content_type": 10, "object_id": "21", "object_repr": "Lionsgate", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", 
+"pk": 70, "fields": {"action_time": "2023-02-23T01:47:44.577Z", "user": 1, "content_type": 10, "object_id": "22", "object_repr": "Searchlight Pictures", "action_fl
+ag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 71, "fields": {"action_time": "2023-02-23T01:48:03.071Z", "user": 1, "content_ty
+pe": 10, "object_id": "23", "object_repr": "20th Century Fox", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 72, "fi
+elds": {"action_time": "2023-02-23T01:48:30.573Z", "user": 1, "content_type": 10, "object_id": "24", "object_repr": "Open Road", "action_flag": 1, "change_message"
+: "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 73, "fields": {"action_time": "2023-02-23T01:50:24.491Z", "user": 1, "content_type": 10, "object_id": "2
+5", "object_repr": "Columbia Pictures", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 74, "fields": {"action_time": 
+"2023-02-23T01:51:19.363Z", "user": 1, "content_type": 10, "object_id": "26", "object_repr": "Carolco Pictures", "action_flag": 1, "change_message": "[{\"added\": 
+{}}]"}}, {"model": "admin.logentry", "pk": 75, "fields": {"action_time": "2023-02-23T01:52:31.757Z", "user": 1, "content_type": 10, "object_id": "27", "object_repr
+": "New Line Cinema‎", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 76, "fields": {"action_time": "2023-02-23T01:52
+:55.133Z", "user": 1, "content_type": 10, "object_id": "28", "object_repr": "DreamWorks", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "adm
+in.logentry", "pk": 77, "fields": {"action_time": "2023-02-23T01:53:07.083Z", "user": 1, "content_type": 10, "object_id": "29", "object_repr": "Miramax", "action_f
+lag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 78, "fields": {"action_time": "2023-02-23T01:53:19.049Z", "user": 1, "content_t
+ype": 10, "object_id": "30", "object_repr": "Metro-Goldwyn-Mayer‎", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 79
+, "fields": {"action_time": "2023-02-23T01:54:11.784Z", "user": 1, "content_type": 10, "object_id": "31", "object_repr": "Icon Productions", "action_flag": 1, "cha
+nge_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 80, "fields": {"action_time": "2023-02-23T01:54:25.543Z", "user": 1, "content_type": 10, "ob
+ject_id": "32", "object_repr": "De Laurentiis Entertainment", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 81, "fie
+lds": {"action_time": "2023-02-23T01:54:58.877Z", "user": 1, "content_type": 10, "object_id": "33", "object_repr": "The Asylum", "action_flag": 1, "change_message"
+: "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 82, "fields": {"action_time": "2023-02-23T01:55:18.630Z", "user": 1, "content_type": 10, "object_id": "3
+4", "object_repr": "Amblin", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 83, "fields": {"action_time": "2023-02-23
+T02:12:43.248Z", "user": 1, "content_type": 14, "object_id": "1", "object_repr": "The Silence of the Lambs", "action_flag": 1, "change_message": "[{\"added\": {}}]
+"}}, {"model": "admin.logentry", "pk": 84, "fields": {"action_time": "2023-02-23T02:18:31.111Z", "user": 1, "content_type": 12, "object_id": "8", "object_repr": "K
+orean", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 85, "fields": {"action_time": "2023-02-23T02:19:54.892Z", "use
+r": 1, "content_type": 14, "object_id": "2", "object_repr": "Parasite", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk"
+: 86, "fields": {"action_time": "2023-02-24T02:41:19.538Z", "user": 1, "content_type": 14, "object_id": "2", "object_repr": "Parasite", "action_flag": 2, "change_m
+essage": "[{\"changed\": {\"fields\": [\"Genres\"]}}]"}}, {"model": "admin.logentry", "pk": 87, "fields": {"action_time": "2023-02-24T02:42:32.896Z", "user": 1, "c
+ontent_type": 14, "object_id": "1", "object_repr": "The Silence of the Lambs", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Genres\"]}}]"}},
+ {"model": "admin.logentry", "pk": 88, "fields": {"action_time": "2023-02-24T03:03:35.177Z", "user": 1, "content_type": 14, "object_id": "1", "object_repr": "The S
+ilence of the Lambs", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Distributors\"]}}]"}}, {"model": "admin.logentry", "pk": 89, "fields": {"
+action_time": "2023-02-24T03:04:16.126Z", "user": 1, "content_type": 10, "object_id": "35", "object_repr": "Neon", "action_flag": 1, "change_message": "[{\"added\"
+: {}}]"}}, {"model": "admin.logentry", "pk": 90, "fields": {"action_time": "2023-02-24T03:04:20.418Z", "user": 1, "content_type": 14, "object_id": "2", "object_rep
+r": "Parasite", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Distributors\"]}}]"}}, {"model": "admin.logentry", "pk": 91, "fields": {"action
+_time": "2023-02-24T03:19:37.163Z", "user": 1, "content_type": 15, "object_id": "1", "object_repr": "Membership object (1)", "action_flag": 1, "change_message": "[
+{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 92, "fields": {"action_time": "2023-02-24T20:44:28.612Z", "user": 1, "content_type": 14, "object_id": "3", "
+object_repr": "www", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 93, "fields": {"action_time": "2023-02-25T13:01:5
+0.146Z", "user": 1, "content_type": 11, "object_id": "25", "object_repr": "Educational", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Insert
+UserId\"]}}]"}}, {"model": "admin.logentry", "pk": 94, "fields": {"action_time": "2023-03-01T01:33:48.617Z", "user": 1, "content_type": 8, "object_id": "7", "objec
+t_repr": "Japan", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 95, "fields": {"action_time": "2023-03-01T01:34:52.9
+93Z", "user": 1, "content_type": 8, "object_id": "7", "object_repr": "Japan", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Flag\"]}}]"}}, {"
+model": "admin.logentry", "pk": 96, "fields": {"action_time": "2023-03-01T01:36:16.862Z", "user": 1, "content_type": 8, "object_id": "7", "object_repr": "Japan", "
+action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Flag\"]}}]"}}, {"model": "auth.permission", "pk": 1, "fields": {"name": "Can add log entry", "co
+ntent_type": 1, "codename": "add_logentry"}}, {"model": "auth.permission", "pk": 2, "fields": {"name": "Can change log entry", "content_type": 1, "codename": "chan
+ge_logentry"}}, {"model": "auth.permission", "pk": 3, "fields": {"name": "Can delete log entry", "content_type": 1, "codename": "delete_logentry"}}, {"model": "aut
+h.permission", "pk": 4, "fields": {"name": "Can view log entry", "content_type": 1, "codename": "view_logentry"}}, {"model": "auth.permission", "pk": 5, "fields": 
+{"name": "Can add permission", "content_type": 2, "codename": "add_permission"}}, {"model": "auth.permission", "pk": 6, "fields": {"name": "Can change permission",
+ "content_type": 2, "codename": "change_permission"}}, {"model": "auth.permission", "pk": 7, "fields": {"name": "Can delete permission", "content_type": 2, "codena
+me": "delete_permission"}}, {"model": "auth.permission", "pk": 8, "fields": {"name": "Can view permission", "content_type": 2, "codename": "view_permission"}}, {"m
+odel": "auth.permission", "pk": 9, "fields": {"name": "Can add group", "content_type": 3, "codename": "add_group"}}, {"model": "auth.permission", "pk": 10, "fields
+": {"name": "Can change group", "content_type": 3, "codename": "change_group"}}, {"model": "auth.permission", "pk": 11, "fields": {"name": "Can delete group", "con
+tent_type": 3, "codename": "delete_group"}}, {"model": "auth.permission", "pk": 12, "fields": {"name": "Can view group", "content_type": 3, "codename": "view_group
+"}}, {"model": "auth.permission", "pk": 13, "fields": {"name": "Can add user", "content_type": 4, "codename": "add_user"}}, {"model": "auth.permission", "pk": 14, 
+"fields": {"name": "Can change user", "content_type": 4, "codename": "change_user"}}, {"model": "auth.permission", "pk": 15, "fields": {"name": "Can delete user", 
+"content_type": 4, "codename": "delete_user"}}, {"model": "auth.permission", "pk": 16, "fields": {"name": "Can view user", "content_type": 4, "codename": "view_use
+r"}}, {"model": "auth.permission", "pk": 17, "fields": {"name": "Can add content type", "content_type": 5, "codename": "add_contenttype"}}, {"model": "auth.permiss
+ion", "pk": 18, "fields": {"name": "Can change content type", "content_type": 5, "codename": "change_contenttype"}}, {"model": "auth.permission", "pk": 19, "fields
+": {"name": "Can delete content type", "content_type": 5, "codename": "delete_contenttype"}}, {"model": "auth.permission", "pk": 20, "fields": {"name": "Can view c
+ontent type", "content_type": 5, "codename": "view_contenttype"}}, {"model": "auth.permission", "pk": 21, "fields": {"name": "Can add session", "content_type": 6, 
+"codename": "add_session"}}, {"model": "auth.permission", "pk": 22, "fields": {"name": "Can change session", "content_type": 6, "codename": "change_session"}}, {"m
+odel": "auth.permission", "pk": 23, "fields": {"name": "Can delete session", "content_type": 6, "codename": "delete_session"}}, {"model": "auth.permission", "pk": 
+24, "fields": {"name": "Can view session", "content_type": 6, "codename": "view_session"}}, {"model": "auth.permission", "pk": 25, "fields": {"name": "Can add pers
+on", "content_type": 7, "codename": "add_person"}}, {"model": "auth.permission", "pk": 26, "fields": {"name": "Can change person", "content_type": 7, "codename": "
+change_person"}}, {"model": "auth.permission", "pk": 27, "fields": {"name": "Can delete person", "content_type": 7, "codename": "delete_person"}}, {"model": "auth.
+permission", "pk": 28, "fields": {"name": "Can view person", "content_type": 7, "codename": "view_person"}}, {"model": "auth.permission", "pk": 29, "fields": {"nam
+e": "Can add country", "content_type": 8, "codename": "add_country"}}, {"model": "auth.permission", "pk": 30, "fields": {"name": "Can change country", "content_typ
+e": 8, "codename": "change_country"}}, {"model": "auth.permission", "pk": 31, "fields": {"name": "Can delete country", "content_type": 8, "codename": "delete_count
+ry"}}, {"model": "auth.permission", "pk": 32, "fields": {"name": "Can view country", "content_type": 8, "codename": "view_country"}}, {"model": "auth.permission", 
+"pk": 33, "fields": {"name": "Can add role", "content_type": 9, "codename": "add_role"}}, {"model": "auth.permission", "pk": 34, "fields": {"name": "Can change rol
+e", "content_type": 9, "codename": "change_role"}}, {"model": "auth.permission", "pk": 35, "fields": {"name": "Can delete role", "content_type": 9, "codename": "de
+lete_role"}}, {"model": "auth.permission", "pk": 36, "fields": {"name": "Can view role", "content_type": 9, "codename": "view_role"}}, {"model": "auth.permission",
+ "pk": 37, "fields": {"name": "Can add distributor", "content_type": 10, "codename": "add_distributor"}}, {"model": "auth.permission", "pk": 38, "fields": {"name":
+ "Can change distributor", "content_type": 10, "codename": "change_distributor"}}, {"model": "auth.permission", "pk": 39, "fields": {"name": "Can delete distributo
+r", "content_type": 10, "codename": "delete_distributor"}}, {"model": "auth.permission", "pk": 40, "fields": {"name": "Can view distributor", "content_type": 10, "
+codename": "view_distributor"}}, {"model": "auth.permission", "pk": 41, "fields": {"name": "Can add genre", "content_type": 11, "codename": "add_genre"}}, {"model"
+: "auth.permission", "pk": 42, "fields": {"name": "Can change genre", "content_type": 11, "codename": "change_genre"}}, {"model": "auth.permission", "pk": 43, "fie
+lds": {"name": "Can delete genre", "content_type": 11, "codename": "delete_genre"}}, {"model": "auth.permission", "pk": 44, "fields": {"name": "Can view genre", "c
+ontent_type": 11, "codename": "view_genre"}}, {"model": "auth.permission", "pk": 45, "fields": {"name": "Can add language", "content_type": 12, "codename": "add_la
+nguage"}}, {"model": "auth.permission", "pk": 46, "fields": {"name": "Can change language", "content_type": 12, "codename": "change_language"}}, {"model": "auth.pe
+rmission", "pk": 47, "fields": {"name": "Can delete language", "content_type": 12, "codename": "delete_language"}}, {"model": "auth.permission", "pk": 48, "fields"
+: {"name": "Can view language", "content_type": 12, "codename": "view_language"}}, {"model": "auth.permission", "pk": 49, "fields": {"name": "Can add type of artwo
+rk", "content_type": 13, "codename": "add_typeofartwork"}}, {"model": "auth.permission", "pk": 50, "fields": {"name": "Can change type of artwork", "content_type":
+ 13, "codename": "change_typeofartwork"}}, {"model": "auth.permission", "pk": 51, "fields": {"name": "Can delete type of artwork", "content_type": 13, "codename": 
+"delete_typeofartwork"}}, {"model": "auth.permission", "pk": 52, "fields": {"name": "Can view type of artwork", "content_type": 13, "codename": "view_typeofartwork
+"}}, {"model": "auth.permission", "pk": 53, "fields": {"name": "Can add artwork", "content_type": 14, "codename": "add_artwork"}}, {"model": "auth.permission", "pk
+": 54, "fields": {"name": "Can change artwork", "content_type": 14, "codename": "change_artwork"}}, {"model": "auth.permission", "pk": 55, "fields": {"name": "Can 
+delete artwork", "content_type": 14, "codename": "delete_artwork"}}, {"model": "auth.permission", "pk": 56, "fields": {"name": "Can view artwork", "content_type": 
+14, "codename": "view_artwork"}}, {"model": "auth.permission", "pk": 57, "fields": {"name": "Can add membership", "content_type": 15, "codename": "add_membership"}
+}, {"model": "auth.permission", "pk": 58, "fields": {"name": "Can change membership", "content_type": 15, "codename": "change_membership"}}, {"model": "auth.permis
+sion", "pk": 59, "fields": {"name": "Can delete membership", "content_type": 15, "codename": "delete_membership"}}, {"model": "auth.permission", "pk": 60, "fields"
+: {"name": "Can view membership", "content_type": 15, "codename": "view_membership"}}, {"model": "auth.permission", "pk": 61, "fields": {"name": "Can add teste", "
+content_type": 16, "codename": "add_teste"}}, {"model": "auth.permission", "pk": 62, "fields": {"name": "Can change teste", "content_type": 16, "codename": "change
+_teste"}}, {"model": "auth.permission", "pk": 63, "fields": {"name": "Can delete teste", "content_type": 16, "codename": "delete_teste"}}, {"model": "auth.permissi
+on", "pk": 64, "fields": {"name": "Can view teste", "content_type": 16, "codename": "view_teste"}}, {"model": "auth.user", "pk": 1, "fields": {"password": "pbkdf2_
+sha256$390000$Lvbc5IroY9pT7yi17m60Xe$kdOtj1BPOG9FAGhFVDK1pXAwFqr1nz/MH2tjsVNsqDo=", "last_login": "2023-03-01T02:20:35.124Z", "is_superuser": true, "username": "da
+vid", "first_name": "", "last_name": "", "email": "", "is_staff": true, "is_active": true, "date_joined": "2023-02-22T23:35:44.279Z", "groups": [], "user_permissio
+ns": []}}, {"model": "contenttypes.contenttype", "pk": 1, "fields": {"app_label": "admin", "model": "logentry"}}, {"model": "contenttypes.contenttype", "pk": 2, "f
+ields": {"app_label": "auth", "model": "permission"}}, {"model": "contenttypes.contenttype", "pk": 3, "fields": {"app_label": "auth", "model": "group"}}, {"model":
+ "contenttypes.contenttype", "pk": 4, "fields": {"app_label": "auth", "model": "user"}}, {"model": "contenttypes.contenttype", "pk": 5, "fields": {"app_label": "co
+ntenttypes", "model": "contenttype"}}, {"model": "contenttypes.contenttype", "pk": 6, "fields": {"app_label": "sessions", "model": "session"}}, {"model": "contentt
+ypes.contenttype", "pk": 7, "fields": {"app_label": "core", "model": "person"}}, {"model": "contenttypes.contenttype", "pk": 8, "fields": {"app_label": "core", "mo
+del": "country"}}, {"model": "contenttypes.contenttype", "pk": 9, "fields": {"app_label": "core", "model": "role"}}, {"model": "contenttypes.contenttype", "pk": 10
+, "fields": {"app_label": "core", "model": "distributor"}}, {"model": "contenttypes.contenttype", "pk": 11, "fields": {"app_label": "core", "model": "genre"}}, {"m
+odel": "contenttypes.contenttype", "pk": 12, "fields": {"app_label": "core", "model": "language"}}, {"model": "contenttypes.contenttype", "pk": 13, "fields": {"app
+_label": "core", "model": "typeofartwork"}}, {"model": "contenttypes.contenttype", "pk": 14, "fields": {"app_label": "core", "model": "artwork"}}, {"model": "conte
+nttypes.contenttype", "pk": 15, "fields": {"app_label": "core", "model": "membership"}}, {"model": "contenttypes.contenttype", "pk": 16, "fields": {"app_label": "c
+ore", "model": "teste"}}, {"model": "sessions.session", "pk": "c40kzk5ljnbk420axxbjmemlge47pmnd", "fields": {"session_data": ".eJxVjEEOwiAQRe_C2hCnMJS6dN8zNDMMSNVA
+UtqV8e7apAvd_vfef6mJtjVPW4vLNIu6KFCn340pPGLZgdyp3KoOtazLzHpX9EGbHqvE5_Vw_w4ytfytjWMPXgKiSQDWeKI-eGB05M_MHH1vE7KRzhFDpMEZcANEFOww2aDeH9udN80:1pXC55:OnsJ8_m_gKfNTbqn
+ZWnPypnx8a6FF-wOe1JZaYPwO9s", "expire_date": "2023-03-15T02:20:35.130Z"}}, {"model": "sessions.session", "pk": "qsy9091f9dl472dx111o5z5qbir8xzpa", "fields": {"sess
+ion_data": ".eJxVjEEOwiAQRe_C2hCnMJS6dN8zNDMMSNVAUtqV8e7apAvd_vfef6mJtjVPW4vLNIu6KFCn340pPGLZgdyp3KoOtazLzHpX9EGbHqvE5_Vw_w4ytfytjWMPXgKiSQDWeKI-eGB05M_MHH1vE7KRzh
+FDpMEZcANEFOww2aDeH9udN80:1pUyf4:rssqNlc32Isxrz0MfexPZMeziNaA_5nzUSxFMnwRsJk", "expire_date": "2023-03-08T23:36:34.879Z"}}, {"model": "core.country", "pk": 1, "fie
+lds": {"DateTimeOfInsert": "2023-02-23T00:34:28.454Z", "DateTimeOfLastUpdate": "2023-02-24T21:48:54Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Brazil",
+ "NamePT_BR": "Brasil", "Flag": "countries_flags/Brazil.png"}}, {"model": "core.country", "pk": 2, "fields": {"DateTimeOfInsert": "2023-02-23T00:34:21.584Z", "Date
+TimeOfLastUpdate": "2023-02-24T21:48:54Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "United States", "NamePT_BR": "Estados Unidos", "Flag": "countries_fl
+ags/USA.png"}}, {"model": "core.country", "pk": 3, "fields": {"DateTimeOfInsert": "2023-02-23T00:34:08.362Z", "DateTimeOfLastUpdate": "2023-02-24T21:48:54Z", "Inse
+rtUser": 1, "LastUpdateUser": null, "NameEN": "England", "NamePT_BR": "Inglaterra", "Flag": "countries_flags/England.png"}}, {"model": "core.country", "pk": 4, "fi
+elds": {"DateTimeOfInsert": "2023-02-23T00:30:17.746Z", "DateTimeOfLastUpdate": "2023-02-24T21:48:54Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Austria
+", "NamePT_BR": "Áustria", "Flag": "countries_flags/Austria.png"}}, {"model": "core.country", "pk": 5, "fields": {"DateTimeOfInsert": "2023-02-23T01:00:31.576Z", "
+DateTimeOfLastUpdate": "2023-02-24T21:48:54Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Scotland", "NamePT_BR": "Escócia", "Flag": "countries_flags/Scot
+land.png"}}, {"model": "core.country", "pk": 7, "fields": {"DateTimeOfInsert": "2023-03-01T01:33:48.610Z", "DateTimeOfLastUpdate": "2023-03-01T01:36:16.860Z", "Ins
+ertUser": 1, "LastUpdateUser": null, "NameEN": "Japan", "NamePT_BR": "Japão", "Flag": "countries_flags/Japan_YdRWXKj.png"}}, {"model": "core.country", "pk": 22, "f
+ields": {"DateTimeOfInsert": "2023-03-01T02:24:31.023Z", "DateTimeOfLastUpdate": "2023-03-01T02:30:30.518Z", "InsertUser": 1, "LastUpdateUser": 1, "NameEN": "Korea
+", "NamePT_BR": "Coréia", "Flag": "countries_flags/Korea_GC5LJQb.png"}}, {"model": "core.role", "pk": 1, "fields": {"DateTimeOfInsert": "2023-02-23T00:38:24.908Z",
+ "DateTimeOfLastUpdate": "2023-02-24T21:49:46Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Director", "NamePT_BR": "Diretor"}}, {"model": "core.role", "p
+k": 2, "fields": {"DateTimeOfInsert": "2023-02-23T00:39:18.557Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:46Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN"
+: "Actor/Actress", "NamePT_BR": "Ator/Atriz"}}, {"model": "core.role", "pk": 3, "fields": {"DateTimeOfInsert": "2023-02-23T00:39:29.813Z", "DateTimeOfLastUpdate": 
+"2023-02-24T21:49:46Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Producer", "NamePT_BR": "Produtor"}}, {"model": "core.role", "pk": 4, "fields": {"DateT
+imeOfInsert": "2023-02-23T00:39:45.606Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:46Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Writer", "NamePT_BR":
+ "Roterista"}}, {"model": "core.role", "pk": 5, "fields": {"DateTimeOfInsert": "2023-02-23T00:42:18.465Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:46Z", "InsertU
+ser": 1, "LastUpdateUser": null, "NameEN": "Music by", "NamePT_BR": "Música por"}}, {"model": "core.person", "pk": 1, "fields": {"DateTimeOfInsert": "2023-02-23T00
+:53:51.278Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:38Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Arnold Schwarzenegger", "DateOfBirth": "1947-07-30"
+, "DateOfDeath": null, "CountryOfBirth": 4, "Photo": "person_photos/Arnold_Schwarzenegger_-_2019_33730956438_cropped.jpg"}}, {"model": "core.person", "pk": 2, "fie
+lds": {"DateTimeOfInsert": "2023-02-23T01:01:04.781Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:38Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Clint East
+wood", "DateOfBirth": "1930-05-31", "DateOfDeath": null, "CountryOfBirth": 2, "Photo": "person_photos/136406.jpg"}}, {"model": "core.person", "pk": 3, "fields": {"
+DateTimeOfInsert": "2023-02-23T00:57:39.030Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:38Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Steven Spielberg",
+ "DateOfBirth": "1946-12-18", "DateOfDeath": null, "CountryOfBirth": 2, "Photo": "person_photos/453609.jpg"}}, {"model": "core.person", "pk": 4, "fields": {"DateTi
+meOfInsert": "2023-02-23T01:02:49.073Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:38Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Sean Connery", "DateOfBi
+rth": "1930-08-25", "DateOfDeath": "2020-10-31", "CountryOfBirth": 5, "Photo": "person_photos/image.jpg"}}, {"model": "core.person", "pk": 5, "fields": {"DateTimeO
+fInsert": "2023-02-23T01:06:36.247Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:38Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Meryl Streep", "DateOfBirth
+": "1949-06-22", "DateOfDeath": null, "CountryOfBirth": 2, "Photo": "person_photos/meryl-streep.jpg"}}, {"model": "core.person", "pk": 6, "fields": {"DateTimeOfIns
+ert": "2023-02-23T01:07:43.870Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:38Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "John Williams", "DateOfBirth": 
+"1932-02-08", "DateOfDeath": null, "CountryOfBirth": 2, "Photo": "person_photos/John_Williams.jpg"}}, {"model": "core.genre", "pk": 2, "fields": {"DateTimeOfInsert
+": "2023-02-24T20:14:57.619Z", "DateTimeOfLastUpdate": "2023-02-28T19:14:07.655Z", "InsertUser": 1, "LastUpdateUser": 1, "NameEN": "Comedy", "NamePT_BR": "Comédia"
+}}, {"model": "core.genre", "pk": 3, "fields": {"DateTimeOfInsert": "2023-02-23T01:36:34.563Z", "DateTimeOfLastUpdate": "2023-02-28T18:13:18.113Z", "InsertUser": 1
+, "LastUpdateUser": 1, "NameEN": "Fantasy", "NamePT_BR": "Fantasia"}}, {"model": "core.genre", "pk": 4, "fields": {"DateTimeOfInsert": "2023-02-23T01:36:41.667Z", 
+"DateTimeOfLastUpdate": "2023-02-24T22:09:36.158Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Mistery", "NamePT_BR": "Mistério"}}, {"model": "core.genre"
+, "pk": 5, "fields": {"DateTimeOfInsert": "2023-02-23T01:36:50.106Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:15Z", "InsertUser": 1, "LastUpdateUser": null, "Nam
+eEN": "Triller", "NamePT_BR": "Suspense"}}, {"model": "core.genre", "pk": 6, "fields": {"DateTimeOfInsert": "2023-02-23T01:37:29.223Z", "DateTimeOfLastUpdate": "20
+23-02-24T21:49:15Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Science fiction", "NamePT_BR": "Ficção científica"}}, {"model": "core.genre", "pk": 7, "fi
+elds": {"DateTimeOfInsert": "2023-02-23T01:37:37.673Z", "DateTimeOfLastUpdate": "2023-02-25T14:46:51.798Z", "InsertUser": 1, "LastUpdateUser": 1, "NameEN": "Drama"
+, "NamePT_BR": "Drama"}}, {"model": "core.genre", "pk": 8, "fields": {"DateTimeOfInsert": "2023-02-23T01:38:10.323Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:15Z
+", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Documentary", "NamePT_BR": "Documentário"}}, {"model": "core.genre", "pk": 9, "fields": {"DateTimeOfInsert":
+ "2023-02-23T01:38:47.789Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:15Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Soap opera", "NamePT_BR": "Novela"
+}}, {"model": "core.genre", "pk": 10, "fields": {"DateTimeOfInsert": "2023-02-23T01:39:14.449Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:15Z", "InsertUser": 1, "
+LastUpdateUser": null, "NameEN": "Animation", "NamePT_BR": "Animação"}}, {"model": "core.genre", "pk": 11, "fields": {"DateTimeOfInsert": "2023-02-23T01:40:13.209Z
+", "DateTimeOfLastUpdate": "2023-02-24T21:49:15Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Kids", "NamePT_BR": "Infantil"}}, {"model": "core.genre", "p
+k": 12, "fields": {"DateTimeOfInsert": "2023-02-23T01:40:41.990Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:15Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN
+": "Sports", "NamePT_BR": "Esportes"}}, {"model": "core.genre", "pk": 13, "fields": {"DateTimeOfInsert": "2023-02-23T01:40:53.929Z", "DateTimeOfLastUpdate": "2023-
+02-24T21:49:15Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Biography", "NamePT_BR": "Biografia"}}, {"model": "core.genre", "pk": 14, "fields": {"DateTim
+eOfInsert": "2023-02-23T01:41:02.508Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:15Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "War", "NamePT_BR": "Gue
+rra"}}, {"model": "core.genre", "pk": 21, "fields": {"DateTimeOfInsert": "2023-02-24T20:43:46.520Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:15Z", "InsertUser": 
+1, "LastUpdateUser": null, "NameEN": "Adult", "NamePT_BR": "Adulto"}}, {"model": "core.genre", "pk": 24, "fields": {"DateTimeOfInsert": "2023-02-24T21:26:43.265Z",
+ "DateTimeOfLastUpdate": "2023-02-25T13:03:34.392Z", "InsertUser": 1, "LastUpdateUser": 1, "NameEN": "Religious", "NamePT_BR": "Religioso"}}, {"model": "core.genre
+", "pk": 25, "fields": {"DateTimeOfInsert": "2023-02-24T21:38:05.272Z", "DateTimeOfLastUpdate": "2023-03-01T02:26:31.402Z", "InsertUser": 1, "LastUpdateUser": 1, "
+NameEN": "Educational", "NamePT_BR": "Educacional"}}, {"model": "core.typeofartwork", "pk": 1, "fields": {"DateTimeOfInsert": "2023-02-23T01:32:51.554Z", "DateTime
+OfLastUpdate": "2023-02-24T21:49:55Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Movie", "NamePT_BR": "Filme"}}, {"model": "core.typeofartwork", "pk": 2,
+ "fields": {"DateTimeOfInsert": "2023-02-23T01:33:08.513Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:55Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Ser
+ies", "NamePT_BR": "Série"}}, {"model": "core.distributor", "pk": 1, "fields": {"DateTimeOfInsert": "2023-02-23T01:42:40.873Z", "DateTimeOfLastUpdate": "2023-02-24
+T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Orion Pictures"}}, {"model": "core.distributor", "pk": 2, "fields": {"DateTimeOfInsert": "2023-02-23
+T01:43:25.720Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Globo Filmes"}}, {"model": "core.distributor", "
+pk": 3, "fields": {"DateTimeOfInsert": "2023-02-23T01:43:30.461Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name":
+ "Amazon"}}, {"model": "core.distributor", "pk": 4, "fields": {"DateTimeOfInsert": "2023-02-23T01:43:40.711Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "Ins
+ertUser": 1, "LastUpdateUser": null, "Name": "Netflix"}}, {"model": "core.distributor", "pk": 5, "fields": {"DateTimeOfInsert": "2023-02-23T01:44:03.260Z", "DateTi
+meOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "YouTube"}}, {"model": "core.distributor", "pk": 6, "fields": {"DateTimeO
+fInsert": "2023-02-23T01:44:20.006Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Entertainment One"}}, {"mod
+el": "core.distributor", "pk": 7, "fields": {"DateTimeOfInsert": "2023-02-23T01:44:35.752Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "Last
+UpdateUser": null, "Name": "Peacock"}}, {"model": "core.distributor", "pk": 8, "fields": {"DateTimeOfInsert": "2023-02-23T01:44:40.520Z", "DateTimeOfLastUpdate": "
+2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "PBS"}}, {"model": "core.distributor", "pk": 9, "fields": {"DateTimeOfInsert": "2023-02-23T
+01:44:49.502Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "HBO"}}, {"model": "core.distributor", "pk": 10, "
+fields": {"DateTimeOfInsert": "2023-02-23T01:44:59.543Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Hulu"}}
+, {"model": "core.distributor", "pk": 11, "fields": {"DateTimeOfInsert": "2023-02-23T01:45:07.838Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 
+1, "LastUpdateUser": null, "Name": "Discovery"}}, {"model": "core.distributor", "pk": 12, "fields": {"DateTimeOfInsert": "2023-02-23T01:46:19.319Z", "DateTimeOfLas
+tUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Walt Disney"}}, {"model": "core.distributor", "pk": 13, "fields": {"DateTimeOfI
+nsert": "2023-02-23T01:45:43.898Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Universal"}}, {"model": "core
+.distributor", "pk": 14, "fields": {"DateTimeOfInsert": "2023-02-23T01:46:11.893Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUse
+r": null, "Name": "Paramount Pictures"}}, {"model": "core.distributor", "pk": 15, "fields": {"DateTimeOfInsert": "2023-02-23T01:46:32.358Z", "DateTimeOfLastUpdate"
+: "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Warner Bros."}}, {"model": "core.distributor", "pk": 16, "fields": {"DateTimeOfInsert":
+ "2023-02-23T01:46:43.181Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Sony Pictures"}}, {"model": "core.di
+stributor", "pk": 18, "fields": {"DateTimeOfInsert": "2023-02-23T01:46:59.909Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser":
+ null, "Name": "A24"}}, {"model": "core.distributor", "pk": 19, "fields": {"DateTimeOfInsert": "2023-02-23T01:47:12.023Z", "DateTimeOfLastUpdate": "2023-02-24T21:4
+9:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Focus Features"}}, {"model": "core.distributor", "pk": 20, "fields": {"DateTimeOfInsert": "2023-02-23T01:
+47:24.367Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "United Artists"}}, {"model": "core.distributor", "pk
+": 21, "fields": {"DateTimeOfInsert": "2023-02-23T01:47:33.949Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": 
+"Lionsgate"}}, {"model": "core.distributor", "pk": 22, "fields": {"DateTimeOfInsert": "2023-02-23T01:47:44.576Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "
+InsertUser": 1, "LastUpdateUser": null, "Name": "Searchlight Pictures"}}, {"model": "core.distributor", "pk": 23, "fields": {"DateTimeOfInsert": "2023-02-23T01:48:
+03.069Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "20th Century Fox"}}, {"model": "core.distributor", "pk"
+: 24, "fields": {"DateTimeOfInsert": "2023-02-23T01:48:30.572Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "
+Open Road"}}, {"model": "core.distributor", "pk": 25, "fields": {"DateTimeOfInsert": "2023-02-23T01:50:24.489Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "I
+nsertUser": 1, "LastUpdateUser": null, "Name": "Columbia Pictures"}}, {"model": "core.distributor", "pk": 26, "fields": {"DateTimeOfInsert": "2023-02-23T01:51:19.3
+61Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Carolco Pictures"}}, {"model": "core.distributor", "pk": 27
+, "fields": {"DateTimeOfInsert": "2023-02-23T01:52:31.755Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "New 
+Line Cinema‎"}}, {"model": "core.distributor", "pk": 28, "fields": {"DateTimeOfInsert": "2023-02-23T01:52:55.131Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z",
+ "InsertUser": 1, "LastUpdateUser": null, "Name": "DreamWorks"}}, {"model": "core.distributor", "pk": 29, "fields": {"DateTimeOfInsert": "2023-02-23T01:53:07.082Z"
+, "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Miramax"}}, {"model": "core.distributor", "pk": 30, "fields": {
+"DateTimeOfInsert": "2023-02-23T01:53:19.048Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Metro-Goldwyn-May
+er‎"}}, {"model": "core.distributor", "pk": 31, "fields": {"DateTimeOfInsert": "2023-02-23T01:54:11.782Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertU
+ser": 1, "LastUpdateUser": null, "Name": "Icon Productions"}}, {"model": "core.distributor", "pk": 32, "fields": {"DateTimeOfInsert": "2023-02-23T01:54:25.540Z", "
+DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "De Laurentiis Entertainment"}}, {"model": "core.distributor", "pk"
+: 33, "fields": {"DateTimeOfInsert": "2023-02-23T01:54:58.875Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "
+The Asylum"}}, {"model": "core.distributor", "pk": 34, "fields": {"DateTimeOfInsert": "2023-02-23T01:55:18.629Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:05Z", "
+InsertUser": 1, "LastUpdateUser": null, "Name": "Amblin"}}, {"model": "core.distributor", "pk": 35, "fields": {"DateTimeOfInsert": "2023-02-24T03:04:16.125Z", "Dat
+eTimeOfLastUpdate": "2023-02-24T21:49:05Z", "InsertUser": 1, "LastUpdateUser": null, "Name": "Neon"}}, {"model": "core.language", "pk": 1, "fields": {"DateTimeOfIn
+sert": "2023-02-23T01:33:39.396Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:22Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "English", "NamePT_BR": "Ingl
+ês"}}, {"model": "core.language", "pk": 2, "fields": {"DateTimeOfInsert": "2023-02-23T01:33:51.513Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:22Z", "InsertUser":
+ 1, "LastUpdateUser": null, "NameEN": "Portuguese", "NamePT_BR": "Português"}}, {"model": "core.language", "pk": 3, "fields": {"DateTimeOfInsert": "2023-02-23T01:3
+4:01.841Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:22Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Spanish", "NamePT_BR": "Espanhol"}}, {"model": "cor
+e.language", "pk": 4, "fields": {"DateTimeOfInsert": "2023-02-23T01:34:17.410Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:22Z", "InsertUser": 1, "LastUpdateUser":
+ null, "NameEN": "Italian", "NamePT_BR": "Italiano"}}, {"model": "core.language", "pk": 5, "fields": {"DateTimeOfInsert": "2023-02-23T01:34:33.443Z", "DateTimeOfLa
+stUpdate": "2023-02-24T21:49:22Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Japanese", "NamePT_BR": "Japonês"}}, {"model": "core.language", "pk": 6, "fi
+elds": {"DateTimeOfInsert": "2023-02-23T01:34:41.029Z", "DateTimeOfLastUpdate": "2023-02-24T21:49:22Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Chinese
+", "NamePT_BR": "Chinês"}}, {"model": "core.language", "pk": 7, "fields": {"DateTimeOfInsert": "2023-02-23T01:34:54.115Z", "DateTimeOfLastUpdate": "2023-02-24T21:4
+9:22Z", "InsertUser": 1, "LastUpdateUser": null, "NameEN": "Germany", "NamePT_BR": "Alemão"}}, {"model": "core.language", "pk": 8, "fields": {"DateTimeOfInsert": "
+"model": "core.language", "pk": 10, "fields": {"DateTimeOfInsert": "2023-03-01T21:29:07.969Z", "DateTimeOfLastUpdate": "2023-03-01T21:29:07.969Z", "InsertUser": 1,
+ "LastUpdateUser": null, "NameEN": "Brazilian portuguese", "NamePT_BR": "Português brasileiro"}}, {"model": "core.artwork", "pk": 1, "fields": {"DateTimeOfInsert":
+ "2023-02-24T03:03:35.173Z", "DateTimeOfLastUpdate": "2023-02-24T21:48:44Z", "InsertUser": 1, "LastUpdateUser": null, "OriginalName": "The Silence of the Lambs", "
+NameEN": null, "NamePT_BR": "O Silêncio dos Inocentes", "ReleaseYear": 1991, "RunTime": 119, "Image": "artwork_photos/V1__X33pCjO.jpg", "OriginalLanguage": 1, "Gen
+res": [4, 5, 7], "Distributors": [1]}}, {"model": "core.artwork", "pk": 2, "fields": {"DateTimeOfInsert": "2023-02-24T03:04:20.413Z", "DateTimeOfLastUpdate": "2023
+-02-24T21:48:44Z", "InsertUser": 1, "LastUpdateUser": null, "OriginalName": "Gisaengchung", "NameEN": "Parasite", "NamePT_BR": "Parasita", "ReleaseYear": 2019, "Ru
+nTime": 132, "Image": "artwork_photos/images.jpg", "OriginalLanguage": 8, "Genres": [2, 4, 5, 7], "Distributors": [35]}}, {"model": "core.artwork", "pk": 3, "field
+s": {"DateTimeOfInsert": "2023-02-24T20:44:28.608Z", "DateTimeOfLastUpdate": "2023-02-24T21:48:44Z", "InsertUser": 1, "LastUpdateUser": null, "OriginalName": "www"
+, "NameEN": null, "NamePT_BR": null, "ReleaseYear": null, "RunTime": null, "Image": "", "OriginalLanguage": null, "Genres": [], "Distributors": []}}, {"model": "co
+re.membership", "pk": 1, "fields": {"Person": 1, "Artwork": 1, "Role": 2}}]
