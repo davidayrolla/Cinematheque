@@ -2,12 +2,12 @@
 {% load bootstrap %}
 
 {% block form %}
-    <form id="frmData" action="{% url 'core_genre_update' genre.id %}" method="POST" enctype="multipart/form-data">
+    <form id="frmData" action="{% url 'core_genre_update' object.id %}" method="POST" enctype="multipart/form-data">
       {%  csrf_token %}
       {{form|bootstrap}}
     </form>
 {% endblock %}
 
 {% block deleteButton %}
-    <a href="{% url 'core_genre_delete' genre.id %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'core_genre_delete' object.id %}" class="btn btn-danger">Delete</a>
 {% endblock %}

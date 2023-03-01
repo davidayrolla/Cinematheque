@@ -5,15 +5,15 @@
 
     <div class="row row-cols-1">
         <div class="col-sm-7" style="padding-bottom: 8px">
-            <form id="frmData" action="{% url 'core_country_update' country.id %}" method="POST"  enctype="multipart/form-data">
+            <form id="frmData" action="{% url 'core_country_update' object.id %}" method="POST"  enctype="multipart/form-data">
               {%  csrf_token %}
               {{form|bootstrap}}
             </form>
         </div>
         <div class="col-sm-5">
-            {% if country.Flag %}
+            {% if object.Flag %}
                 Flag image<BR>
-                <img src="{{country.Flag.url}}" width="300"/>
+                <img src="{{object.Flag.url}}" width="300"/>
             {% endif %}
         </div>
     </div>
@@ -21,5 +21,5 @@
 {% endblock %}
 
 {% block deleteButton %}
-    <a href="{% url 'core_country_delete' country.id %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'core_country_delete' object.id %}" class="btn btn-danger">Delete</a>
 {% endblock %}

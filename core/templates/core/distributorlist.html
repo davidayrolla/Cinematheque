@@ -2,7 +2,7 @@
 {% load filter %}
 
 {% block insertButton %}
-    <a href="{% url 'core_genre_insert' %}" class="btn btn-success">Add {{class|get_class_name}}</a>
+    <a href="{% url 'core_distributor_insert' %}" class="btn btn-success">Add {{class|get_class_name}}</a>
 {% endblock %}
 
 {% block list %}
@@ -11,13 +11,13 @@
          <table class="table">
              <thead class="table-light">
                <tr>
-                 <th scope="col">Genre name</th>
+                 <th scope="col">Distributor name</th>
                </tr>
              </thead>
              <tbody>
-             {% for genre in genres %}
+             {% for distributor in distributors %}
                <tr>
-                 <td><a href="{% url 'core_genre_update' genre.id %}">{{genre.NameEN}}</a></td>
+                 <td><a href="{% url 'core_distributor_update' distributor.id %}">{{distributor.Name}}</a></td>
                </tr>
                {% endfor%}
              </tbody>

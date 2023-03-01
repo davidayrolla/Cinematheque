@@ -1,10 +1,11 @@
 {% extends 'logged.html' %}
+{% load filter %}
 
 {% block main %}
 <div class="row">
     <div class="col">
 
-        <h2>{{className}}: {{object}}</h2>
+        <h2>{{object|get_class_name}}: {{object}}</h2>
 
         {% block form %}
 

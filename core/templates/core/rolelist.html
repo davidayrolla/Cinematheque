@@ -1,7 +1,8 @@
 {% extends 'baselist.html' %}
+{% load filter %}
 
 {% block insertButton %}
-    <a href="{% url 'core_genre_insert' %}" class="btn btn-success">Add {{className}}</a>
+    <a href="{% url 'core_role_insert' %}" class="btn btn-success">Add {{class|get_class_name}}</a>
 {% endblock %}
 
 {% block list %}
@@ -10,13 +11,13 @@
          <table class="table">
              <thead class="table-light">
                <tr>
-                 <th scope="col">Genre name</th>
+                 <th scope="col">Role name</th>
                </tr>
              </thead>
              <tbody>
-             {% for genre in genres %}
+             {% for role in roles %}
                <tr>
-                 <td><a href="{% url 'core_genre_update' genre.id %}">{{genre.NameEN}}</a></td>
+                 <td><a href="{% url 'core_role_update' role.id %}">{{role.NameEN}}</a></td>
                </tr>
                {% endfor%}
              </tbody>
