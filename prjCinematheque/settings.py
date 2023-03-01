@@ -114,5 +114,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
 
-import _locale
-_locale._getdefaultlocale = (lambda *args: ['en_US', 'utf8'])
