@@ -1,0 +1,47 @@
+{% extends 'baselist.html' %}
+{% load filter %}
+
+{% block insertButton %}
+    <a href="{% url 'core_person_insert' %}" class="btn btn-success">Add {{class|get_class_name}}</a>
+{% endblock %}
+
+{% block list %}
+
+     <div class="col">
+         <table class="table">
+             <thead class="table-light">
+               <tr>
+                 <th scope="col">Photo</th>
+                 <th scope="col">Name</th>
+               </tr>
+             </thead>
+             <tbody>
+             {% for person in persons %}
+               <tr>
+                 <td width="100px">
+                    {% if person.Photo %}
+                         <a href="{% url 'core_person_update' person.id %}">
+                            <img src="{{person.Photo.url}}" width="80px"/>
+                         </a>
+                    {% endif %}
+                 </td>
+                 <td>
+                     <h6><a href="{% url 'core_person_update' person.id %}">{{person.Name}}</a></h6>
+                     <div style="font-size: 12px">
+                         DateOfBirth: {{person.DateOfBirth}}<br>
+                         DateOfDeath: {{person.DateOfDeath}}<br>
+                         {% if person.CountryOfBirth.Flag %}
+                            <img src="{{person.CountryOfBirth.Flag.url}}" width="30"/>
+                        {% else %}
+                            CountryOfBirth: {{person.CountryOfBirth}}
+                        {% endif %}
+                     </div>
+                 </td>
+               </tr>
+               {% endfor%}
+             </tbody>
+         </table>
+
+    </div>
+
+{% endblock %}

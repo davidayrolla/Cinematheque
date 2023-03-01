@@ -36,4 +36,8 @@ urlpatterns = [
     re_path(r'typeofartworkupdate/(?P<id>\d+)/$', typeofartworkUpdate, name='core_typeofartwork_update'),
     re_path(r'typeofartworkdelete/(?P<id>\d+)/$', typeofartworkDelete, name='core_typeofartwork_delete'),
 
+    re_path(r'personlist', personList, name='core_person_list'),
+    re_path(r'personinsert', personInsert, name='core_person_insert'),
+    re_path(r'personupdate/(?P<id>\d+)/$', personUpdate, name='core_person_update'),
+    re_path(r'persondelete/(?P<id>\d+)/$', personDelete, name='core_person_delete'),
 ]

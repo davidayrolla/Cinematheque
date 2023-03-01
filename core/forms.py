@@ -37,3 +37,7 @@ class TypeOfArtworkForm(ModelForm):
         fields = ['NameEN', 'NamePT_BR']
 
 
+class PersonForm(ModelForm):
+    class Meta:
+        model = Person
+        fields = ['Name', 'DateOfBirth', 'DateOfDeath', 'CountryOfBirth', 'Photo']

@@ -16,7 +16,7 @@ def home(request):
 
 @login_required
 def genreList(request):
-    genres = Genre.objects.all()
+    genres = Genre.objects.all().order_by('NameEN')
     data = {'userName': request.user.username.capitalize(),
             'class': Genre,
             'genres': genres}
@@ -75,7 +75,7 @@ def genreDelete(request, id):
 
 @login_required
 def countryList(request):
-    countries = Country.objects.all()
+    countries = Country.objects.all().order_by('NameEN')
     data = {'userName': request.user.username.capitalize(),
             'class': Country,
             'countries': countries}
@@ -136,7 +136,7 @@ def countryDelete(request, id):
 
 @login_required
 def roleList(request):
-    roles = Role.objects.all()
+    roles = Role.objects.all().order_by('NameEN')
     data = {'userName': request.user.username.capitalize(),
             'class': Role,
             'roles': roles}
@@ -197,7 +197,7 @@ def roleDelete(request, id):
 
 @login_required
 def distributorList(request):
-    distributors = Distributor.objects.all()
+    distributors = Distributor.objects.all().order_by('Name')
     data = {'userName': request.user.username.capitalize(),
             'class': Distributor,
             'distributors': distributors}
@@ -257,7 +257,7 @@ def distributorDelete(request, id):
 
 @login_required
 def languageList(request):
-    languages = Language.objects.all()
+    languages = Language.objects.all().order_by('NameEN')
     data = {'userName': request.user.username.capitalize(),
             'class': Language,
             'languages': languages}
@@ -317,7 +317,7 @@ def languageDelete(request, id):
 
 @login_required
 def typeofartworkList(request):
-    typesofartwork = TypeOfArtwork.objects.all()
+    typesofartwork = TypeOfArtwork.objects.all().order_by('NameEN')
     data = {'userName': request.user.username.capitalize(),
             'class': TypeOfArtwork,
             'typesofartwork': typesofartwork}
@@ -371,6 +371,67 @@ def typeofartworkDelete(request, id):
     else:
         return render(request, 'core/delete_confirm.html', {'obj': typeofartwork})
 
+
+
+
+
+#-------- Person views
+
+@login_required
+def personList(request):
+    persons = Person.objects.all().order_by('Name')
+    data = {'userName': request.user.username.capitalize(),
+            'class': Person,
+            'persons': persons}
+    return render(request, 'core/personlist.html', data )
+
+
+@login_required
+def personInsert(request):
+    if request.method == 'GET':
+        data = {}
+        person = Person()
+        form = PersonForm(instance=person)
+        data['userName'] = request.user.username.capitalize()
+        data['object'] = person
+        data['form'] = form
+        return render(request, 'core/personinsert.html', data)
+    else:
+        form = PersonForm( request.POST or None, request.FILES or None )
+        if form.is_valid():
+            person = form.save(commit=False)
+            person.InsertUser = request.user
+            person.save()
+        return redirect('core_person_list')
+
+
+@login_required
+def personUpdate(request, id):
+    data = {}
+    person = Person.objects.get(id=id)
+    form = PersonForm( request.POST or None, request.FILES or None, instance=person)
+    data['userName'] = request.user.username.capitalize()
+    data['object'] = person
+    data['form'] = form
+
+    if request.method == 'POST':
+        if form.is_valid():
+            person = form.save(commit=False)
+            person.LastUpdateUser = request.user
+            person.save()
+            return redirect('core_person_list')
+    else:
+        return render(request, 'core/personupdate.html', data)
+
+
+@login_required
+def personDelete(request, id):
+    person = Person.objects.get(id=id)
+    if request.method == 'POST':
+        person.delete()
+        return redirect('core_person_list')
+    else:
+        return render(request, 'core/delete_confirm.html', {'obj': person})
 
 
 
