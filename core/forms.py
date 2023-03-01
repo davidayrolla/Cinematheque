@@ -11,5 +11,4 @@ class GenreForm(ModelForm):
 class CountryForm(ModelForm):
     class Meta:
         model = Country
-        fields = '__all__'
-        fields = ['NameEN', 'NamePT_BR']
+        fields = ['NameEN', 'NamePT_BR', 'Flag']

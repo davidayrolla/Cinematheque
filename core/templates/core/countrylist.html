@@ -11,12 +11,20 @@
              <thead class="table-light">
                <tr>
                  <th scope="col">Country name</th>
+                 <th scope="col">Flag</th>
                </tr>
              </thead>
              <tbody>
              {% for country in countries %}
                <tr>
-                 <td><a href="{% url 'core_country_update' country.id %}">{{country.NameEN}}</a></td>
+                 <td width="300px"><a href="{% url 'core_country_update' country.id %}">{{country.NameEN}}</a></td>
+                 <td>
+                    {% if country.Flag %}
+                         <a href="{% url 'core_country_update' country.id %}">
+                            <img src="{{country.Flag.url}}" width="50"/>
+                         </a>
+                    {% endif %}
+                 </td>
                </tr>
                {% endfor%}
              </tbody>

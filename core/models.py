@@ -8,7 +8,7 @@ class Base(models.Model):
     InsertUser = models.ForeignKey( settings.AUTH_USER_MODEL, null=True, blank=True,
                                     on_delete=models.CASCADE, related_name='+' )
     LastUpdateUser = models.ForeignKey( settings.AUTH_USER_MODEL, null=True, blank=True,
-                                        on_delete=models.CASCADE, related_name='+' )
+                                         on_delete=models.CASCADE, related_name='+' )
 
     class Meta:
         abstract = True
@@ -17,7 +17,7 @@ class Base(models.Model):
 class Country(Base):
     NameEN = models.CharField(max_length=60)
     NamePT_BR = models.CharField(max_length=60)
-    Flag = models.ImageField(upload_to='countries_flags', null=True, blank=True)
+    Flag = models.ImageField(upload_to='countries_flags/', null=True, blank=True)
 
     def __str__(self):
         return self.NameEN

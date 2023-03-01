@@ -40,7 +40,7 @@ def genreInsert(request):
         form = GenreForm( request.POST or None )
         if form.is_valid():
             genre = form.save(commit=False)
-            genre.InsertUserId = request.user
+            genre.InsertUser = request.user
             genre.save()
         return redirect('core_genre_list')
 
@@ -59,7 +59,7 @@ def genreUpdate(request, id):
     if request.method == 'POST':
         if form.is_valid():
             genre = form.save(commit=False)
-            genre.LastUpdateUserId = request.user
+            genre.LastUpdateUser = request.user
             genre.save()
             return redirect('core_genre_list')
     else:
@@ -99,10 +99,10 @@ def countryInsert(request):
         data['form'] = form
         return render(request, 'core/countryinsert.html', data)
     else:
-        form = CountryForm( request.POST or None )
+        form = CountryForm( request.POST, request.FILES )
         if form.is_valid():
             country = form.save(commit=False)
-            country.InsertUserId = request.user
+            country.InsertUser = request.user
             country.save()
         return redirect('core_country_list')
 
@@ -111,7 +111,7 @@ def countryInsert(request):
 def countryUpdate(request, id):
     data = {}
     country = Country.objects.get(id=id)
-    form = CountryForm( request.POST or None, instance=country)
+    form = CountryForm( request.POST or None, request.FILES or None, instance=country)
     data['userName'] = request.user.username.capitalize()
     data['className'] = Country.__name__
     data['object'] = country
@@ -121,7 +121,7 @@ def countryUpdate(request, id):
     if request.method == 'POST':
         if form.is_valid():
             country = form.save(commit=False)
-            country.LastUpdateUserId = request.user
+            country.LastUpdateUser = request.user
             country.save()
             return redirect('core_country_list')
     else:

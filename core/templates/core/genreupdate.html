@@ -2,7 +2,7 @@
 {% load bootstrap %}
 
 {% block form %}
-    <form id="frmData" action="{% url 'core_genre_update' genre.id %}" method="POST">
+    <form id="frmData" action="{% url 'core_genre_update' genre.id %}" method="POST" enctype="multipart/form-data">
       {%  csrf_token %}
       {{form|bootstrap}}
     </form>

@@ -2,10 +2,22 @@
 {% load bootstrap %}
 
 {% block form %}
-    <form id="frmData" action="{% url 'core_country_update' country.id %}" method="POST">
-      {%  csrf_token %}
-      {{form|bootstrap}}
-    </form>
+
+    <div class="row row-cols-1">
+        <div class="col-sm-7" style="padding-bottom: 8px">
+            <form id="frmData" action="{% url 'core_country_update' country.id %}" method="POST"  enctype="multipart/form-data">
+              {%  csrf_token %}
+              {{form|bootstrap}}
+            </form>
+        </div>
+        <div class="col-sm-5">
+            {% if country.Flag %}
+                Flag image<BR>
+                <img src="{{country.Flag.url}}" width="300"/>
+            {% endif %}
+        </div>
+    </div>
+
 {% endblock %}
 
 {% block deleteButton %}
