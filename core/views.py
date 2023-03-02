@@ -464,6 +464,7 @@ def artworkInsert(request):
             artwork = form.save(commit=False)
             artwork.InsertUser = request.user
             artwork.save()
+            form.save_m2m()
         return redirect('core_artwork_list')
 
 
@@ -481,6 +482,7 @@ def artworkUpdate(request, id):
             artwork = form.save(commit=False)
             artwork.LastUpdateUser = request.user
             artwork.save()
+            form.save_m2m()
             return redirect('core_artwork_list')
     else:
         return render(request, 'core/artworkupdate.html', data)
