@@ -81,19 +81,27 @@ class Language(Base):
 
 
 class Artwork(Base):
-    OriginalName = models.CharField(max_length=100)
-    NameEN = models.CharField(max_length=100, null=True, blank=True)
-    NamePT_BR = models.CharField(max_length=100, null=True, blank=True)
+    OriginalTitle = models.CharField(max_length=100)
+    TitleEN = models.CharField(max_length=100, null=True, blank=True)
+    TitlePT_BR = models.CharField(max_length=100, null=True, blank=True)
     ReleaseYear = models.IntegerField(null=True, blank=True)
     RunTime = models.IntegerField(null=True, blank=True)
     Image = models.ImageField(upload_to='artwork_photos', null=True, blank=True)
     OriginalLanguage = models.ForeignKey(Language, null=True, blank=True, on_delete=models.DO_NOTHING)
+    Country = models.ForeignKey(Country, null=True, blank=True, on_delete=models.DO_NOTHING)
     Genres = models.ManyToManyField(Genre)
     Distributors = models.ManyToManyField(Distributor)
     Members = models.ManyToManyField(Person, through='Membership')
 
     def __str__(self):
-        return self.NameEN if self.NameEN else self.OriginalName
+        return self.TitleEN if self.TitleEN else self.OriginalTitle
+
+    def listGenres(self):
+        all_genres = list( self.Genres.values('NameEN') )
+        result = ""
+        for genre in all_genres:
+            result += genre['NameEN'] + ', '
+        return result[:-2]
 
 
 class Membership(models.Model):

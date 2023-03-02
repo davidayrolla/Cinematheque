@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import *
+from django.db.models.functions import Coalesce
 
 
 def index(request):
@@ -432,6 +433,67 @@ def personDelete(request, id):
         return redirect('core_person_list')
     else:
         return render(request, 'core/delete_confirm.html', {'obj': person})
+
+
+
+
+#-------- Artwork views
+
+@login_required
+def artworkList(request):
+    artworks = Artwork.objects.all().order_by(Coalesce('TitleEN', 'OriginalTitle'))
+    data = {'userName': request.user.username.capitalize(),
+            'class': Artwork,
+            'artworks': artworks}
+    return render(request, 'core/artworklist.html', data )
+
+
+@login_required
+def artworkInsert(request):
+    if request.method == 'GET':
+        data = {}
+        artwork = Artwork()
+        form = ArtworkForm(instance=artwork)
+        data['userName'] = request.user.username.capitalize()
+        data['object'] = artwork
+        data['form'] = form
+        return render(request, 'core/artworkinsert.html', data)
+    else:
+        form = ArtworkForm( request.POST or None, request.FILES or None )
+        if form.is_valid():
+            artwork = form.save(commit=False)
+            artwork.InsertUser = request.user
+            artwork.save()
+        return redirect('core_artwork_list')
+
+
+@login_required
+def artworkUpdate(request, id):
+    data = {}
+    artwork = Artwork.objects.get(id=id)
+    form = ArtworkForm( request.POST or None, request.FILES or None, instance=artwork)
+    data['userName'] = request.user.username.capitalize()
+    data['object'] = artwork
+    data['form'] = form
+
+    if request.method == 'POST':
+        if form.is_valid():
+            artwork = form.save(commit=False)
+            artwork.LastUpdateUser = request.user
+            artwork.save()
+            return redirect('core_artwork_list')
+    else:
+        return render(request, 'core/artworkupdate.html', data)
+
+
+@login_required
+def artworkDelete(request, id):
+    artwork = Artwork.objects.get(id=id)
+    if request.method == 'POST':
+        artwork.delete()
+        return redirect('core_artwork_list')
+    else:
+        return render(request, 'core/delete_confirm.html', {'obj': artwork})
 
 
 

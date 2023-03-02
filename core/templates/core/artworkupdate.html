@@ -1,0 +1,25 @@
+{% extends 'baseupdate.html' %}
+{% load bootstrap %}
+
+{% block form %}
+
+    <div class="row row-cols-1">
+        <div class="col-sm-7" style="padding-bottom: 8px">
+            <form id="frmData" action="{% url 'core_artwork_update' object.id %}" method="POST"  enctype="multipart/form-data">
+              {%  csrf_token %}
+              {{form|bootstrap}}
+            </form>
+        </div>
+        <div class="col-sm-5">
+            {% if object.Image %}
+                Image<BR>
+                <img src="{{object.Image.url}}" width="300"/>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block deleteButton %}
+    <a href="{% url 'core_artwork_delete' object.id %}" class="btn btn-danger">Delete</a>
+{% endblock %}

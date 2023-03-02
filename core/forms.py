@@ -41,3 +41,14 @@ class PersonForm(ModelForm):
     class Meta:
         model = Person
         fields = ['Name', 'DateOfBirth', 'DateOfDeath', 'CountryOfBirth', 'Photo']
+
+
+class ArtworkForm(ModelForm):
+    class Meta:
+        model = Artwork
+        fields = ['OriginalTitle', 'TitleEN', 'TitlePT_BR', 'ReleaseYear', 'RunTime',
+                  'OriginalLanguage', 'Country', 'Genres', 'Distributors', 'Members', 'Image']
+
+
+
+
