@@ -1,8 +1,6 @@
 import os
 from pathlib import Path
 import django_heroku
-from decouple import config
-from dj_database_url import parse as dburl
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -65,16 +63,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'prjCinematheque.wsgi.application'
 
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-DATABASES = { 'default': config(default_dburl, default=default_dburl, cast=dburl), }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -118,7 +106,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
 
-
-
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-DATABASES = { 'default': config(default_dburl, default=default_dburl, cast=dburl), }
+# Colocando esta configuração DEPOIS da django_heroku.settings(locals()), o sistema
+# no Heroku utilizará a cópia remota do BD SQLite local. Colocando DEPOIS, utilizará
+# uma base criada remotamente.
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
