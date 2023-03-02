@@ -1,0 +1,40 @@
+{% extends 'baselist.html' %}
+{% load filter %}
+{% load static %}
+
+{% block insertButton %}
+    <a href="{% url 'core_userprofile_insert' %}" class="btn btn-success">Add {{class|get_class_name}}</a>
+{% endblock %}
+
+{% block list %}
+     <div class="col">
+         <table class="table">
+             <thead class="table-light">
+               <tr>
+                 <th scope="col">Picture</th>
+                 <th scope="col">Name</th>
+               </tr>
+             </thead>
+             <tbody>
+             {% for userprofile_local in usersprofiles %}
+               <tr>
+                 <td width="100px">
+                    <a href="{% url 'core_userprofile_update' userprofile_local.id %}">
+                        {% if userprofile_local.Picture %}
+                            <img src="{{userprofile_local.Picture.url}}" width="80px" style="border-radius: 100%;"/>
+                        {% else %}
+                            <img src="{% static 'img/no_img.png' %}" width="80px"/>
+                        {% endif %}
+                    </a>
+                 </td>
+                 <td>
+                     <h6><a href="{% url 'core_userprofile_update' userprofile_local.id %}">{{userprofile_local.User}}</a></h6>
+                 </td>
+               </tr>
+               {% endfor%}
+             </tbody>
+         </table>
+
+    </div>
+
+{% endblock %}

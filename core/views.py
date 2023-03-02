@@ -9,7 +9,7 @@ def index(request):
 
 
 def home(request):
-    data = {'userName': request.user.username.capitalize()}
+    data = {'userProfile': UserProfile.objects.get(User=request.user)}
     return render(request, 'core/home.html', data )
 
 
@@ -18,7 +18,7 @@ def home(request):
 @login_required
 def genreList(request):
     genres = Genre.objects.all().order_by('NameEN')
-    data = {'userName': request.user.username.capitalize(),
+    data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': Genre,
             'genres': genres}
     return render(request, 'core/genrelist.html', data )
@@ -30,7 +30,7 @@ def genreInsert(request):
         data = {}
         genre = Genre()
         form = GenreForm(instance=genre)
-        data['userName'] = request.user.username.capitalize()
+        data['userProfile'] = UserProfile.objects.get(User=request.user)
         data['object'] = genre
         data['form'] = form
         return render(request, 'core/genreinsert.html', data)
@@ -48,7 +48,7 @@ def genreUpdate(request, id):
     data = {}
     genre = Genre.objects.get(id=id)
     form = GenreForm( request.POST or None, request.FILES or None, instance=genre)
-    data['userName'] = request.user.username.capitalize()
+    data['userProfile'] = UserProfile.objects.get(User=request.user)
     data['object'] = genre
     data['form'] = form
 
@@ -77,7 +77,7 @@ def genreDelete(request, id):
 @login_required
 def countryList(request):
     countries = Country.objects.all().order_by('NameEN')
-    data = {'userName': request.user.username.capitalize(),
+    data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': Country,
             'countries': countries}
     return render(request, 'core/countrylist.html', data )
@@ -89,7 +89,7 @@ def countryInsert(request):
         data = {}
         country = Country()
         form = CountryForm(instance=country)
-        data['userName'] = request.user.username.capitalize()
+        data['userProfile'] = UserProfile.objects.get(User=request.user)
         data['object'] = country
         data['form'] = form
         return render(request, 'core/countryinsert.html', data)
@@ -107,7 +107,7 @@ def countryUpdate(request, id):
     data = {}
     country = Country.objects.get(id=id)
     form = CountryForm( request.POST or None, request.FILES or None, instance=country)
-    data['userName'] = request.user.username.capitalize()
+    data['userProfile'] = UserProfile.objects.get(User=request.user)
     data['object'] = country
     data['form'] = form
 
@@ -138,7 +138,7 @@ def countryDelete(request, id):
 @login_required
 def roleList(request):
     roles = Role.objects.all().order_by('NameEN')
-    data = {'userName': request.user.username.capitalize(),
+    data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': Role,
             'roles': roles}
     return render(request, 'core/rolelist.html', data )
@@ -150,7 +150,7 @@ def roleInsert(request):
         data = {}
         role = Role()
         form = RoleForm(instance=role)
-        data['userName'] = request.user.username.capitalize()
+        data['userProfile'] = UserProfile.objects.get(User=request.user)
         data['object'] = role
         data['form'] = form
         return render(request, 'core/roleinsert.html', data)
@@ -168,7 +168,7 @@ def roleUpdate(request, id):
     data = {}
     role = Role.objects.get(id=id)
     form = RoleForm( request.POST or None, request.FILES or None, instance=role)
-    data['userName'] = request.user.username.capitalize()
+    data['userProfile'] = UserProfile.objects.get(User=request.user)
     data['object'] = role
     data['form'] = form
 
@@ -199,7 +199,7 @@ def roleDelete(request, id):
 @login_required
 def distributorList(request):
     distributors = Distributor.objects.all().order_by('Name')
-    data = {'userName': request.user.username.capitalize(),
+    data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': Distributor,
             'distributors': distributors}
     return render(request, 'core/distributorlist.html', data )
@@ -211,7 +211,7 @@ def distributorInsert(request):
         data = {}
         distributor = Distributor()
         form = DistributorForm(instance=distributor)
-        data['userName'] = request.user.username.capitalize()
+        data['userProfile'] = UserProfile.objects.get(User=request.user)
         data['object'] = distributor
         data['form'] = form
         return render(request, 'core/distributorinsert.html', data)
@@ -229,7 +229,7 @@ def distributorUpdate(request, id):
     data = {}
     distributor = Distributor.objects.get(id=id)
     form = DistributorForm( request.POST or None, request.FILES or None, instance=distributor)
-    data['userName'] = request.user.username.capitalize()
+    data['userProfile'] = UserProfile.objects.get(User=request.user)
     data['object'] = distributor
     data['form'] = form
 
@@ -259,7 +259,7 @@ def distributorDelete(request, id):
 @login_required
 def languageList(request):
     languages = Language.objects.all().order_by('NameEN')
-    data = {'userName': request.user.username.capitalize(),
+    data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': Language,
             'languages': languages}
     return render(request, 'core/languagelist.html', data )
@@ -271,7 +271,7 @@ def languageInsert(request):
         data = {}
         language = Language()
         form = LanguageForm(instance=language)
-        data['userName'] = request.user.username.capitalize()
+        data['userProfile'] = UserProfile.objects.get(User=request.user)
         data['object'] = language
         data['form'] = form
         return render(request, 'core/languageinsert.html', data)
@@ -289,7 +289,7 @@ def languageUpdate(request, id):
     data = {}
     language = Language.objects.get(id=id)
     form = LanguageForm( request.POST or None, request.FILES or None, instance=language)
-    data['userName'] = request.user.username.capitalize()
+    data['userProfile'] = UserProfile.objects.get(User=request.user)
     data['object'] = language
     data['form'] = form
 
@@ -319,7 +319,7 @@ def languageDelete(request, id):
 @login_required
 def typeofartworkList(request):
     typesofartwork = TypeOfArtwork.objects.all().order_by('NameEN')
-    data = {'userName': request.user.username.capitalize(),
+    data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': TypeOfArtwork,
             'typesofartwork': typesofartwork}
     return render(request, 'core/typeofartworklist.html', data )
@@ -331,7 +331,7 @@ def typeofartworkInsert(request):
         data = {}
         typeofartwork = TypeOfArtwork()
         form = TypeOfArtworkForm(instance=typeofartwork)
-        data['userName'] = request.user.username.capitalize()
+        data['userProfile'] = UserProfile.objects.get(User=request.user)
         data['object'] = typeofartwork
         data['form'] = form
         return render(request, 'core/typeofartworkinsert.html', data)
@@ -349,7 +349,7 @@ def typeofartworkUpdate(request, id):
     data = {}
     typeofartwork = TypeOfArtwork.objects.get(id=id)
     form = TypeOfArtworkForm( request.POST or None, request.FILES or None, instance=typeofartwork)
-    data['userName'] = request.user.username.capitalize()
+    data['userProfile'] = UserProfile.objects.get(User=request.user)
     data['object'] = typeofartwork
     data['form'] = form
 
@@ -381,7 +381,7 @@ def typeofartworkDelete(request, id):
 @login_required
 def personList(request):
     persons = Person.objects.all().order_by('Name')
-    data = {'userName': request.user.username.capitalize(),
+    data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': Person,
             'persons': persons}
     return render(request, 'core/personlist.html', data )
@@ -393,7 +393,7 @@ def personInsert(request):
         data = {}
         person = Person()
         form = PersonForm(instance=person)
-        data['userName'] = request.user.username.capitalize()
+        data['userProfile'] = UserProfile.objects.get(User=request.user)
         data['object'] = person
         data['form'] = form
         return render(request, 'core/personinsert.html', data)
@@ -411,7 +411,7 @@ def personUpdate(request, id):
     data = {}
     person = Person.objects.get(id=id)
     form = PersonForm( request.POST or None, request.FILES or None, instance=person)
-    data['userName'] = request.user.username.capitalize()
+    data['userProfile'] = UserProfile.objects.get(User=request.user)
     data['object'] = person
     data['form'] = form
 
@@ -435,14 +435,12 @@ def personDelete(request, id):
         return render(request, 'core/delete_confirm.html', {'obj': person})
 
 
-
-
 #-------- Artwork views
 
 @login_required
 def artworkList(request):
     artworks = Artwork.objects.all().order_by(Coalesce('TitleEN', 'OriginalTitle'))
-    data = {'userName': request.user.username.capitalize(),
+    data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': Artwork,
             'artworks': artworks}
     return render(request, 'core/artworklist.html', data )
@@ -454,7 +452,7 @@ def artworkInsert(request):
         data = {}
         artwork = Artwork()
         form = ArtworkForm(instance=artwork)
-        data['userName'] = request.user.username.capitalize()
+        data['userProfile'] = UserProfile.objects.get(User=request.user)
         data['object'] = artwork
         data['form'] = form
         return render(request, 'core/artworkinsert.html', data)
@@ -473,7 +471,7 @@ def artworkUpdate(request, id):
     data = {}
     artwork = Artwork.objects.get(id=id)
     form = ArtworkForm( request.POST or None, request.FILES or None, instance=artwork)
-    data['userName'] = request.user.username.capitalize()
+    data['userProfile'] = UserProfile.objects.get(User=request.user)
     data['object'] = artwork
     data['form'] = form
 
@@ -498,5 +496,82 @@ def artworkDelete(request, id):
         return render(request, 'core/delete_confirm.html', {'obj': artwork})
 
 
+
+
+#-------- Userprofile views
+@login_required
+def userprofileList(request):
+    usersprofiles = UserProfile.objects.all().order_by('User')
+    data = {'userProfile': UserProfile.objects.get(User=request.user),
+            'class': UserProfile,
+            'usersprofiles': usersprofiles}
+    return render(request, 'core/userprofilelist.html', data )
+
+
+@login_required
+def userprofileInsert(request):
+    if request.method == 'GET':
+        data = {}
+        userprofile = UserProfile()
+        form = UserProfileForm(instance=userprofile)
+        data['userProfile'] = UserProfile.objects.get(User=request.user)
+        data['object'] = userprofile
+        data['form'] = form
+        return render(request, 'core/userprofileinsert.html', data)
+    else:
+        form = UserProfileForm( request.POST or None, request.FILES or None )
+        if form.is_valid():
+            userprofile = form.save(commit=False)
+            userprofile.InsertUser = request.user
+            userprofile.save()
+        return redirect('core_userprofile_list')
+
+
+@login_required
+def userprofileUpdate(request, id):
+    data = {}
+    userprofile = UserProfile.objects.get(id=id)
+    form = UserProfileForm( request.POST or None, request.FILES or None, instance=userprofile)
+    data['userProfile'] = UserProfile.objects.get(User=request.user)
+    data['object'] = userprofile
+    data['form'] = form
+
+    if request.method == 'POST':
+        if form.is_valid():
+            userprofile = form.save(commit=False)
+            userprofile.LastUpdateUser = request.user
+            userprofile.save()
+            return redirect('core_userprofile_list')
+    else:
+        return render(request, 'core/userprofileupdate.html', data)
+
+
+@login_required
+def userChangePicture(request, id):
+    data = {}
+    userprofile = UserProfile.objects.get(id=id)
+    form = UserChangePictureForm( request.POST or None, request.FILES or None, instance=userprofile)
+    data['userProfile'] = UserProfile.objects.get(User=request.user)
+    data['object'] = userprofile
+    data['form'] = form
+
+    if request.method == 'POST':
+        if form.is_valid():
+            userprofile = form.save(commit=False)
+            userprofile.LastUpdateUser = request.user
+            userprofile.save()
+            return redirect('core_home')
+    else:
+        return render(request, 'core/userchangepicture.html', data)
+
+
+@login_required
+def userprofileDelete(request, id):
+    userprofile = UserProfile.objects.get(id=id)
+    if request.method == 'POST':
+        userprofile.delete()
+        return redirect('core_userprofile_list')
+    else:
+        return render(request, 'core/delete_confirm.html', {'obj': userprofile})
 
 

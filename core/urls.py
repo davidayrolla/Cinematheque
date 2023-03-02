@@ -46,4 +46,9 @@ urlpatterns = [
     re_path(r'artworkupdate/(?P<id>\d+)/$', artworkUpdate, name='core_artwork_update'),
     re_path(r'artworkdelete/(?P<id>\d+)/$', artworkDelete, name='core_artwork_delete'),
 
+    re_path(r'userprofilelist', userprofileList, name='core_userprofile_list'),
+    re_path(r'userprofileinsert', userprofileInsert, name='core_userprofile_insert'),
+    re_path(r'userprofileupdate/(?P<id>\d+)/$', userprofileUpdate, name='core_userprofile_update'),
+    re_path(r'userchangepicture/(?P<id>\d+)/$', userChangePicture, name='core_user_changepicture'),
+
 ]

@@ -1,5 +1,21 @@
 from django.db import models
 from django.conf import settings
+from django.contrib.auth.models import User
+
+
+class UserProfile(models.Model):
+    User = models.OneToOneField(User, on_delete=models.CASCADE)
+    Picture = models.ImageField(upload_to='profile_pics/', null=True, blank=True)
+
+    def __str__(self):
+        return self.User.username
+
+    def is_superuser(self):
+        return self.User.is_superuser
+
+    class Meta:
+        verbose_name = 'User Profile'
+        verbose_name_plural = 'Users Profiles'
 
 
 class Base(models.Model):

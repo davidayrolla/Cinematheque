@@ -19,8 +19,14 @@
 
   <div class="offcanvas-header" style="padding-bottom: 5px;">
     <div style="width: 70%">
-      <img src="{% static 'img/userthumb.png' %}" style="height: 40px; float: left; padding-right: 10px;">
-      <h6 style="line-height:40px;">{{userName}}</h6>
+      <a href="{% url 'core_user_changepicture' userProfile.id %}">
+        {% if userProfile.Picture %}
+          <img src="{{userProfile.Picture.url}}" style="height: 40px; float: left; padding-right: 10px; border-radius: 100%;">
+        {% else %}
+          <img src="{% static 'img/userthumb.png' %}" style="height: 40px; float: left; padding-right: 10px;">
+        {% endif %}
+      </a>
+      <h6 style="line-height:40px;">{{userProfile|title}}</h6>
     </div>
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
@@ -55,8 +61,13 @@
           <a class="nav-link" href="{% url 'core_language_list' %}">Languages</a>
         </li>
         <li class="nav-item navbar-custom nav-item-local container-fluid">
-          <a class="nav-link" href="{% url 'core_typeofartwork_list' %}">Type of Artwork</a>
+          <a class="nav-link" href="{% url 'core_typeofartwork_list' %}">Types of Artwork</a>
         </li>
+        {% if userProfile.is_superuser %}
+        <li class="nav-item navbar-custom nav-item-local container-fluid">
+          <a class="nav-link" href="{% url 'core_userprofile_list' %}">Users Profiles</a>
+        </li>
+        {% endif %}
       </ul>
 
     </nav>

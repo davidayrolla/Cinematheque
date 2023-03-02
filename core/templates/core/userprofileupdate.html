@@ -1,0 +1,24 @@
+{% extends 'baseupdate.html' %}
+{% load bootstrap %}
+{% load static %}
+
+{% block form %}
+
+    <div class="row row-cols-1">
+        <div class="col-sm-7" style="padding-bottom: 8px">
+            <form id="frmData" action="{% url 'core_userprofile_update' object.id %}" method="POST"  enctype="multipart/form-data">
+              {%  csrf_token %}
+              {{form|bootstrap}}
+            </form>
+        </div>
+        <div class="col-sm-5">
+            Image<BR>
+            {% if object.Picture %}
+                <img src="{{object.Picture.url}}" width="300" style="border-radius: 100%;"/>
+            {% else %}
+                <img src="{% static 'img/no_img.png' %}" width="300"/>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
