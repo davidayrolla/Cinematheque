@@ -118,3 +118,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
 
+
+
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+DATABASES = { 'default': config(default_dburl, default=default_dburl, cast=dburl), }
