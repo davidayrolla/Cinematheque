@@ -1,5 +1,6 @@
 {% extends 'baseupdate.html' %}
 {% load bootstrap %}
+{% load static %}
 
 {% block form %}
 
@@ -11,9 +12,11 @@
             </form>
         </div>
         <div class="col-sm-5">
+            Image<BR>
             {% if object.Image %}
-                Image<BR>
                 <img src="{{object.Image.url}}" width="300"/>
+            {% else %}
+                <img src="{% static 'img/no_img.png' %}" width="300"/>
             {% endif %}
         </div>
     </div>

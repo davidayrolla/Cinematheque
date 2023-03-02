@@ -1,5 +1,6 @@
 {% extends 'baselist.html' %}
 {% load filter %}
+{% load static %}
 
 {% block insertButton %}
     <a href="{% url 'core_country_insert' %}" class="btn btn-success">Add {{class|get_class_name}}</a>
@@ -20,11 +21,13 @@
                <tr>
                  <td width="300px"><a href="{% url 'core_country_update' country.id %}">{{country.NameEN}}</a></td>
                  <td>
-                    {% if country.Flag %}
-                         <a href="{% url 'core_country_update' country.id %}">
-                            <img src="{{country.Flag.url}}" width="50"/>
-                         </a>
-                    {% endif %}
+                     <a href="{% url 'core_country_update' country.id %}">
+                         {% if country.Flag %}
+                           <img src="{{country.Flag.url}}" width="50"/>
+                        {% else %}
+                            <img src="{% static 'img/no_img.png' %}" width="15px"/>
+                        {% endif %}
+                     </a>
                  </td>
                </tr>
                {% endfor%}

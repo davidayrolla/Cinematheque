@@ -38,7 +38,7 @@ class Person(Base):
     Name = models.CharField(max_length=60)
     DateOfBirth = models.DateField(auto_now=False, null=True, blank=True)
     DateOfDeath = models.DateField(auto_now=False, null=True, blank=True)
-    CountryOfBirth = models.ForeignKey(Country, on_delete=models.DO_NOTHING)
+    CountryOfBirth = models.ForeignKey(Country, null=True, blank=True, on_delete=models.DO_NOTHING)
     Photo = models.ImageField(upload_to='person_photos', null=True, blank=True)
 
     def __str__(self):
@@ -89,9 +89,9 @@ class Artwork(Base):
     Image = models.ImageField(upload_to='artwork_photos', null=True, blank=True)
     OriginalLanguage = models.ForeignKey(Language, null=True, blank=True, on_delete=models.DO_NOTHING)
     Country = models.ForeignKey(Country, null=True, blank=True, on_delete=models.DO_NOTHING)
-    Genres = models.ManyToManyField(Genre)
-    Distributors = models.ManyToManyField(Distributor)
-    Members = models.ManyToManyField(Person, through='Membership')
+    Genres = models.ManyToManyField(Genre, null=True, blank=True)
+    Distributors = models.ManyToManyField(Distributor, null=True, blank=True)
+    Members = models.ManyToManyField(Person, null=True, blank=True, through='Membership')
 
     def __str__(self):
         return self.TitleEN if self.TitleEN else self.OriginalTitle

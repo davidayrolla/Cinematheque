@@ -1,10 +1,19 @@
 {% extends 'baseinsert.html' %}
 {% load bootstrap %}
+{% load static %}
 
 {% block form %}
-    <form id="frmData" action="{% url 'core_country_insert' %}" method="POST" enctype="multipart/form-data">
-      {%  csrf_token %}
-      {{form|bootstrap}}
-    </form>
+    <div class="row row-cols-1">
+        <div class="col-sm-7" style="padding-bottom: 8px">
+            <form id="frmData" action="{% url 'core_country_insert' %}" method="POST" enctype="multipart/form-data">
+              {%  csrf_token %}
+              {{form|bootstrap}}
+            </form>
+        </div>
+        <div class="col-sm-5">
+            Flag image<BR>
+            <img src="{% static 'img/no_img.png' %}" width="100"/>
+        </div>
+    </div>
 
 {% endblock %}

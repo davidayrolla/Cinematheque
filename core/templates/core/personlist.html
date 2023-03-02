@@ -1,5 +1,6 @@
 {% extends 'baselist.html' %}
 {% load filter %}
+{% load static %}
 
 {% block insertButton %}
     <a href="{% url 'core_person_insert' %}" class="btn btn-success">Add {{class|get_class_name}}</a>
@@ -19,11 +20,13 @@
              {% for person in persons %}
                <tr>
                  <td width="100px">
-                    {% if person.Photo %}
-                         <a href="{% url 'core_person_update' person.id %}">
+                    <a href="{% url 'core_person_update' person.id %}">
+                        {% if person.Photo %}
                             <img src="{{person.Photo.url}}" width="80px"/>
-                         </a>
-                    {% endif %}
+                        {% else %}
+                            <img src="{% static 'img/no_img.png' %}" width="80px"/>
+                        {% endif %}
+                    </a>
                  </td>
                  <td>
                      <h6><a href="{% url 'core_person_update' person.id %}">{{person.Name}}</a></h6>

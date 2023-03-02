@@ -1,5 +1,6 @@
 {% extends 'baselist.html' %}
 {% load filter %}
+{% load static %}
 
 {% block insertButton %}
     <a href="{% url 'core_artwork_insert' %}" class="btn btn-success">Add {{class|get_class_name}}</a>
@@ -19,11 +20,13 @@
              {% for artwork in artworks %}
                <tr>
                  <td width="100px">
-                    {% if artwork.Image %}
-                         <a href="{% url 'core_artwork_update' artwork.id %}">
+                     <a href="{% url 'core_artwork_update' artwork.id %}">
+                        {% if artwork.Image %}
                             <img src="{{artwork.Image.url}}" width="80px"/>
-                         </a>
-                    {% endif %}
+                        {% else %}
+                            <img src="{% static 'img/no_img.png' %}" width="80px"/>
+                        {% endif %}
+                     </a>
                  </td>
                  <td>
                      <h6><a href="{% url 'core_artwork_update' artwork.id %}">{{artwork}}</a></h6>
