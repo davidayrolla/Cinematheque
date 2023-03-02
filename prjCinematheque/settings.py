@@ -18,7 +18,8 @@ SECRET_KEY = 'django-insecure-9aa+!3=1eugf=ua%=sqjw5wmz4$a%u3-)%*q0y5oi(uziqb9t2
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost',
-                 '127.0.0.1',]
+                 '127.0.0.1',
+                 'cinematheque.herokuapp.com']
 
 # Application definition
 
