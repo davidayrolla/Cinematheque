@@ -69,7 +69,11 @@ def genreDelete(request, id):
         genre.delete()
         return redirect('core_genre_list')
     else:
-        return render(request, 'core/delete_confirm.html', {'obj': genre})
+        data = { 'userProfile': UserProfile.objects.get(User=request.user),
+                 'obj': genre,
+               }
+        return render(request, 'core/delete_confirm.html', data )
+
 
 
 #-------- Country views
@@ -128,7 +132,10 @@ def countryDelete(request, id):
         country.delete()
         return redirect('core_country_list')
     else:
-        return render(request, 'core/delete_confirm.html', {'obj': country})
+        data = { 'userProfile': UserProfile.objects.get(User=request.user),
+                 'obj': country,
+               }
+        return render(request, 'core/delete_confirm.html', data )
 
 
 
@@ -189,8 +196,10 @@ def roleDelete(request, id):
         role.delete()
         return redirect('core_role_list')
     else:
-        return render(request, 'core/delete_confirm.html', {'obj': role})
-
+        data = { 'userProfile': UserProfile.objects.get(User=request.user),
+                 'obj': role,
+               }
+        return render(request, 'core/delete_confirm.html', data )
 
 
 
@@ -250,7 +259,10 @@ def distributorDelete(request, id):
         distributor.delete()
         return redirect('core_distributor_list')
     else:
-        return render(request, 'core/delete_confirm.html', {'obj': distributor})
+        data = { 'userProfile': UserProfile.objects.get(User=request.user),
+                 'obj': distributor,
+               }
+        return render(request, 'core/delete_confirm.html', data )
 
 
 
@@ -310,7 +322,10 @@ def languageDelete(request, id):
         language.delete()
         return redirect('core_language_list')
     else:
-        return render(request, 'core/delete_confirm.html', {'obj': language})
+        data = { 'userProfile': UserProfile.objects.get(User=request.user),
+                 'obj': language,
+               }
+        return render(request, 'core/delete_confirm.html', data )
 
 
 
@@ -370,9 +385,10 @@ def typeofartworkDelete(request, id):
         typeofartwork.delete()
         return redirect('core_typeofartwork_list')
     else:
-        return render(request, 'core/delete_confirm.html', {'obj': typeofartwork})
-
-
+        data = { 'userProfile': UserProfile.objects.get(User=request.user),
+                 'obj': typeofartwork,
+               }
+        return render(request, 'core/delete_confirm.html', data )
 
 
 
@@ -432,7 +448,11 @@ def personDelete(request, id):
         person.delete()
         return redirect('core_person_list')
     else:
-        return render(request, 'core/delete_confirm.html', {'obj': person})
+        data = { 'userProfile': UserProfile.objects.get(User=request.user),
+                 'obj': person,
+               }
+        return render(request, 'core/delete_confirm.html', data )
+
 
 
 #-------- Artwork views
@@ -493,7 +513,10 @@ def artworkDelete(request, id):
         artwork.delete()
         return redirect('core_artwork_list')
     else:
-        return render(request, 'core/delete_confirm.html', {'obj': artwork})
+        data = { 'userProfile': UserProfile.objects.get(User=request.user),
+                 'obj': artwork,
+               }
+        return render(request, 'core/delete_confirm.html', data )
 
 
 
@@ -572,6 +595,9 @@ def userprofileDelete(request, id):
         userprofile.delete()
         return redirect('core_userprofile_list')
     else:
-        return render(request, 'core/delete_confirm.html', {'obj': userprofile})
+        data = { 'userProfile': UserProfile.objects.get(User=request.user),
+                 'obj': userprofile,
+               }
+        return render(request, 'core/delete_confirm.html', data )
 
 
