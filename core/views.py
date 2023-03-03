@@ -601,3 +601,4 @@ def userprofileDelete(request, id):
         return render(request, 'core/delete_confirm.html', data )
 
 
+
