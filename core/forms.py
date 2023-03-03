@@ -44,7 +44,7 @@ class UserProfileForm(ModelForm):
 class UserChangePictureForm(ModelForm):
     class Meta:
         model = UserProfile
-        fields = '__all__'
+        fields = ['About','Picture']
 
     # def __init__(self, *args, **kwargs):
     #         super(UserChangePictureForm, self).__init__(*args, **kwargs)

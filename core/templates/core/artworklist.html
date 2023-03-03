@@ -31,15 +31,27 @@
                  <td>
                      <h6><a href="{% url 'core_artwork_update' artwork.id %}">{{artwork}}</a></h6>
                      <div style="font-size: 12px">
-
-                         {% if artwork.Country.Flag %}
+                        {% if artwork.Country.Flag %}
                             <img src="{{artwork.Country.Flag.url}}" width="30"/>
                         {% else %}
-                            {{artwork.Country}},
+                            {% if artwork.Country %}
+                                {{artwork.Country}},
+                            {% endif %}
                         {% endif %}
-                         <span style="padding-left: 5px">{{artwork.OriginalTitle}} ({{artwork.ReleaseYear}})</span><BR>
-                         {{artwork.RunTime}} min.<BR>
-                         {{artwork.listGenres}}<BR>
+                        <span style="padding-left: 5px">
+                            {% if artwork.OriginalTitle %}
+                                {{artwork.OriginalTitle}}
+                            {% endif %}
+                            {% if artwork.ReleaseYear %}
+                                ({{artwork.ReleaseYear}})
+                            {% endif %}
+                        </span><BR>
+                        {% if artwork.RunTime %}
+                           {{artwork.RunTime}} min.<BR>
+                        {% endif %}
+                        {% if artwork.Genres %}
+                           {{artwork.listGenres}}<BR>
+                        {% endif %}
                      </div>
                  </td>
                </tr>

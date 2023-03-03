@@ -31,12 +31,18 @@
                  <td>
                      <h6><a href="{% url 'core_person_update' person.id %}">{{person.Name}}</a></h6>
                      <div style="font-size: 12px">
-                         DateOfBirth: {{person.DateOfBirth}}<br>
-                         DateOfDeath: {{person.DateOfDeath}}<br>
+                         {% if person.DateOfBirth %}
+                            DateOfBirth: {{person.DateOfBirth}}<br>
+                         {% endif %}
+                         {% if person.DateOfDeath %}
+                            DateOfDeath: {{person.DateOfDeath}}<br>
+                         {% endif %}
                          {% if person.CountryOfBirth.Flag %}
                             <img src="{{person.CountryOfBirth.Flag.url}}" width="30"/>
                         {% else %}
-                            CountryOfBirth: {{person.CountryOfBirth}}
+                            {% if person.CountryOfBirth %}
+                                CountryOfBirth: {{person.CountryOfBirth}}
+                            {% endif %}
                         {% endif %}
                      </div>
                  </td>
