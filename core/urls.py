@@ -6,6 +6,11 @@ urlpatterns = [
     re_path(r'index', index, name='core_index'),
     re_path(r'home', home, name='core_home'),
 
+    re_path(r'userprofilelist', userprofileList, name='core_userprofile_list'),
+    re_path(r'userprofileinsert', userprofileInsert, name='core_userprofile_insert'),
+    re_path(r'userprofileupdate/(?P<id>\d+)/$', userprofileUpdate, name='core_userprofile_update'),
+    re_path(r'userchangepicture/(?P<id>\d+)/$', userChangePicture, name='core_user_changepicture'),
+
     re_path(r'genrelist', genreList, name='core_genre_list'),
     re_path(r'genreinsert', genreInsert, name='core_genre_insert'),
     re_path(r'genreupdate/(?P<id>\d+)/$', genreUpdate, name='core_genre_update'),
@@ -46,9 +51,6 @@ urlpatterns = [
     re_path(r'artworkupdate/(?P<id>\d+)/$', artworkUpdate, name='core_artwork_update'),
     re_path(r'artworkdelete/(?P<id>\d+)/$', artworkDelete, name='core_artwork_delete'),
 
-    re_path(r'userprofilelist', userprofileList, name='core_userprofile_list'),
-    re_path(r'userprofileinsert', userprofileInsert, name='core_userprofile_insert'),
-    re_path(r'userprofileupdate/(?P<id>\d+)/$', userprofileUpdate, name='core_userprofile_update'),
-    re_path(r'userchangepicture/(?P<id>\d+)/$', userChangePicture, name='core_user_changepicture'),
+    re_path(r'order', order, name='core_order'),
 
 ]

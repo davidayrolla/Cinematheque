@@ -1,8 +1,9 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import *
+from django.views.generic import TemplateView
 from django.db.models.functions import Coalesce
-
+from .forms import *
 
 def index(request):
     return render(request, 'core/index.html' )
@@ -11,6 +12,86 @@ def index(request):
 def home(request):
     data = {'userProfile': UserProfile.objects.get(User=request.user)}
     return render(request, 'core/home.html', data )
+
+
+#-------- Userprofile views
+@login_required
+def userprofileList(request):
+    usersprofiles = UserProfile.objects.all().order_by('User')
+    data = {'userProfile': UserProfile.objects.get(User=request.user),
+            'class': UserProfile,
+            'usersprofiles': usersprofiles}
+    return render(request, 'core/userprofilelist.html', data )
+
+
+@login_required
+def userprofileInsert(request):
+    if request.method == 'GET':
+        data = {}
+        userprofile = UserProfile()
+        form = UserProfileForm(instance=userprofile)
+        data['userProfile'] = UserProfile.objects.get(User=request.user)
+        data['object'] = userprofile
+        data['form'] = form
+        return render(request, 'core/userprofileinsert.html', data)
+    else:
+        form = UserProfileForm( request.POST or None, request.FILES or None )
+        if form.is_valid():
+            userprofile = form.save(commit=False)
+            userprofile.InsertUser = request.user
+            userprofile.save()
+        return redirect('core_userprofile_list')
+
+
+@login_required
+def userprofileUpdate(request, id):
+    data = {}
+    userprofile = UserProfile.objects.get(id=id)
+    form = UserProfileForm( request.POST or None, request.FILES or None, instance=userprofile)
+    data['userProfile'] = UserProfile.objects.get(User=request.user)
+    data['object'] = userprofile
+    data['form'] = form
+
+    if request.method == 'POST':
+        if form.is_valid():
+            userprofile = form.save(commit=False)
+            userprofile.LastUpdateUser = request.user
+            userprofile.save()
+            return redirect('core_userprofile_list')
+    else:
+        return render(request, 'core/userprofileupdate.html', data)
+
+
+@login_required
+def userChangePicture(request, id):
+    data = {}
+    userprofile = UserProfile.objects.get(id=id)
+    form = UserChangePictureForm( request.POST or None, request.FILES or None, instance=userprofile)
+    data['userProfile'] = UserProfile.objects.get(User=request.user)
+    data['object'] = userprofile
+    data['form'] = form
+
+    if request.method == 'POST':
+        if form.is_valid():
+            userprofile = form.save(commit=False)
+            userprofile.LastUpdateUser = request.user
+            userprofile.save()
+            return redirect('core_home')
+    else:
+        return render(request, 'core/userchangepicture.html', data)
+
+
+@login_required
+def userprofileDelete(request, id):
+    userprofile = UserProfile.objects.get(id=id)
+    if request.method == 'POST':
+        userprofile.delete()
+        return redirect('core_userprofile_list')
+    else:
+        data = { 'userProfile': UserProfile.objects.get(User=request.user),
+                 'obj': userprofile,
+               }
+        return render(request, 'core/delete_confirm.html', data )
 
 
 #-------- Genre views
@@ -468,21 +549,28 @@ def artworkList(request):
 
 @login_required
 def artworkInsert(request):
+    artwork = Artwork()
+    item_membership_formset = inlineformset_factory(Artwork, Membership, form=MembershipForm, extra=1, can_delete=False,
+                                                    min_num=1, validate_min=True)
     if request.method == 'GET':
         data = {}
-        artwork = Artwork()
-        form = ArtworkForm(instance=artwork)
+        form = ArtworkForm(instance=artwork, prefix='main')
+        formset = item_membership_formset(instance=artwork, prefix='membership')
         data['userProfile'] = UserProfile.objects.get(User=request.user)
         data['object'] = artwork
         data['form'] = form
+        data['formset'] = formset
         return render(request, 'core/artworkinsert.html', data)
     else:
-        form = ArtworkForm( request.POST or None, request.FILES or None )
-        if form.is_valid():
+        artwork = Artwork()
+        form = ArtworkForm( request.POST or None, request.FILES or None, instance=artwork, prefix='main' )
+        formset = item_membership_formset(request.POST, request.FILES, instance=artwork, prefix='membership')
+        if form.is_valid() and formset.is_valid():
             artwork = form.save(commit=False)
             artwork.InsertUser = request.user
             artwork.save()
             form.save_m2m()
+            formset.save()
         return redirect('core_artwork_list')
 
 
@@ -520,85 +608,30 @@ def artworkDelete(request, id):
 
 
 
-
-#-------- Userprofile views
 @login_required
-def userprofileList(request):
-    usersprofiles = UserProfile.objects.all().order_by('User')
-    data = {'userProfile': UserProfile.objects.get(User=request.user),
-            'class': UserProfile,
-            'usersprofiles': usersprofiles}
-    return render(request, 'core/userprofilelist.html', data )
-
-
-@login_required
-def userprofileInsert(request):
-    if request.method == 'GET':
-        data = {}
-        userprofile = UserProfile()
-        form = UserProfileForm(instance=userprofile)
-        data['userProfile'] = UserProfile.objects.get(User=request.user)
-        data['object'] = userprofile
-        data['form'] = form
-        return render(request, 'core/userprofileinsert.html', data)
-    else:
-        form = UserProfileForm( request.POST or None, request.FILES or None )
-        if form.is_valid():
-            userprofile = form.save(commit=False)
-            userprofile.InsertUser = request.user
-            userprofile.save()
-        return redirect('core_userprofile_list')
-
-
-@login_required
-def userprofileUpdate(request, id):
-    data = {}
-    userprofile = UserProfile.objects.get(id=id)
-    form = UserProfileForm( request.POST or None, request.FILES or None, instance=userprofile)
-    data['userProfile'] = UserProfile.objects.get(User=request.user)
-    data['object'] = userprofile
-    data['form'] = form
+def order(request):
+    order_forms = Artwork()
+    item_order_formset = inlineformset_factory(Artwork, Membership, form=MembershipForm, extra=1, can_delete=False, min_num=1, validate_min=True)
 
     if request.method == 'POST':
-        if form.is_valid():
-            userprofile = form.save(commit=False)
-            userprofile.LastUpdateUser = request.user
-            userprofile.save()
-            return redirect('core_userprofile_list')
+        forms = ArtworkForm(request.POST, request.FILES, instance=order_forms, prefix='main')
+        formset = item_order_formset(request.POST, request.FILES, instance=order_forms, prefix='product')
+
+        if forms.is_valid() and formset.is_valid():
+            forms = forms.save(commit=False)
+            forms.save()
+            formset.save()
+            return HttpResponseRedirect('core_artwork_list')
+
     else:
-        return render(request, 'core/userprofileupdate.html', data)
+        forms = ArtworkForm(instance=order_forms, prefix='main')
+        formset = item_order_formset(instance=order_forms, prefix='product')
 
+    context = {
+        'forms': forms,
+        'formset': formset,
+        'userProfile': UserProfile.objects.get(User=request.user),
+        'object': order_forms,
+    }
 
-@login_required
-def userChangePicture(request, id):
-    data = {}
-    userprofile = UserProfile.objects.get(id=id)
-    form = UserChangePictureForm( request.POST or None, request.FILES or None, instance=userprofile)
-    data['userProfile'] = UserProfile.objects.get(User=request.user)
-    data['object'] = userprofile
-    data['form'] = form
-
-    if request.method == 'POST':
-        if form.is_valid():
-            userprofile = form.save(commit=False)
-            userprofile.LastUpdateUser = request.user
-            userprofile.save()
-            return redirect('core_home')
-    else:
-        return render(request, 'core/userchangepicture.html', data)
-
-
-@login_required
-def userprofileDelete(request, id):
-    userprofile = UserProfile.objects.get(id=id)
-    if request.method == 'POST':
-        userprofile.delete()
-        return redirect('core_userprofile_list')
-    else:
-        data = { 'userProfile': UserProfile.objects.get(User=request.user),
-                 'obj': userprofile,
-               }
-        return render(request, 'core/delete_confirm.html', data )
-
-
-
+    return render(request, 'core/testeMestreDetalhe.html', context)

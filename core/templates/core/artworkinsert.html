@@ -3,17 +3,44 @@
 {% load static %}
 
 {% block form %}
+
+ <form id="frmData" action="{% url 'core_artwork_insert' %}" method="POST" enctype="multipart/form-data">
+
     <div class="row row-cols-1">
         <div class="col-sm-7" style="padding-bottom: 8px">
-            <form id="frmData" action="{% url 'core_artwork_insert' %}" method="POST" enctype="multipart/form-data">
               {%  csrf_token %}
               {{form|bootstrap}}
-            </form>
+              {{ formset.management_form }}
         </div>
         <div class="col-sm-5">
             Image<BR>
             <img src="{% static 'img/no_img.png' %}" width="300"/>
         </div>
     </div>
+
+    <div class="row row-cols-1">
+        <h4 style="padding-top: 30px">Cast/Crew:</h4>
+
+        <div id="order" class="form-inline form-group">
+            {% for item_order_form in formset %}
+                <div id="item-{{ forloop.counter0 }}">
+
+                  {% for field in item_order_form %}
+                    {{ field.errors }}
+                    <li style="list-style-type: none; display : inline; padding-right: 50px">
+                        {% if field.name != "Artwork" and field.name != "id" %}
+                           {{ field.label_tag }} {{ field }}
+                        {% endif %}
+                    </li>
+                  {% endfor %}
+
+                  <HR>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</form>
 
 {% endblock %}

@@ -129,3 +129,8 @@ class Membership(models.Model):
     def __str__(self):
         return f'{self.Artwork} - {self.Person} ({self.Role})'
 
+    class Meta:
+        verbose_name = 'Membership'
+        verbose_name_plural = 'Memberships'
+
+

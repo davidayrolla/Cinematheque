@@ -1,6 +1,7 @@
 from .models import *
 from django.forms import ModelForm, forms, widgets
 from django.core.files.images import get_image_dimensions
+from django.forms.models import inlineformset_factory
 
 class UserProfileForm(ModelForm):
     class Meta:
@@ -84,6 +85,7 @@ class UserChangePictureForm(ModelForm):
 
         return picture
 
+
 class GenreForm(ModelForm):
     class Meta:
         model = Genre
@@ -133,5 +135,7 @@ class ArtworkForm(ModelForm):
                   'OriginalLanguage', 'Country', 'Genres', 'Distributors', 'Members', 'Image']
 
 
-
-
+class MembershipForm(ModelForm):
+    class Meta:
+        model = Membership
+        exclude = ()
