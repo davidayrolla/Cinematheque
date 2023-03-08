@@ -1,7 +1,45 @@
 {% extends 'logged.html' %}
-
+{% load static %}
 {% block main %}
 
-    <h1>Home</h1>
+
+    <div class="row">
+        <h2 style="text-align: center">Welcome to <i>CINEMATHEQUE Administrative Tools</i>, {{userProfile|title}}!</h2>
+    </div>
+
+        <img src="{% static 'img/movie-film-popcorn.png' %}" width="170 px" class="center">
+
+
+    <div class="row" style="padding-bottom: 50px">
+        <p class="text" style="font-size:12px; text-align: center">
+            You can browse and modify any information.<BR>
+            These tools and database were created for a demonstration.<BR>
+            Any modifications you make will be overwritten in a few days.<BR>
+            So enjoy the experience! Browse, insert, update, delete any data.<BR>
+            Have a good time!
+        </p>
+    </div>
+
+<div class="row" style="display: flex; justify-content: center">
+
+  <div style="width: 30rem;  display: flex; justify-content: space-around">
+
+    <div class="card" style="width: 10rem">
+      <img src="{% static 'img/movie-film-popcorn.png' %}" class="card-img-top" alt="Last movie">
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+
+    <div class="card" style="width: 10rem">
+      <img src="{% static 'img/movie-film-popcorn.png' %}" class="card-img-top" alt="Last movie">
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
 
 {% endblock %}
