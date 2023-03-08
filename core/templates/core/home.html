@@ -39,9 +39,12 @@
                     </td>
                     <td style="200px">
                       <div class="card-body">
-                          <span class="card-text">Last modified artwork:</span>
+                          <span class="card-text">Last updated artwork:</span>
                           <h5 class="card-title">{{latestartwork}}</h5>
-                         <p class="card-text"><small class="text-muted">Last updated: <BR>
+                          {% if latestartwork.Country.Flag %}
+                            <img src="{{latestartwork.Country.Flag.url}}" width="30"/>
+                          {% endif %}
+                         <p class="card-text"><small class="text-muted">Update: <BR>
                              <i>{{latestartwork.DateTimeOfLastUpdate|date:"M d Y"}}</i></small></p>
                       </div>
                     </td>
@@ -66,9 +69,12 @@
                     </td>
                     <td style="200px">
                       <div class="card-body">
-                          <span class="card-text">Last modified person:</span>
+                          <span class="card-text">Last updated person:</span>
                           <h5 class="card-title">{{latestperson}}</h5>
-                         <p class="card-text"><small class="text-muted">Last updated: <BR>
+                          {% if latestperson.CountryOfBirth.Flag %}
+                            <img src="{{latestperson.CountryOfBirth.Flag.url}}" width="30"/>
+                          {% endif %}
+                         <p class="card-text"><small class="text-muted">Update: <BR>
                              <i>{{latestperson.DateTimeOfLastUpdate|date:"M d Y"}}</i></small></p>
                       </div>
                     </td>

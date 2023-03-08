@@ -103,6 +103,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_files')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+LOGIN_URL = 'core_home'
+LOGIN_REDIRECT_URL = 'core_home'
+LOGOUT_REDIRECT_URL = 'login'
+
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
 
