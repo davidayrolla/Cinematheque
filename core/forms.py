@@ -136,6 +136,13 @@ class ArtworkForm(ModelForm):
 
 
 class MembershipForm(ModelForm):
+
+    # def __init__(self, *args, **kwargs):
+    #     super(MembershipForm, self).__init__(*args, **kwargs)
+    #     self.fields['Role'].widget.attrs["required"] = "required"
+    #     self.fields['Person'].widget.attrs["required"] = "required"
+    #     self.fields['Artwork'].widget.attrs["required"] = "required"
+
     class Meta:
         model = Membership
         exclude = ()

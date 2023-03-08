@@ -485,20 +485,26 @@ def personList(request):
 
 @login_required
 def personInsert(request):
+    person = Person()
+    item_membership_formset = inlineformset_factory(Person, Membership, form=MembershipForm, extra=3, can_delete=False,
+                                                    min_num=0, validate_min=False)
     if request.method == 'GET':
         data = {}
-        person = Person()
-        form = PersonForm(instance=person)
+        form = PersonForm(instance=person, prefix='main')
+        formset = item_membership_formset(instance=person, prefix='membership')
         data['userProfile'] = UserProfile.objects.get(User=request.user)
         data['object'] = person
         data['form'] = form
+        data['formset'] = formset
         return render(request, 'core/personinsert.html', data)
     else:
-        form = PersonForm( request.POST or None, request.FILES or None )
+        form = PersonForm( request.POST or None, request.FILES or None, instance=person, prefix='main' )
+        formset = item_membership_formset(request.POST, request.FILES, instance=person, prefix='membership')
         if form.is_valid():
             person = form.save(commit=False)
             person.InsertUser = request.user
             person.save()
+            formset.save()
         return redirect('core_person_list')
 
 
@@ -506,16 +512,21 @@ def personInsert(request):
 def personUpdate(request, id):
     data = {}
     person = Person.objects.get(id=id)
-    form = PersonForm( request.POST or None, request.FILES or None, instance=person)
+    item_membership_formset = inlineformset_factory(Person, Membership, form=MembershipForm, extra=3, can_delete=True,
+                                                    min_num=0, validate_min=False)
+    form = PersonForm( request.POST or None, request.FILES or None, instance=person, prefix='main')
+    formset = item_membership_formset(request.POST or None, instance=person, prefix='membership')
+    formset.is_valid()
     data['userProfile'] = UserProfile.objects.get(User=request.user)
     data['object'] = person
     data['form'] = form
-
+    data['formset'] = formset
     if request.method == 'POST':
         if form.is_valid():
             person = form.save(commit=False)
             person.LastUpdateUser = request.user
             person.save()
+            formset.save()
             return redirect('core_person_list')
     else:
         return render(request, 'core/personupdate.html', data)
@@ -549,7 +560,7 @@ def artworkList(request):
 @login_required
 def artworkInsert(request):
     artwork = Artwork()
-    item_membership_formset = inlineformset_factory(Artwork, Membership, form=MembershipForm, extra=1, can_delete=False,
+    item_membership_formset = inlineformset_factory(Artwork, Membership, form=MembershipForm, extra=3, can_delete=False,
                                                     min_num=0, validate_min=False)
     if request.method == 'GET':
         data = {}
@@ -561,7 +572,6 @@ def artworkInsert(request):
         data['formset'] = formset
         return render(request, 'core/artworkinsert.html', data)
     else:
-        artwork = Artwork()
         form = ArtworkForm( request.POST or None, request.FILES or None, instance=artwork, prefix='main' )
         formset = item_membership_formset(request.POST, request.FILES, instance=artwork, prefix='membership')
         if form.is_valid():
@@ -577,7 +587,7 @@ def artworkInsert(request):
 def artworkUpdate(request, id):
     data = {}
     artwork = Artwork.objects.get(id=id)
-    item_membership_formset = inlineformset_factory(Artwork, Membership, form=MembershipForm, extra=1, can_delete=True,
+    item_membership_formset = inlineformset_factory(Artwork, Membership, form=MembershipForm, extra=3, can_delete=True,
                                                     min_num=0, validate_min=False)
     form = ArtworkForm( request.POST or None, request.FILES or None, instance=artwork, prefix='main')
     formset = item_membership_formset(request.POST or None, instance=artwork, prefix='membership')
@@ -612,30 +622,4 @@ def artworkDelete(request, id):
 
 
 
-@login_required
-def order(request):
-    order_forms = Artwork()
-    item_order_formset = inlineformset_factory(Artwork, Membership, form=MembershipForm, extra=1, can_delete=False, min_num=1, validate_min=True)
 
-    if request.method == 'POST':
-        forms = ArtworkForm(request.POST, request.FILES, instance=order_forms, prefix='main')
-        formset = item_order_formset(request.POST, request.FILES, instance=order_forms, prefix='product')
-
-        if forms.is_valid() and formset.is_valid():
-            forms = forms.save(commit=False)
-            forms.save()
-            formset.save()
-            return HttpResponseRedirect('core_artwork_list')
-
-    else:
-        forms = ArtworkForm(instance=order_forms, prefix='main')
-        formset = item_order_formset(instance=order_forms, prefix='product')
-
-    context = {
-        'forms': forms,
-        'formset': formset,
-        'userProfile': UserProfile.objects.get(User=request.user),
-        'object': order_forms,
-    }
-
-    return render(request, 'core/testeMestreDetalhe.html', context)

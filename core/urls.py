@@ -51,6 +51,5 @@ urlpatterns = [
     re_path(r'artworkupdate/(?P<id>\d+)/$', artworkUpdate, name='core_artwork_update'),
     re_path(r'artworkdelete/(?P<id>\d+)/$', artworkDelete, name='core_artwork_delete'),
 
-    re_path(r'order', order, name='core_order'),
 
 ]
