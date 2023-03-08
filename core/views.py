@@ -1,7 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.views.generic import TemplateView
 from django.db.models.functions import Coalesce
 from .forms import *
 
@@ -551,7 +550,7 @@ def artworkList(request):
 def artworkInsert(request):
     artwork = Artwork()
     item_membership_formset = inlineformset_factory(Artwork, Membership, form=MembershipForm, extra=1, can_delete=False,
-                                                    min_num=1, validate_min=True)
+                                                    min_num=0, validate_min=False)
     if request.method == 'GET':
         data = {}
         form = ArtworkForm(instance=artwork, prefix='main')
@@ -565,7 +564,7 @@ def artworkInsert(request):
         artwork = Artwork()
         form = ArtworkForm( request.POST or None, request.FILES or None, instance=artwork, prefix='main' )
         formset = item_membership_formset(request.POST, request.FILES, instance=artwork, prefix='membership')
-        if form.is_valid() and formset.is_valid():
+        if form.is_valid():
             artwork = form.save(commit=False)
             artwork.InsertUser = request.user
             artwork.save()
@@ -578,17 +577,22 @@ def artworkInsert(request):
 def artworkUpdate(request, id):
     data = {}
     artwork = Artwork.objects.get(id=id)
-    form = ArtworkForm( request.POST or None, request.FILES or None, instance=artwork)
+    item_membership_formset = inlineformset_factory(Artwork, Membership, form=MembershipForm, extra=1, can_delete=True,
+                                                    min_num=0, validate_min=False)
+    form = ArtworkForm( request.POST or None, request.FILES or None, instance=artwork, prefix='main')
+    formset = item_membership_formset(request.POST or None, instance=artwork, prefix='membership')
+    formset.is_valid()
     data['userProfile'] = UserProfile.objects.get(User=request.user)
     data['object'] = artwork
     data['form'] = form
-
+    data['formset'] = formset
     if request.method == 'POST':
-        if form.is_valid():
+        if form.is_valid(): # and formset.is_valid():
             artwork = form.save(commit=False)
             artwork.LastUpdateUser = request.user
             artwork.save()
             form.save_m2m()
+            formset.save()
             return redirect('core_artwork_list')
     else:
         return render(request, 'core/artworkupdate.html', data)

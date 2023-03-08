@@ -132,7 +132,7 @@ class ArtworkForm(ModelForm):
     class Meta:
         model = Artwork
         fields = ['OriginalTitle', 'TitleEN', 'TitlePT_BR', 'ReleaseYear', 'RunTime',
-                  'OriginalLanguage', 'Country', 'Genres', 'Distributors', 'Members', 'Image']
+                  'OriginalLanguage', 'Country', 'Genres', 'Distributors', 'Image']
 
 
 class MembershipForm(ModelForm):

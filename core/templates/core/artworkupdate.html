@@ -4,12 +4,13 @@
 
 {% block form %}
 
+<form id="frmData" action="{% url 'core_artwork_update' object.id %}" method="POST"  enctype="multipart/form-data">
+
     <div class="row row-cols-1">
         <div class="col-sm-7" style="padding-bottom: 8px">
-            <form id="frmData" action="{% url 'core_artwork_update' object.id %}" method="POST"  enctype="multipart/form-data">
               {%  csrf_token %}
               {{form|bootstrap}}
-            </form>
+              {{formset.management_form}}
         </div>
         <div class="col-sm-5">
             Image<BR>
@@ -20,6 +21,39 @@
             {% endif %}
         </div>
     </div>
+
+    <div class="row row-cols-1">
+        <h4 style="padding-top: 30px">Cast/Crew:</h4>
+        <div id="membership" class="form-inline form-group">
+            <table class="table table-striped">
+
+                <tr style="font-weight: bold">
+                    <td scope="col">Person</td>
+                    <td scope="col">Role</td>
+                    <td scope="col">Delete?</td>
+                </tr>
+
+                {% for item_form in formset %}
+                <tr>
+                    <td>
+                        {{ item_form.Person.errors }}
+                        {{ item_form.Person }}
+                    </td>
+                    <td>
+                        {{ item_form.Role.errors }}
+                        {{ item_form.Role }}
+                    </td>
+                    <td>
+                        {{ item_form.DELETE }} {{item_form.id}}
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+</form>
 
 {% endblock %}
 
