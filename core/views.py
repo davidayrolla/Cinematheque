@@ -501,10 +501,13 @@ def personInsert(request):
         form = PersonForm( request.POST or None, request.FILES or None, instance=person, prefix='main' )
         formset = item_membership_formset(request.POST, request.FILES, instance=person, prefix='membership')
         if form.is_valid():
-            person = form.save(commit=False)
-            person.InsertUser = request.user
-            person.save()
-            formset.save()
+            try:
+                person = form.save(commit=False)
+                person.InsertUser = request.user
+                person.save()
+                formset.save()
+            except ValueError:
+                pass
         return redirect('core_person_list')
 
 
@@ -523,10 +526,13 @@ def personUpdate(request, id):
     data['formset'] = formset
     if request.method == 'POST':
         if form.is_valid():
-            person = form.save(commit=False)
-            person.LastUpdateUser = request.user
-            person.save()
-            formset.save()
+            try:
+                person = form.save(commit=False)
+                person.LastUpdateUser = request.user
+                person.save()
+                formset.save()
+            except ValueError:
+                pass
             return redirect('core_person_list')
     else:
         return render(request, 'core/personupdate.html', data)
@@ -575,11 +581,14 @@ def artworkInsert(request):
         form = ArtworkForm( request.POST or None, request.FILES or None, instance=artwork, prefix='main' )
         formset = item_membership_formset(request.POST, request.FILES, instance=artwork, prefix='membership')
         if form.is_valid():
-            artwork = form.save(commit=False)
-            artwork.InsertUser = request.user
-            artwork.save()
-            form.save_m2m()
-            formset.save()
+            try:
+                artwork = form.save(commit=False)
+                artwork.InsertUser = request.user
+                artwork.save()
+                form.save_m2m()
+                formset.save()
+            except ValueError:
+                pass
         return redirect('core_artwork_list')
 
 
@@ -598,11 +607,14 @@ def artworkUpdate(request, id):
     data['formset'] = formset
     if request.method == 'POST':
         if form.is_valid(): # and formset.is_valid():
-            artwork = form.save(commit=False)
-            artwork.LastUpdateUser = request.user
-            artwork.save()
-            form.save_m2m()
-            formset.save()
+            try:
+                artwork = form.save(commit=False)
+                artwork.LastUpdateUser = request.user
+                artwork.save()
+                form.save_m2m()
+                formset.save()
+            except ValueError:
+                pass
             return redirect('core_artwork_list')
     else:
         return render(request, 'core/artworkupdate.html', data)
