@@ -8,3 +8,15 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.cardhome{
+    text-decoration: none;
+    opacity: 0.7;
+}
+.cardhome:hover {opacity: 1}
+
+.bgheadlist{
+    background-color: #dddddd!important;
+    border-bottom: 2px;
+    border-color: #afafaf;
+}

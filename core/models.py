@@ -40,7 +40,7 @@ class Country(Base):
         return self.NameEN
 
     class Meta:
-        verbose_name_plural = 'countries'
+        verbose_name_plural = 'Countries'
 
 
 class Role(Base):

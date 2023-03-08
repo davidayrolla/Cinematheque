@@ -9,7 +9,16 @@ def index(request):
 
 
 def home(request):
-    data = {'userProfile': UserProfile.objects.get(User=request.user)}
+    artwork = Artwork.objects.latest('DateTimeOfLastUpdate')
+    person = Person.objects.latest('DateTimeOfLastUpdate')
+
+    data = {
+        'latestartwork': artwork,
+        'latestperson': person,
+        'userProfile': UserProfile.objects.get(User=request.user),
+    }
+
+
     return render(request, 'core/home.html', data )
 
 

@@ -22,21 +22,51 @@
 
 <div class="row" style="display: flex; justify-content: center">
 
-  <div style="width: 30rem;  display: flex; justify-content: space-around">
+  <div style="width: 50rem;  display: flex; justify-content: space-around">
 
-    <div class="card" style="width: 10rem">
-      <img src="{% static 'img/movie-film-popcorn.png' %}" class="card-img-top" alt="Last movie">
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
+    <a href="{% url 'core_artwork_update' latestartwork.id %}" class="cardhome">
+        <div class="card mb-3 text-bg-light" style="background-color: #ffffff !important; max-width: 350px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+                  {% if latestartwork.Image %}
+                      <img src="{{latestartwork.Image.url}}" class="card-img-top" alt="Latest movie" style="width: 100px"/>
+                  {% else %}
+                      <img src="{% static 'img/no_img.png' %}" class="card-img-top" alt="Latest movie" style="width: 100px"/>
+                  {% endif %}
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                  <span class="card-text">Last modified artwork:</span>
+                  <h5 class="card-title">{{latestartwork}}</h5>
+                 <p class="card-text"><small class="text-muted">Last updated: <BR>
+                     <i>{{latestartwork.DateTimeOfLastUpdate|date:"M d Y"}}</i></small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </a>
 
-    <div class="card" style="width: 10rem">
-      <img src="{% static 'img/movie-film-popcorn.png' %}" class="card-img-top" alt="Last movie">
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
+    <a href="{% url 'core_person_update' latestperson.id %}" class="cardhome">
+        <div class="card mb-3 text-bg-light" style="background-color: #ffffff !important; max-width: 350px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              {% if latestperson.Photo %}
+                  <img src="{{latestperson.Photo.url}}" class="card-img-top" alt="Latest person" style="width: 100px"/>
+              {% else %}
+                  <img src="{% static 'img/no_img.png' %}" class="card-img-top" alt="Latest person" style="width: 100px"/>
+              {% endif %}
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                  <span class="card-text">Last modified person:</span>
+                  <h5 class="card-title">{{latestperson}}</h5>
+                 <p class="card-text"><small class="text-muted">Last updated: <BR>
+                     <i>{{latestperson.DateTimeOfLastUpdate|date:"M d Y"}}</i></small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </a>
 
   </div>
 
