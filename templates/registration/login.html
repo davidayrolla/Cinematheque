@@ -2,9 +2,15 @@
 {% block contents %}
 {% load static %}
 
+<script>
+	loadCSS("{% static 'login.css' %}");
+	loadCSS("https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css");
+	document.body.style.backgroundColor = "#C8C8C8";
+</script>
+
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid" style="display: flex; justify-content: flex-end">
-    <a class="navbar-brand" href="{% url 'core_home' %}">
+    <a class="navbar-brand" href="{% url 'core_index' %}">
       <img src="{% static 'img/logoCinematheque.png' %}" width="170px">
     </a>
   </div>
@@ -12,9 +18,9 @@
 
 {% if form.errors %}
     <div style="display: flex; justify-content: center">
-        <div style="text-align: center; width: 350px; margin-top: 30px; padding: 10px; background-color: #f31d1d;
-         color: white; border-color: ffffff; border: 2px; border-style: solid">
-            <p>Your username and password didn't match.<BR>
+        <div style="text-align: center; width: 350px; margin-top: 30px; padding: 10px; background-color: #dddddd;
+         border: 1px; border-style: none">
+            <p style="font-weight: bold;">Your username and password didn't match.<BR>
                 Please try again.</p>
         </div>
     </div>
@@ -29,26 +35,44 @@
     {% endif %}
 {% endif %}
 
-<div style="padding-top: 50px; display: flex; justify-content: center">
+<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; width: 100%;">
 
-    <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-        <table>
-            <tr>
-                <td style="padding-right: 10px; padding-bottom: 10px; ">User</td>
-                <td style="padding-bottom: 10px; ">{{ form.username }}</td>
-            </tr>
-            <tr>
-                <td style="padding-right: 10px; vertical-align: top;">Password</td>
-                <td>{{ form.password }}
-                <BR><BR><input type="submit" value="Login" class="btn btn-primary">
-                </td>
+    <div class="container-login100" style="min-height: 10vh; padding-bottom: 50px">
+        <div class="wrap-login100" style="padding: 20px; width: 300px;">
+            <form class="login100-form validate-form" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <H2 style="text-align: center; padding-bottom: 15px">
+                    Login
+                </H2>
+                <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is required">
+                    <span class="label-input100">Username</span>
+                    <input class="input100" type="text" name="username" autofocus autocomplete="username"
+                           maxlength="150" required id="id_username" placeholder="Type your username">
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+                <BR>
+                <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    <span class="label-input100">Password</span>
+                    <input class="input100" type="password" name="password" autocomplete="current-password" required id="id_password" placeholder="Type your password">
+                    <span class="focus-input100" data-symbol="&#xf190;"></span>
+                </div>
+                <div class="container-login100-form-btn" style="padding-top: 30px">
+                    <div class="wrap-login100-form-btn">
+                        <button class="btn btn-primary" style="width: 100%">
+                            Login
+                        </button>
+                    </div>
+                </div>
 
-            </tr>
-        </table>
+                <input type="hidden" name="next" value="{{ next }}">
 
+            </form>
+        </div>
+    </div>
 
-        <input type="hidden" name="next" value="{{ next }}">
-    </form>
+    <a class="btn btn-success" href="{% url 'core_index' %}">Go to main page</a>
+
 </div>
+
+
 {% endblock %}
