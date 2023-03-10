@@ -1,7 +1,7 @@
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Coalesce
+import django.db.utils
 from .forms import *
 
 def index(request):
@@ -24,6 +24,7 @@ def home(request):
 
     else:
         return redirect('login')
+
 
 #-------- Userprofile views
 @login_required
@@ -96,8 +97,14 @@ def userChangePicture(request, id):
 def userprofileDelete(request, id):
     userprofile = UserProfile.objects.get(id=id)
     if request.method == 'POST':
-        userprofile.delete()
-        return redirect('core_userprofile_list')
+        try:
+            userprofile.delete()
+            return redirect('core_userprofile_list')
+        except Exception as err:
+            if err.__class__ == django.db.utils.IntegrityError:
+                data = {'userProfile': UserProfile.objects.get(User=request.user),
+                        'errormessage': "Uh oh, this record cannot be delete because there is other data using it."}
+                return render(request, 'core/errormessage.html', data)
     else:
         data = { 'userProfile': UserProfile.objects.get(User=request.user),
                  'obj': userprofile,
@@ -158,8 +165,14 @@ def genreUpdate(request, id):
 def genreDelete(request, id):
     genre = Genre.objects.get(id=id)
     if request.method == 'POST':
-        genre.delete()
-        return redirect('core_genre_list')
+        try:
+            genre.delete()
+            return redirect('core_genre_list')
+        except Exception as err:
+            if err.__class__ == django.db.utils.IntegrityError:
+                data = {'userProfile': UserProfile.objects.get(User=request.user),
+                        'errormessage': "Uh oh, this record cannot be delete because there is other data using it."}
+                return render(request, 'core/errormessage.html', data)
     else:
         data = { 'userProfile': UserProfile.objects.get(User=request.user),
                  'obj': genre,
@@ -221,8 +234,14 @@ def countryUpdate(request, id):
 def countryDelete(request, id):
     country = Country.objects.get(id=id)
     if request.method == 'POST':
-        country.delete()
-        return redirect('core_country_list')
+        try:
+            country.delete()
+            return redirect('core_country_list')
+        except Exception as err:
+            if err.__class__ == django.db.utils.IntegrityError:
+                data = {'userProfile': UserProfile.objects.get(User=request.user),
+                        'errormessage': "Uh oh, this record cannot be delete because there is other data using it."}
+                return render(request, 'core/errormessage.html', data)
     else:
         data = { 'userProfile': UserProfile.objects.get(User=request.user),
                  'obj': country,
@@ -285,8 +304,14 @@ def roleUpdate(request, id):
 def roleDelete(request, id):
     role = Role.objects.get(id=id)
     if request.method == 'POST':
-        role.delete()
-        return redirect('core_role_list')
+        try:
+            role.delete()
+            return redirect('core_role_list')
+        except Exception as err:
+            if err.__class__ == django.db.utils.IntegrityError:
+                data = {'userProfile': UserProfile.objects.get(User=request.user),
+                        'errormessage': "Uh oh, this record cannot be delete because there is other data using it."}
+                return render(request, 'core/errormessage.html', data)
     else:
         data = { 'userProfile': UserProfile.objects.get(User=request.user),
                  'obj': role,
@@ -348,8 +373,14 @@ def distributorUpdate(request, id):
 def distributorDelete(request, id):
     distributor = Distributor.objects.get(id=id)
     if request.method == 'POST':
-        distributor.delete()
-        return redirect('core_distributor_list')
+        try:
+            distributor.delete()
+            return redirect('core_distributor_list')
+        except Exception as err:
+            if err.__class__ == django.db.utils.IntegrityError:
+                data = {'userProfile': UserProfile.objects.get(User=request.user),
+                        'errormessage': "Uh oh, this record cannot be delete because there is other data using it."}
+                return render(request, 'core/errormessage.html', data)
     else:
         data = { 'userProfile': UserProfile.objects.get(User=request.user),
                  'obj': distributor,
@@ -411,8 +442,14 @@ def languageUpdate(request, id):
 def languageDelete(request, id):
     language = Language.objects.get(id=id)
     if request.method == 'POST':
-        language.delete()
-        return redirect('core_language_list')
+        try:
+            language.delete()
+            return redirect('core_language_list')
+        except Exception as err:
+            if err.__class__ == django.db.utils.IntegrityError:
+                data = {'userProfile': UserProfile.objects.get(User=request.user),
+                        'errormessage': "Uh oh, this record cannot be delete because there is other data using it."}
+                return render(request, 'core/errormessage.html', data)
     else:
         data = { 'userProfile': UserProfile.objects.get(User=request.user),
                  'obj': language,
@@ -474,8 +511,14 @@ def typeofartworkUpdate(request, id):
 def typeofartworkDelete(request, id):
     typeofartwork = TypeOfArtwork.objects.get(id=id)
     if request.method == 'POST':
-        typeofartwork.delete()
-        return redirect('core_typeofartwork_list')
+        try:
+            typeofartwork.delete()
+            return redirect('core_typeofartwork_list')
+        except Exception as err:
+            if err.__class__ == django.db.utils.IntegrityError:
+                data = {'userProfile': UserProfile.objects.get(User=request.user),
+                        'errormessage': "Uh oh, this record cannot be delete because there is other data using it."}
+                return render(request, 'core/errormessage.html', data)
     else:
         data = { 'userProfile': UserProfile.objects.get(User=request.user),
                  'obj': typeofartwork,
@@ -554,8 +597,14 @@ def personUpdate(request, id):
 def personDelete(request, id):
     person = Person.objects.get(id=id)
     if request.method == 'POST':
-        person.delete()
-        return redirect('core_person_list')
+        try:
+            person.delete()
+            return redirect('core_person_list')
+        except Exception as err:
+            if err.__class__ == django.db.utils.IntegrityError:
+                data = {'userProfile': UserProfile.objects.get(User=request.user),
+                        'errormessage': "Uh oh, this record cannot be delete because there is other data using it."}
+                return render(request, 'core/errormessage.html', data)
     else:
         data = { 'userProfile': UserProfile.objects.get(User=request.user),
                  'obj': person,
@@ -636,8 +685,14 @@ def artworkUpdate(request, id):
 def artworkDelete(request, id):
     artwork = Artwork.objects.get(id=id)
     if request.method == 'POST':
-        artwork.delete()
-        return redirect('core_artwork_list')
+        try:
+            artwork.delete()
+            return redirect('core_artwork_list')
+        except Exception as err:
+            if err.__class__ == django.db.utils.IntegrityError:
+                data = {'userProfile': UserProfile.objects.get(User=request.user),
+                        'errormessage': "Uh oh, this record cannot be delete because there is other data using it."}
+                return render(request, 'core/errormessage.html', data)
     else:
         data = { 'userProfile': UserProfile.objects.get(User=request.user),
                  'obj': artwork,

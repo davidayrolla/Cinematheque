@@ -124,7 +124,7 @@ class Artwork(Base):
 class Membership(models.Model):
     Person = models.ForeignKey(Person, on_delete=models.CASCADE)
     Artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE)
-    Role = models.ForeignKey(Role, on_delete=models.CASCADE)
+    Role = models.ForeignKey(Role, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return f'{self.Artwork} - {self.Person} ({self.Role})'
