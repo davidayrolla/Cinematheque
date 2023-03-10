@@ -101,6 +101,7 @@ class Artwork(Base):
     OriginalTitle = models.CharField(max_length=100)
     TitleEN = models.CharField(max_length=100, null=True, blank=True)
     TitlePT_BR = models.CharField(max_length=100, null=True, blank=True)
+    TypeOfArtwork = models.ForeignKey(TypeOfArtwork, on_delete=models.DO_NOTHING)
     ReleaseYear = models.IntegerField(null=True, blank=True)
     RunTime = models.IntegerField(null=True, blank=True)
     Image = models.ImageField(upload_to='artwork_photos', null=True, blank=True)
