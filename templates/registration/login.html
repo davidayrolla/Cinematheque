@@ -41,9 +41,14 @@
         <div class="wrap-login100" style="padding: 20px; width: 300px;">
             <form class="login100-form validate-form" method="post" action="{% url 'login' %}">
                 {% csrf_token %}
-                <H2 style="text-align: center; padding-bottom: 15px">
-                    Login XPTO
-                </H2>
+                <H3 style="text-align: center; padding-bottom: 15px">
+                    Login
+                </H3>
+                <p style="font-size: 12px; padding-bottom: 20px">
+                    Dear guest, the objective of this site is a demonstration. You can browse and modify any information.
+                    Any modifications you make will be overwritten in a few days.<BR>
+                    Please use <b>guest</b> as login and <b>guest1234</b> as password to login and enjoy!
+                </p>
                 <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is required">
                     <span class="label-input100">Username</span>
                     <input class="input100" type="text" name="username" autofocus autocomplete="username"
@@ -73,6 +78,5 @@
     <a class="btn btn-success" href="{% url 'core_index' %}">Go to main page</a>
 
 </div>
-
 
 {% endblock %}
