@@ -1258,7 +1258,7 @@ legend {
 }
 
 .s004 form .inner-form .input-field .choices .choices__inner {
-  min-height: 70px;
+  min-height: 10px;
   width: 100%;
   background: transparent;
   border: 0;
