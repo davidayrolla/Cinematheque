@@ -1374,3 +1374,17 @@ legend {
   margin-right: 10px;
   margin-bottom: 10px;
 }
+
+
+.btn-lupa
+{
+  background-color: ffffff;
+  max-width: 50px;
+  border-radius: 50%;
+}
+
+.btn-lupa:hover
+{
+  background-color: lightblue !important;
+  filter: invert(0%);
+}
