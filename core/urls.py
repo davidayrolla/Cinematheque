@@ -6,6 +6,8 @@ urlpatterns = [
     re_path(r'index', index, name='core_index'),
     re_path(r'home', home, name='core_home'),
 
+    re_path(r'search', search, name='core_search'),
+
     re_path(r'userprofilelist', userprofileList, name='core_userprofile_list'),
     re_path(r'userprofileinsert', userprofileInsert, name='core_userprofile_insert'),
     re_path(r'userprofileupdate/(?P<id>\d+)/$', userprofileUpdate, name='core_userprofile_update'),

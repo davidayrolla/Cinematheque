@@ -1,71 +1,36 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}"/>
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link rel="stylesheet" href="{% static 'login.css' %}">
-    <script src="{% static 'functions.js' %}"></script>
-    <title>Cinematheque</title>
+{% extends "baseindex.html" %}
 
-    <style>
-        html, body {
-          height: 100%;
-          margin: 0;
-        }
-    </style>
+{% block contents %}
 
-</head>
-<body style="background: #DDDDDD; height: 100%;">
+    <div class="row">
+        Welcome to Cinematheque!
+        <a class="btn btn-info" href="{% url 'core_home' %}">Click here to access the database.</a>
+    </div>
+    <br>
 
-    <div class="container" style="background: #FFFFFF; height: 100%">
+    <div class="s004">
+      <form action="{% url 'core_search' %}" method="GET" enctype="multipart/form-data">
 
-        <div class="row" style="background: #102768; height: 85px; padding: 20px">
-            <a href="{% url 'core_index' %}">
-              <img src="{% static 'img/logoCinematheque.png' %}" width="300px">
-            </a>
-        </div>
+        <fieldset>
+          <div class="inner-form">
+            <div class="input-field">
 
-        <div style="padding-top: 20px; padding-left: 20px; padding-right: 20px;">
-            <div class="row">
-                Welcome to Cinematheque!
-                <a class="btn btn-info" href="{% url 'core_home' %}">Click here to access the database.</a>
-            </div>
-            <br>
-
-            <div class="s004">
-              <form>
-                <fieldset>
-                  <div class="inner-form">
-                    <div class="input-field">
-                        <div class="choices" data-type="text" aria-haspopup="true" aria-expanded="false" dir="ltr">
-                            <div class="choices__inner" style="background-color: #eeeeee">
-                                <input class="form-control choices__input is-hidden" id="choices-text-preset-values" type="text" placeholder="Type to search..." tabindex="-1" style="display:none;" aria-hidden="true" data-choice="active" value="">
-                                <div class="choices__list choices__list--multiple"></div>
-                                <input type="text" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="Type to search..." style="width: 109px;">
-                            </div>
-                            <div class="choices__list choices__list--dropdown" aria-expanded="false">
-                        </div>
-
-                      <button class="btn-lupa btn-search" type="button" onclick="alert('Foi')">
-                        <svg class="xbtn-lupa" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                          <path class="btn-lupa" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                        </svg>
-                      </button>
+                <div class="choices" data-type="text" aria-haspopup="true" aria-expanded="false" dir="ltr">
+                    <div class="choices__inner" style="background-color: #eeeeee">
+                        <input name="texttoSearch" type="text" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="off" spellcheck="false" role="textbox"
+                               aria-autocomplete="list" placeholder="Type to search..." style="width: 100%" maxlength="100">
                     </div>
-                </fieldset>
-              </form>
+                </div>
+
+              <button class="btn-lupa btn-search" type="submit">
+                <svg class="xbtn-lupa" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path class="btn-lupa" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+              </button>
+
             </div>
-
-        </div>
-
+        </fieldset>
+      </form>
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
-
-</body>
-</html>
+{% endblock %}

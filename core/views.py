@@ -26,6 +26,11 @@ def home(request):
         return redirect('login')
 
 
+def search(request):
+    data = {'result': request.GET['texttoSearch']}
+    return render(request, 'core/resultssearch.html', data )
+
+
 #-------- Userprofile views
 @login_required
 def userprofileList(request):
