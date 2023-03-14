@@ -1,7 +1,114 @@
 {% extends "baseindex.html" %}
-
+{% load static %}
 {% block contents %}
 
-    <h1>{{ result }}</h1>
+    <h1>Search results for <i>"{{ strtosearch }}"</i>:</h1>
+
+    {% if artworks %}
+        <h4 style="padding-top: 20px">Artworks</h4>
+        <div class="col">
+             <table class="table table-striped">
+                 <thead class="bgheadlist">
+                   <tr>
+                     <th scope="col">Image</th>
+                     <th scope="col">Title</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                 {% for artwork in artworks %}
+                   <tr>
+                     <td width="100px">
+                         <a href="{% url 'core_artwork_update' artwork.id %}">
+                            {% if artwork.Image %}
+                                <img src="{{artwork.Image.url}}" width="60px"/>
+                            {% else %}
+                                <img src="{% static 'img/no_img.png' %}" width="60px"/>
+                            {% endif %}
+                         </a>
+                     </td>
+                     <td>
+                         <h6><a href="{% url 'core_artwork_update' artwork.id %}">{{artwork}}</a></h6>
+                         <div style="font-size: 12px">
+                            {% if artwork.Country.Flag %}
+                                <img src="{{artwork.Country.Flag.url}}" width="30"/>
+                            {% else %}
+                                {% if artwork.Country %}
+                                    {{artwork.Country}},
+                                {% endif %}
+                            {% endif %}
+                            <span style="padding-left: 5px">
+                                {% if artwork.OriginalTitle %}
+                                    {{artwork.OriginalTitle}}
+                                {% endif %}
+                                {% if artwork.ReleaseYear %}
+                                    ({{artwork.ReleaseYear}})
+                                {% endif %}
+                            </span><BR>
+                            {% if artwork.RunTime %}
+                               {{artwork.RunTime}} min.<BR>
+                            {% endif %}
+                            {% if artwork.Genres %}
+                               {{artwork.listGenres}}<BR>
+                            {% endif %}
+                         </div>
+                     </td>
+                   </tr>
+                   {% endfor %}
+                 </tbody>
+             </table>
+
+        </div>
+    {% endif %}
+
+    {% if persons %}
+        <h4  style="padding-top: 20px">Persons</h4>
+        <div class="col">
+         <table class="table table-striped">
+             <thead class="bgheadlist">
+               <tr>
+                 <th scope="col">Photo</th>
+                 <th scope="col">Name</th>
+               </tr>
+             </thead>
+             <tbody>
+             {% for person in persons %}
+               <tr>
+                 <td width="100px">
+                    <a href="{% url 'core_person_update' person.id %}">
+                        {% if person.Photo %}
+                            <img src="{{person.Photo.url}}" width="60px"/>
+                        {% else %}
+                            <img src="{% static 'img/no_img.png' %}" width="60px"/>
+                        {% endif %}
+                    </a>
+                 </td>
+                 <td>
+                     <h6><a href="{% url 'core_person_update' person.id %}">{{person.Name}}</a></h6>
+                     <div style="font-size: 12px">
+                         {% if person.DateOfBirth %}
+                            Date of birth: {{person.DateOfBirth}}<br>
+                         {% endif %}
+                         {% if person.DateOfDeath %}
+                            Date of death: {{person.DateOfDeath}}<br>
+                         {% endif %}
+                         {% if person.CountryOfBirth.Flag %}
+                            <img src="{{person.CountryOfBirth.Flag.url}}" width="30"/>
+                        {% else %}
+                            {% if person.CountryOfBirth %}
+                                Country of birth: {{person.CountryOfBirth}}
+                            {% endif %}
+                        {% endif %}
+                     </div>
+                 </td>
+               </tr>
+               {% endfor%}
+             </tbody>
+         </table>
+        </div>
+    {% endif %}
+
+    {% if not artworks and not persons %}
+        Sorry, no results found for  <i>"{{ strtosearch }}"</i>.
+    {% endif %}
 
 {% endblock %}

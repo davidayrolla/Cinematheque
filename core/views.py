@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Coalesce
@@ -27,7 +28,30 @@ def home(request):
 
 
 def search(request):
-    data = {'result': request.GET['texttoSearch']}
+    strtoSearch = request.GET['texttoSearch'].strip()
+
+    artworks = Artwork.objects.filter(
+        Q( OriginalTitle__contains = strtoSearch ) |
+        Q( TitleEN__contains = strtoSearch ) |
+        Q( TitlePT_BR__contains = strtoSearch) |
+        Q( ReleaseYear__contains = strtoSearch) |
+        Q( Country__NameEN__iexact = strtoSearch) |
+        Q( Country__NamePT_BR__iexact = strtoSearch)
+    )
+
+    persons = Person.objects.filter(
+        Q( Name__contains = strtoSearch ) |
+        Q( DateOfBirth__contains = strtoSearch) |
+        Q( DateOfDeath__contains = strtoSearch) |
+        Q( CountryOfBirth__NameEN__iexact = strtoSearch) |
+        Q( CountryOfBirth__NamePT_BR__iexact = strtoSearch)
+    )
+
+    data = {'strtosearch': strtoSearch,
+            'artworks': artworks,
+            'persons': persons,
+            }
+
     return render(request, 'core/resultssearch.html', data )
 
 
