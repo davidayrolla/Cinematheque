@@ -86,10 +86,10 @@
                      <h6><a href="{% url 'core_person_update' person.id %}">{{person.Name}}</a></h6>
                      <div style="font-size: 12px">
                          {% if person.DateOfBirth %}
-                            Date of birth: {{person.DateOfBirth}}<br>
+                            Birth: {{person.DateOfBirth}}<br>
                          {% endif %}
                          {% if person.DateOfDeath %}
-                            Date of death: {{person.DateOfDeath}}<br>
+                            Death: {{person.DateOfDeath}}<br>
                          {% endif %}
                          {% if person.CountryOfBirth.Flag %}
                             <img src="{{person.CountryOfBirth.Flag.url}}" width="30"/>
