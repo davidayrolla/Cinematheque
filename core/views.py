@@ -22,10 +22,14 @@ def home(request):
     if request.user.is_authenticated:
         artwork = Artwork.objects.latest('DateTimeOfLastUpdate')
         person = Person.objects.latest('DateTimeOfLastUpdate')
+        numartworks = Artwork.objects.all().count()
+        numpeople = Person.objects.all().count()
 
         data = {
             'latestartwork': artwork,
             'latestperson': person,
+            'numartworks': numartworks,
+            'numpeople': numpeople,
             'userProfile': UserProfile.objects.get(User=request.user),
         }
 

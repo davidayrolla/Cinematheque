@@ -10,7 +10,7 @@
         <img src="{% static 'img/movie-film-popcorn.png' %}" width="170 px" class="center">
 
 
-    <div class="row" style="padding-bottom: 50px">
+    <div class="row" style="padding-bottom: 20px">
         <p class="text" style="font-size:12px; text-align: center">
             You can browse and modify any information.<BR>
             These tools and database were created for a demonstration.<BR>
@@ -21,72 +21,79 @@
         </p>
     </div>
 
-<div class="row" style="justify-content: center;">
-
-  <div style="width: 50rem;  display: flex; justify-content: space-around; flex-wrap: wrap">
-
-    <a href="{% url 'core_artwork_update' latestartwork.id %}" class="cardhome">
-        <div class="card mb-3 text-bg-light" style="background-color: #ffffff !important; width: 300px">
-          <div class="row g-0 flex-nowrap">
-            <table>
-                <tr>
-                    <td style="100px">
-                          {% if latestartwork.Image %}
-                              <img src="{{latestartwork.Image.url}}" class="card-img-top" alt="Latest movie" style="width: 100px"/>
-                          {% else %}
-                              <img src="{% static 'img/no_img.png' %}" class="card-img-top" alt="Latest movie" style="width: 100px"/>
-                          {% endif %}
-                    </td>
-                    <td style="200px">
-                      <div class="card-body">
-                          <span class="card-text">Last updated artwork:</span>
-                          <h5 class="card-title">{{latestartwork}}</h5>
-                          {% if latestartwork.Country.Flag %}
-                            <img src="{{latestartwork.Country.Flag.url}}" width="30"/>
-                          {% endif %}
-                         <p class="card-text"><small class="text-muted">Update: <BR>
-                             <i>{{latestartwork.DateTimeOfLastUpdate|date:"M d Y"}}</i></small></p>
-                      </div>
-                    </td>
-
-                </tr>
-            </table>
-          </div>
+    <div style="display: flex; justify-content: center; padding-bottom: 30px">
+        <div style="text-align: center; width: 300px; padding: 10px; background-color: #dddddd;
+         border: 1px; border-style: none">
+                There are <b>{{numartworks}} artworks</b> and <b>{{numpeople}} people</b> currently registered in the database.
         </div>
-    </a>
+    </div>
 
-    <a href="{% url 'core_person_update' latestperson.id %}" class="cardhome">
-        <div class="card mb-3 text-bg-light" style="background-color: #ffffff !important; width: 300px">
-          <div class="row g-0 flex-nowrap">
-            <table>
-                <tr>
-                    <td style="100px">
-                          {% if latestperson.Photo %}
-                              <img src="{{latestperson.Photo.url}}" class="card-img-top" alt="Latest movie" style="width: 100px"/>
-                          {% else %}
-                              <img src="{% static 'img/no_img.png' %}" class="card-img-top" alt="Latest movie" style="width: 100px"/>
-                          {% endif %}
-                    </td>
-                    <td style="200px">
-                      <div class="card-body">
-                          <span class="card-text">Last updated person:</span>
-                          <h5 class="card-title">{{latestperson}}</h5>
-                          {% if latestperson.CountryOfBirth.Flag %}
-                            <img src="{{latestperson.CountryOfBirth.Flag.url}}" width="30"/>
-                          {% endif %}
-                         <p class="card-text"><small class="text-muted">Update: <BR>
-                             <i>{{latestperson.DateTimeOfLastUpdate|date:"M d Y"}}</i></small></p>
-                      </div>
-                    </td>
+    <div class="row" style="justify-content: center;">
 
-                </tr>
-            </table>
-          </div>
-        </div>
-    </a>
+      <div style="width: 50rem;  display: flex; justify-content: space-around; flex-wrap: wrap">
 
-  </div>
+        <a href="{% url 'core_artwork_update' latestartwork.id %}" class="cardhome">
+            <div class="card mb-3 text-bg-light" style="background-color: #ffffff !important; width: 300px">
+              <div class="row g-0 flex-nowrap">
+                <table>
+                    <tr>
+                        <td style="100px">
+                              {% if latestartwork.Image %}
+                                  <img src="{{latestartwork.Image.url}}" class="card-img-top" alt="Latest movie" style="width: 100px"/>
+                              {% else %}
+                                  <img src="{% static 'img/no_img.png' %}" class="card-img-top" alt="Latest movie" style="width: 100px"/>
+                              {% endif %}
+                        </td>
+                        <td style="200px">
+                          <div class="card-body">
+                              <span class="card-text">Last updated artwork:</span>
+                              <h5 class="card-title">{{latestartwork}}</h5>
+                              {% if latestartwork.Country.Flag %}
+                                <img src="{{latestartwork.Country.Flag.url}}" width="30"/>
+                              {% endif %}
+                             <p class="card-text"><small class="text-muted">Update: <BR>
+                                 <i>{{latestartwork.DateTimeOfLastUpdate|date:"M d Y"}}</i></small></p>
+                          </div>
+                        </td>
 
-</div>
+                    </tr>
+                </table>
+              </div>
+            </div>
+        </a>
+
+        <a href="{% url 'core_person_update' latestperson.id %}" class="cardhome">
+            <div class="card mb-3 text-bg-light" style="background-color: #ffffff !important; width: 300px">
+              <div class="row g-0 flex-nowrap">
+                <table>
+                    <tr>
+                        <td style="100px">
+                              {% if latestperson.Photo %}
+                                  <img src="{{latestperson.Photo.url}}" class="card-img-top" alt="Latest movie" style="width: 100px"/>
+                              {% else %}
+                                  <img src="{% static 'img/no_img.png' %}" class="card-img-top" alt="Latest movie" style="width: 100px"/>
+                              {% endif %}
+                        </td>
+                        <td style="200px">
+                          <div class="card-body">
+                              <span class="card-text">Last updated person:</span>
+                              <h5 class="card-title">{{latestperson}}</h5>
+                              {% if latestperson.CountryOfBirth.Flag %}
+                                <img src="{{latestperson.CountryOfBirth.Flag.url}}" width="30"/>
+                              {% endif %}
+                             <p class="card-text"><small class="text-muted">Update: <BR>
+                                 <i>{{latestperson.DateTimeOfLastUpdate|date:"M d Y"}}</i></small></p>
+                          </div>
+                        </td>
+
+                    </tr>
+                </table>
+              </div>
+            </div>
+        </a>
+
+      </div>
+
+    </div>
 
 {% endblock %}
