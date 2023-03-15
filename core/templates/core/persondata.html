@@ -89,5 +89,15 @@
         </div>
     {% endif %}
 
-    <BR>
+        <div class="text-success" style="padding-top: 10px">
+            <hr>
+        </div>
+
+        <p style="font-size: 12px">
+        Inserted by {{person.InsertUser|capfirst}}, on {{person.DateTimeOfInsert|date:"d M Y H:i"}}.<BR>
+        {% if person.LastUpdateUser %}
+            Last changed by {{person.InsertUser|capfirst}}, on {{person.DateTimeOfLastUpdate|date:"d M Y H:i"}}.
+        {% endif %}
+        </p>
+
 {% endblock %}

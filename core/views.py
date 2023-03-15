@@ -6,7 +6,15 @@ import django.db.utils
 from .forms import *
 
 def index(request):
-    return render(request, 'core/index.html' )
+    artwork = Artwork.objects.latest('DateTimeOfLastUpdate')
+    person = Person.objects.latest('DateTimeOfLastUpdate')
+
+    data = {
+        'latestartwork': artwork,
+        'latestperson': person,
+    }
+
+    return render(request, 'core/index.html', data )
 
 
 def home(request):

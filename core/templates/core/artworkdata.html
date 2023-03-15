@@ -127,5 +127,14 @@
         </div>
     {% endif %}
 
-    <BR>
+        <div class="text-success" style="padding-top: 10px">
+            <hr>
+        </div>
+
+        <p style="font-size: 12px">
+        Inserted by {{artwork.InsertUser|capfirst}}, on {{artwork.DateTimeOfInsert|date:"d M Y H:i"}}.<BR>
+        {% if artwork.LastUpdateUser %}
+            Last changed by {{artwork.InsertUser|capfirst}}, on {{artwork.DateTimeOfLastUpdate|date:"d M Y H:i"}}.
+        {% endif %}
+        </p>
 {% endblock %}
