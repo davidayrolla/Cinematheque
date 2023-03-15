@@ -645,7 +645,7 @@ def personDelete(request, id):
 
 def personData(request, id):
     person = Person.objects.get(id=id)
-    artworks = Membership.objects.filter(Person=person)
+    artworks = Membership.objects.filter(Person=person).order_by('Role_id', 'Artwork__OriginalTitle')
 
     data = { 'person': person,
              'artworks': artworks}
@@ -744,8 +744,7 @@ def artworkDelete(request, id):
 
 def artworkData(request, id):
     artwork = Artwork.objects.get(id=id)
-    # members = artwork.Members.all()
-    members = Membership.objects.filter(Artwork=artwork)
+    members = Membership.objects.filter(Artwork=artwork).order_by('Role_id', 'Person__Name')
 
     data = { 'artwork': artwork,
              'members': members }
