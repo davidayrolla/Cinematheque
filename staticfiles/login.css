@@ -5,10 +5,11 @@
 a {
 	font-size: 14px;
 	line-height: 1.7;
-	color: #666666;
+
 	margin: 0px;
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
+    text-decoration: none;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
 }
@@ -19,7 +20,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #a64bf4;
+    color: #0a58ca;
 }
 
 /*---------------------------------------------*/
@@ -1373,4 +1374,41 @@ legend {
   border-radius: 16px;
   margin-right: 10px;
   margin-bottom: 10px;
+}
+
+
+.btn-lupa
+{
+  background-color: ffffff;
+  max-width: 50px;
+  border-radius: 50%;
+}
+
+.btn-lupa:hover
+{
+  background-color: lightblue !important;
+  filter: invert(0%);
+}
+
+
+.legenddetail{
+
+}
+
+.datadetail{
+    font-weight: bold;
+}
+
+.titledetail{
+    font-size: calc(1.325rem + 0.9vw);
+    font-weight: 500;
+}
+
+.celldetails{
+    padding-top: 15px;
+    vertical-align: top;
+}
+
+.griddetails{
+    font-size: 14px
 }

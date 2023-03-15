@@ -1,3 +1,8 @@
+a {
+    text-decoration: none;
+}
+
+
 .nav-item-local:hover {
     color: #ffffff;
     background-color: #444;
