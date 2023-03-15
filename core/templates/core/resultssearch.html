@@ -18,7 +18,7 @@
                  {% for artwork in artworks %}
                    <tr>
                      <td width="100px">
-                         <a href="{% url 'core_artwork_update' artwork.id %}">
+                         <a href="{% url 'core_artwork_data' artwork.id %}">
                             {% if artwork.Image %}
                                 <img src="{{artwork.Image.url}}" width="60px"/>
                             {% else %}
@@ -27,7 +27,7 @@
                          </a>
                      </td>
                      <td>
-                         <h6><a href="{% url 'core_artwork_update' artwork.id %}">{{artwork}}</a></h6>
+                         <h6><a href="{% url 'core_artwork_data' artwork.id %}">{{artwork}}</a></h6>
                          <div style="font-size: 12px">
                             <span>
                             {% if artwork.OriginalTitle %}
@@ -76,7 +76,7 @@
              {% for person in persons %}
                <tr>
                  <td width="100px">
-                    <a href="{% url 'core_person_update' person.id %}">
+                    <a href="{% url 'core_person_data' person.id %}">
                         {% if person.Photo %}
                             <img src="{{person.Photo.url}}" width="60px"/>
                         {% else %}
@@ -85,7 +85,7 @@
                     </a>
                  </td>
                  <td>
-                     <h6><a href="{% url 'core_person_update' person.id %}">{{person.Name}}</a></h6>
+                     <h6><a href="{% url 'core_person_data' person.id %}">{{person.Name}}</a></h6>
                      <div style="font-size: 12px">
                          {% if person.DateOfBirth %}
                             Birth: {{person.DateOfBirth}}<br>

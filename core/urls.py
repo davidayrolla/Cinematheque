@@ -47,10 +47,12 @@ urlpatterns = [
     re_path(r'personinsert', personInsert, name='core_person_insert'),
     re_path(r'personupdate/(?P<id>\d+)/$', personUpdate, name='core_person_update'),
     re_path(r'persondelete/(?P<id>\d+)/$', personDelete, name='core_person_delete'),
+    re_path(r'persondata/(?P<id>\d+)/$', personData, name='core_person_data'),
 
     re_path(r'artworklist', artworkList, name='core_artwork_list'),
     re_path(r'artworkinsert', artworkInsert, name='core_artwork_insert'),
     re_path(r'artworkupdate/(?P<id>\d+)/$', artworkUpdate, name='core_artwork_update'),
     re_path(r'artworkdelete/(?P<id>\d+)/$', artworkDelete, name='core_artwork_delete'),
+    re_path(r'artworkdata/(?P<id>\d+)/$', artworkData, name='core_artwork_data'),
 
 ]

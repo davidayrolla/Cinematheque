@@ -1,0 +1,131 @@
+{% extends "baseindex.html" %}
+{% load static %}
+{% block contents %}
+
+    <div class="row row-cols-1">
+        <div class="col-sm-7" style="padding-bottom: 8px">
+
+              <span class="titledetail">{{artwork}}</span><BR>
+
+              <i>{{artwork.TypeOfArtwork}}</i> <BR>
+
+              {% if artwork.Genres %}
+                <span class="legenddetail">{{artwork.listGenres}}</span><BR>
+              {% endif %}
+
+              <div class="legenddetail celldetails">
+                  {% if artwork.Country.Flag %}
+                    <img src="{{artwork.Country.Flag.url}}" width="50"/>
+                  {% endif %}
+                  {% if artwork.Country %}
+                      {{artwork.Country}},
+                  {% endif %}
+
+                  {% if artwork.ReleaseYear %}
+                    {{artwork.ReleaseYear}}
+                  {% endif %}
+              </div>
+
+              <table>
+                  <tr>
+                      <td width="150px"></td>
+                      <td></td>
+                  </tr>
+
+                  {% if artwork.OriginalTitle %}
+                  <tr>
+                    <td class="celldetails"><span class="legenddetail">Original Title:</span></td>
+                    <td class="celldetails"><span class="datadetail">{{artwork.OriginalTitle}}</span></td>
+                  </tr>
+                  {% endif %}
+
+                  {% if artwork.TitleEN %}
+                  <tr>
+                    <td class="celldetails"><span class="legenddetail">English Title:</span></td>
+                    <td class="celldetails"><span class="datadetail">{{artwork.TitleEN}}</span></td>
+                  </tr>
+                  {% endif %}
+
+                  {% if artwork.TitlePT_BR %}
+                  <tr>
+                    <td class="celldetails"><span class="legenddetail">Portuguese Title:</span></td>
+                    <td class="celldetails"><span class="datadetail">{{artwork.TitlePT_BR}}</span></td>
+                  </tr>
+                  {% endif %}
+
+                  {% if artwork.RunTime %}
+                  <tr>
+                    <td class="celldetails"><span class="legenddetail">Run Time:</span></td>
+                    <td class="celldetails"><span class="datadetail">{{artwork.RunTime}} minutes</span></td>
+                  </tr>
+                  {% endif %}
+
+                  {% if artwork.OriginalLanguage %}
+                  <tr>
+                    <td class="celldetails"><span class="legenddetail">Original Language:</span></td>
+                    <td class="celldetails"><span class="datadetail">{{artwork.OriginalLanguage}}</span></td>
+                  </tr>
+                  {% endif %}
+
+                  {% if artwork.Distributors %}
+                  <tr>
+                    <td class="celldetails"><span class="legenddetail">Distributors:</span></td>
+                    <td class="celldetails"><span class="datadetail">{{artwork.listDistributors}}</span></td>
+                  </tr>
+                  {% endif %}
+
+              </table>
+
+        </div>
+
+        <div class="col-sm-5"  style="display: flex; justify-content: space-around">
+            {% if artwork.Image %}
+                <img src="{{artwork.Image.url}}" width="300"/>
+            {% else %}
+                <img src="{% static 'img/no_img.png' %}" width="300"/>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if members %}
+        <h5  style="padding-top: 20px">Cast/Crew</h5>
+        <div class="col">
+         <table class="table table-striped">
+             <thead class="bgheadlist">
+               <tr>
+                 <th scope="col">Photo</th>
+                 <th scope="col">Name</th>
+                 <th scope="col">Role</th>
+               </tr>
+             </thead>
+             <tbody>
+             {% for member in members %}
+               <tr>
+                 <td width="60px" style="vertical-align: middle">
+                    <a href="{% url 'core_person_data' member.Person.id %}">
+                        {% if member.Person.Photo %}
+                            <img src="{{member.Person.Photo.url}}" width="30px"/>
+                        {% else %}
+                            <img src="{% static 'img/no_img.png' %}" width="30px"/>
+                        {% endif %}
+                    </a>
+                 </td>
+                 <td width="200px" style="vertical-align: middle">
+                     <h6>
+                        <a class="griddetails" href="{% url 'core_person_data' member.Person.id %}">
+                            {{member.Person.Name}}
+                        </a>
+                     </h6>
+                 </td>
+                 <td style="vertical-align: middle">
+                     <span class="griddetails">{{member.Role}}</span>
+                 </td>
+               </tr>
+               {% endfor%}
+             </tbody>
+         </table>
+        </div>
+    {% endif %}
+
+    <BR>
+{% endblock %}

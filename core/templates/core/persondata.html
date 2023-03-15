@@ -1,0 +1,93 @@
+{% extends "baseindex.html" %}
+{% load static %}
+{% block contents %}
+
+    <div class="row row-cols-1">
+        <div class="col-sm-7" style="padding-bottom: 8px">
+
+            <span class="titledetail">{{person}}</span><BR>
+
+              <div class="legenddetail celldetails">
+                  {% if person.CountryOfBirth.Flag %}
+                    <img src="{{person.CountryOfBirth.Flag.url}}" width="50"/>
+                  {% endif %}
+                  {% if person.CountryOfBirth %}
+                      {{person.CountryOfBirth}}
+                  {% endif %}
+              </div>
+
+              <table>
+                  <tr>
+                      <td width="150px"></td>
+                      <td></td>
+                  </tr>
+
+                  {% if person.DateOfBirth %}
+                  <tr>
+                    <td class="celldetails"><span class="legenddetail">Date of Birth:</span></td>
+                    <td class="celldetails"><span class="datadetail">{{person.DateOfBirth}}</span></td>
+                  </tr>
+                  {% endif %}
+
+                  {% if person.DateOfDeath %}
+                  <tr>
+                    <td class="celldetails"><span class="legenddetail">Date of Death:</span></td>
+                    <td class="celldetails"><span class="datadetail">{{person.DateOfDeath}}</span></td>
+                  </tr>
+                  {% endif %}
+
+              </table>
+        </div>
+
+        <div class="col-sm-5" style="display: flex; justify-content: space-around;">
+            {% if person.Photo %}
+                <img src="{{person.Photo.url}}" width="200"/>
+            {% else %}
+                <img src="{% static 'img/no_img.png' %}" width="300"/>
+            {% endif %}
+        </div>
+    </div>
+
+
+    {% if artworks %}
+        <h5  style="padding-top: 20px">Filmography</h5>
+        <div class="col">
+         <table class="table table-striped">
+             <thead class="bgheadlist">
+               <tr>
+                 <th scope="col">Photo</th>
+                 <th scope="col">Name</th>
+                 <th scope="col">Role</th>
+               </tr>
+             </thead>
+             <tbody>
+             {% for artwork in artworks %}
+               <tr>
+                 <td width="60px" style="vertical-align: middle">
+                    <a href="{% url 'core_artwork_data' artwork.Artwork.id %}">
+                        {% if artwork.Artwork.Image %}
+                            <img src="{{artwork.Artwork.Image.url}}" width="30px"/>
+                        {% else %}
+                            <img src="{% static 'img/no_img.png' %}" width="30px"/>
+                        {% endif %}
+                    </a>
+                 </td>
+                 <td width="200px" style="vertical-align: middle">
+                     <h6>
+                        <a class="griddetails" href="{% url 'core_artwork_data' artwork.Artwork.id %}">
+                            {{artwork.Artwork}}
+                        </a>
+                     </h6>
+                 </td>
+                 <td style="vertical-align: middle">
+                     <span class="griddetails">{{artwork.Role}}</span>
+                 </td>
+               </tr>
+               {% endfor%}
+             </tbody>
+         </table>
+        </div>
+    {% endif %}
+
+    <BR>
+{% endblock %}

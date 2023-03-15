@@ -36,8 +36,10 @@ def search(request):
         Q( TitlePT_BR__contains = strtoSearch) |
         Q( ReleaseYear__contains = strtoSearch) |
         Q( Country__NameEN__iexact = strtoSearch) |
-        Q( Country__NamePT_BR__iexact = strtoSearch)
-    )
+        Q( Country__NamePT_BR__iexact = strtoSearch) |
+        Q( Genres__NameEN__iexact = strtoSearch) |
+        Q( Genres__NamePT_BR__iexact = strtoSearch)
+    ).distinct().order_by('OriginalTitle')
 
     persons = Person.objects.filter(
         Q( Name__contains = strtoSearch ) |
@@ -45,7 +47,7 @@ def search(request):
         Q( DateOfDeath__contains = strtoSearch) |
         Q( CountryOfBirth__NameEN__iexact = strtoSearch) |
         Q( CountryOfBirth__NamePT_BR__iexact = strtoSearch)
-    )
+    ).order_by('Name')
 
     data = {'strtosearch': strtoSearch,
             'artworks': artworks,
@@ -641,6 +643,17 @@ def personDelete(request, id):
         return render(request, 'core/delete_confirm.html', data )
 
 
+def personData(request, id):
+    person = Person.objects.get(id=id)
+    artworks = Membership.objects.filter(Person=person)
+
+    data = { 'person': person,
+             'artworks': artworks}
+
+    return render(request, 'core/persondata.html', data)
+
+
+
 
 #-------- Artwork views
 
@@ -728,6 +741,16 @@ def artworkDelete(request, id):
                }
         return render(request, 'core/delete_confirm.html', data )
 
+
+def artworkData(request, id):
+    artwork = Artwork.objects.get(id=id)
+    # members = artwork.Members.all()
+    members = Membership.objects.filter(Artwork=artwork)
+
+    data = { 'artwork': artwork,
+             'members': members }
+
+    return render(request, 'core/artworkdata.html', data)
 
 
 

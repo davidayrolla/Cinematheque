@@ -111,14 +111,24 @@ class Artwork(Base):
     Distributors = models.ManyToManyField(Distributor, null=True, blank=True)
     Members = models.ManyToManyField(Person, null=True, blank=True, through='Membership')
 
-    def __str__(self):
+    def Title(self):
         return self.TitleEN if self.TitleEN else self.OriginalTitle
+
+    def __str__(self):
+        return self.Title()
 
     def listGenres(self):
         all_genres = list( self.Genres.values('NameEN') )
         result = ""
         for genre in all_genres:
             result += genre['NameEN'] + ', '
+        return result[:-2]
+
+    def listDistributors(self):
+        all_distributors = list( self.Distributors.values('Name') )
+        result = ""
+        for distributor in all_distributors:
+            result += distributor['Name'] + ', '
         return result[:-2]
 
 

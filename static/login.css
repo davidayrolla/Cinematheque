@@ -1389,3 +1389,26 @@ legend {
   background-color: lightblue !important;
   filter: invert(0%);
 }
+
+
+.legenddetail{
+
+}
+
+.datadetail{
+    font-weight: bold;
+}
+
+.titledetail{
+    font-size: calc(1.325rem + 0.9vw);
+    font-weight: 500;
+}
+
+.celldetails{
+    padding-top: 15px;
+    vertical-align: top;
+}
+
+.griddetails{
+    font-size: 14px
+}
