@@ -1,8 +1,15 @@
 {% extends "baseindex.html" %}
 {% load static %}
-{% block contents %}
 
-a
+{% block artindex %}
+
+    <div class="row" style="padding-bottom: 30p;">
+        <img src="{% static 'img/artindex.png' %}" style="padding-left: 0; padding-right: 0">
+    </div>
+
+{% endblock %}
+
+{% block contents %}
 
     <div class="row">
         Welcome to Cinematheque!
