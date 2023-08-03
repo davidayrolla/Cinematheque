@@ -17,7 +17,7 @@
                </tr>
              </thead>
              <tbody>
-             {% for country in countries %}
+             {% for country in page_obj %}
                <tr>
                  <td width="300px"><a href="{% url 'core_country_update' country.id %}">{{country.NameEN}}</a></td>
                  <td>

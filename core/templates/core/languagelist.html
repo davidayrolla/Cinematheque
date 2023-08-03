@@ -15,7 +15,7 @@
                </tr>
              </thead>
              <tbody>
-             {% for language in languages %}
+             {% for language in page_obj %}
                <tr>
                  <td><a href="{% url 'core_language_update' language.id %}">{{language.NameEN}}</a></td>
                </tr>

@@ -3,7 +3,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Coalesce
 import django.db.utils
+from django.core.paginator import Paginator
 from .forms import *
+
+
+#Quantidade de itens por página nas consultas
+list_page_count = 10
+
 
 def index(request):
     artwork = Artwork.objects.latest('DateTimeOfLastUpdate')
@@ -53,6 +59,10 @@ def search(request):
         Q( Genres__NamePT_BR__iexact = strtoSearch)
     ).distinct().order_by('OriginalTitle')
 
+    pagArtwork = Paginator(artworks, list_page_count )
+    page_number = request.GET.get("pagart")
+    pageart_obj = pagArtwork.get_page(page_number)
+
     persons = Person.objects.filter(
         Q( Name__contains = strtoSearch ) |
         Q( DateOfBirth__contains = strtoSearch) |
@@ -61,9 +71,13 @@ def search(request):
         Q( CountryOfBirth__NamePT_BR__iexact = strtoSearch)
     ).order_by('Name')
 
+    pagPerson = Paginator(persons, list_page_count )
+    page_number = request.GET.get("pagper")
+    pageper_obj = pagPerson.get_page(page_number)
+
     data = {'strtosearch': strtoSearch,
-            'artworks': artworks,
-            'persons': persons,
+            'pageart_obj': pageart_obj,
+            'pageper_obj': pageper_obj,
             }
 
     return render(request, 'core/resultssearch.html', data )
@@ -73,9 +87,14 @@ def search(request):
 @login_required
 def userprofileList(request):
     usersprofiles = UserProfile.objects.all().order_by('User')
+
+    paginator = Paginator(usersprofiles, list_page_count )
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': UserProfile,
-            'usersprofiles': usersprofiles}
+            'page_obj': page_obj}
     return render(request, 'core/userprofilelist.html', data )
 
 
@@ -160,9 +179,14 @@ def userprofileDelete(request, id):
 @login_required
 def genreList(request):
     genres = Genre.objects.all().order_by('NameEN')
+
+    paginator = Paginator(genres, list_page_count )
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': Genre,
-            'genres': genres}
+            'page_obj': page_obj }
     return render(request, 'core/genrelist.html', data )
 
 
@@ -229,9 +253,14 @@ def genreDelete(request, id):
 @login_required
 def countryList(request):
     countries = Country.objects.all().order_by('NameEN')
+
+    paginator = Paginator(countries, list_page_count )
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': Country,
-            'countries': countries}
+            'page_obj': page_obj }
     return render(request, 'core/countrylist.html', data )
 
 
@@ -299,9 +328,15 @@ def countryDelete(request, id):
 @login_required
 def roleList(request):
     roles = Role.objects.all().order_by('NameEN')
+
+    paginator = Paginator(roles, list_page_count )
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': Role,
-            'roles': roles}
+            'page_obj': page_obj }
+
     return render(request, 'core/rolelist.html', data )
 
 
@@ -368,9 +403,15 @@ def roleDelete(request, id):
 @login_required
 def distributorList(request):
     distributors = Distributor.objects.all().order_by('Name')
+
+    paginator = Paginator(distributors, list_page_count )
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': Distributor,
-            'distributors': distributors}
+            'page_obj': page_obj}
+
     return render(request, 'core/distributorlist.html', data )
 
 
@@ -437,9 +478,15 @@ def distributorDelete(request, id):
 @login_required
 def languageList(request):
     languages = Language.objects.all().order_by('NameEN')
+
+    paginator = Paginator(languages, list_page_count )
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': Language,
-            'languages': languages}
+            'page_obj': page_obj }
+
     return render(request, 'core/languagelist.html', data )
 
 
@@ -506,9 +553,15 @@ def languageDelete(request, id):
 @login_required
 def typeofartworkList(request):
     typesofartwork = TypeOfArtwork.objects.all().order_by('NameEN')
+
+    paginator = Paginator(typesofartwork, list_page_count )
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': TypeOfArtwork,
-            'typesofartwork': typesofartwork}
+            'page_obj': page_obj }
+
     return render(request, 'core/typeofartworklist.html', data )
 
 
@@ -575,9 +628,15 @@ def typeofartworkDelete(request, id):
 @login_required
 def personList(request):
     persons = Person.objects.all().order_by('Name')
+
+    paginator = Paginator(persons, list_page_count )
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': Person,
-            'persons': persons}
+            'page_obj': page_obj }
+
     return render(request, 'core/personlist.html', data )
 
 
@@ -672,9 +731,14 @@ def personData(request, id):
 @login_required
 def artworkList(request):
     artworks = Artwork.objects.all().order_by(Coalesce('TitleEN', 'OriginalTitle'))
+
+    paginator = Paginator(artworks, list_page_count )
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     data = {'userProfile': UserProfile.objects.get(User=request.user),
             'class': Artwork,
-            'artworks': artworks}
+            'page_obj': page_obj }
     return render(request, 'core/artworklist.html', data )
 
 

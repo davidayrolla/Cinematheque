@@ -16,7 +16,7 @@
                </tr>
              </thead>
              <tbody>
-             {% for artwork in artworks %}
+             {% for artwork in page_obj %}
                <tr>
                  <td width="100px">
                      <a href="{% url 'core_artwork_update' artwork.id %}">

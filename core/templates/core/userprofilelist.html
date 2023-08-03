@@ -16,7 +16,7 @@
                </tr>
              </thead>
              <tbody>
-             {% for userprofile_local in usersprofiles %}
+             {% for userprofile_local in page_obj %}
                <tr>
                  <td width="100px">
                     <a href="{% url 'core_userprofile_update' userprofile_local.id %}">

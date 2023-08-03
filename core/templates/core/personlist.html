@@ -17,7 +17,7 @@
                </tr>
              </thead>
              <tbody>
-             {% for person in persons %}
+             {% for person in page_obj %}
                <tr>
                  <td width="100px">
                     <a href="{% url 'core_person_update' person.id %}">
@@ -50,7 +50,6 @@
                {% endfor%}
              </tbody>
          </table>
-
     </div>
 
 {% endblock %}

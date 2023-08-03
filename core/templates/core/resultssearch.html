@@ -4,7 +4,7 @@
 
     <h1>Search results for <i>"{{ strtosearch }}"</i>:</h1>
 
-    {% if artworks %}
+    {% if pageart_obj %}
         <h4 style="padding-top: 20px">Artworks</h4>
         <div class="col">
              <table class="table table-striped">
@@ -15,7 +15,7 @@
                    </tr>
                  </thead>
                  <tbody>
-                 {% for artwork in artworks %}
+                 {% for artwork in pageart_obj %}
                    <tr>
                      <td width="100px">
                          <a href="{% url 'core_artwork_data' artwork.id %}">
@@ -60,9 +60,39 @@
              </table>
 
         </div>
+
+        <div class="row" style="text-align: center">
+            <div class="col-2">
+                {% if pageart_obj.has_previous %}
+                    <a href="?texttoSearch={{ strtosearch }}&pagart=1"><i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+                {% endif %}
+            </div>
+            <div class="col-2">
+                {% if pageart_obj.has_previous %}
+                    <a href="?texttoSearch={{ strtosearch }}&pagart={{ pageart_obj.previous_page_number }}"><i class="fa fa-step-backward" aria-hidden="true"></i></a>
+                {% endif %}
+            </div>
+            <div class="col-4" style="font-size: 12px">
+                Page of Artworks {{ pageart_obj.number }} of {{ pageart_obj.paginator.num_pages }}
+            </div>
+            <div class="col-2">
+                {% if pageart_obj.has_next %}
+                    <a href="?texttoSearch={{ strtosearch }}&pagart={{ pageart_obj.next_page_number }}"><i class="fa fa-step-forward" aria-hidden="true"></i></a>
+                {% endif %}
+            </div>
+            <div class="col-2">
+                {% if pageart_obj.has_next %}
+                    <a href="?texttoSearch={{ strtosearch }}&pagart={{ pageart_obj.paginator.num_pages }}"><i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+                {% endif %}
+            </div>
+        </div>
+
+        <BR>
+
     {% endif %}
 
-    {% if persons %}
+
+    {% if pageper_obj %}
         <h4  style="padding-top: 20px">Persons</h4>
         <div class="col">
          <table class="table table-striped">
@@ -73,7 +103,7 @@
                </tr>
              </thead>
              <tbody>
-             {% for person in persons %}
+             {% for person in pageper_obj %}
                <tr>
                  <td width="100px">
                     <a href="{% url 'core_person_data' person.id %}">
@@ -107,9 +137,37 @@
              </tbody>
          </table>
         </div>
+
+        <div class="row" style="text-align: center">
+            <div class="col-2">
+                {% if pageper_obj.has_previous %}
+                    <a href="?texttoSearch={{ strtosearch }}&pagper=1"><i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+                {% endif %}
+            </div>
+            <div class="col-2">
+                {% if pageper_obj.has_previous %}
+                    <a href="?texttoSearch={{ strtosearch }}&pagper={{ pageper_obj.previous_page_number }}"><i class="fa fa-step-backward" aria-hidden="true"></i></a>
+                {% endif %}
+            </div>
+            <div class="col-4" style="font-size: 12px">
+                Page of Persons {{ pageper_obj.number }} of {{ pageper_obj.paginator.num_pages }}
+            </div>
+            <div class="col-2">
+                {% if pageper_obj.has_next %}
+                    <a href="?texttoSearch={{ strtosearch }}&pagper={{ pageper_obj.next_page_number }}"><i class="fa fa-step-forward" aria-hidden="true"></i></a>
+                {% endif %}
+            </div>
+            <div class="col-2">
+                {% if pageper_obj.has_next %}
+                    <a href="?texttoSearch={{ strtosearch }}&pagper={{ pageper_obj.paginator.num_pages }}"><i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+                {% endif %}
+            </div>
+        </div>
+
+        <BR>
     {% endif %}
 
-    {% if not artworks and not persons %}
+    {% if not pageart_obj and not pageper_obj %}
         Sorry, no results found for  <i>"{{ strtosearch }}"</i>.
     {% endif %}
 

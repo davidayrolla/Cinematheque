@@ -15,7 +15,7 @@
                </tr>
              </thead>
              <tbody>
-             {% for distributor in distributors %}
+             {% for distributor in page_obj %}
                <tr>
                  <td><a href="{% url 'core_distributor_update' distributor.id %}">{{distributor.Name}}</a></td>
                </tr>

@@ -1,6 +1,6 @@
 {% extends 'logged.html' %}
 {% load filter %}
-
+aaa
 {% block main %}
 
      <div class="row">
@@ -20,7 +20,34 @@
 
         {% endblock %}
 
+     </div>
+
+      <div class="row" style="text-align: center">
+          <div class="col-2">
+              {% if page_obj.has_previous %}
+                  <a href="?page=1"><i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+              {% endif %}
+          </div>
+          <div class="col-2">
+              {% if page_obj.has_previous %}
+                  <a href="?page={{ page_obj.previous_page_number }}"><i class="fa fa-step-backward" aria-hidden="true"></i></a>
+              {% endif %}
+          </div>
+          <div class="col-4" style="font-size: 12px">
+              Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+          </div>
+          <div class="col-2">
+              {% if page_obj.has_next %}
+                  <a href="?page={{ page_obj.next_page_number }}"><i class="fa fa-step-forward" aria-hidden="true"></i></a>
+              {% endif %}
+          </div>
+          <div class="col-2">
+              {% if page_obj.has_next %}
+                  <a href="?page={{ page_obj.paginator.num_pages }}"><i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+              {% endif %}
+          </div>
       </div>
 
+      <BR>
 
 {% endblock %}
