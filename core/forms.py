@@ -124,7 +124,6 @@ class TypeOfArtworkForm(ModelForm):
         fields = ['NameEN', 'NamePT_BR']
 
 
-# TODO: Change date of birth to use a datettime picker
 class PersonForm(ModelForm):
     class Meta:
         model = Person
