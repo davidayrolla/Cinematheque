@@ -1,7 +1,9 @@
 from .models import *
-from django.forms import ModelForm, forms, widgets
+from django.forms import ModelForm, forms
+from django import forms
 from django.core.files.images import get_image_dimensions
 from django.forms.models import inlineformset_factory
+
 
 class UserProfileForm(ModelForm):
     class Meta:
@@ -115,6 +117,7 @@ class LanguageForm(ModelForm):
         model = Language
         fields = ['NameEN', 'NamePT_BR']
 
+
 class TypeOfArtworkForm(ModelForm):
     class Meta:
         model = TypeOfArtwork
@@ -126,6 +129,15 @@ class PersonForm(ModelForm):
     class Meta:
         model = Person
         fields = ['Name', 'DateOfBirth', 'DateOfDeath', 'CountryOfBirth', 'Photo']
+        widgets={
+            'DateOfBirth':forms.DateInput( format=('%Y-%m-%d'),
+                                           attrs={'type': 'date',
+                                                  'placeholder': 'YYYY-MM-DD',
+                                                  'style': 'width: 180px !important' }),
+            'DateOfDeath':forms.DateInput( format=('%Y-%m-%d'),
+                                           attrs={'type': 'date',
+                                                  'placeholder': 'YYYY-MM-DD',
+                                                  'style': 'width: 180px !important' }) }
 
 
 class ArtworkForm(ModelForm):
