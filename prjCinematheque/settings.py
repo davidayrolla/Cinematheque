@@ -14,9 +14,10 @@ SECRET_KEY = 'django-insecure-9aa+!3=1eugf=ua%=sqjw5wmz4$a%u3-)%*q0y5oi(uziqb9t2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost',
-                 '127.0.0.1',
-                 'cinematheque.herokuapp.com']
+ALLOWED_HOSTS = ['*',
+                 'https://cinematheque-2a3n.onrender.com/',
+                 'localhost',
+                 '127.0.0.1']
 
 # Application definition
 
