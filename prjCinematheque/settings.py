@@ -112,23 +112,23 @@ LOGIN_URL = 'core_home'
 LOGIN_REDIRECT_URL = 'core_home'
 LOGOUT_REDIRECT_URL = 'login'
 
-# if DEBUG:
-#     # Use SQLite DATABASE
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
-#     }
-# else:
-# Replace the SQLite DATABASE configuration with PostgreSQL:
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dbcinematheque_3e37',
-        'USER': 'admin',
-        'PASSWORD': 'ZE2MsLIVKNtWsiq75Pvts1ea9MySr33I',
-        'HOST': 'dpg-cnpmimocmk4c73bd32bg-a.oregon-postgres.render.com',
-        'PORT': '5432',
+if DEBUG:
+    # Use SQLite DATABASE
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    # Replace the SQLite DATABASE configuration with PostgreSQL:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'dbcinematheque_3e37',
+            'USER': 'admin',
+            'PASSWORD': 'ZE2MsLIVKNtWsiq75Pvts1ea9MySr33I',
+            'HOST': 'dpg-cnpmimocmk4c73bd32bg-a.oregon-postgres.render.com',
+            'PORT': '5432',
+        }
+    }
