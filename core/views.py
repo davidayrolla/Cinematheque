@@ -1,4 +1,5 @@
 from django.db.models import Q
+from django.http import Http404
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Coalesce
@@ -715,7 +716,11 @@ def personDelete(request, id):
 
 
 def personData(request, id):
-    person = Person.objects.get(id=id)
+    try:
+        person = Person.objects.get(id=id)
+    except Person.DoesNotExist:
+        raise Http404
+
     artworks = Membership.objects.filter(Person=person).order_by('Role_id', 'Artwork__OriginalTitle')
 
     data = { 'person': person,
@@ -819,13 +824,16 @@ def artworkDelete(request, id):
 
 
 def artworkData(request, id):
-    artwork = Artwork.objects.get(id=id)
+    try:
+        artwork = Artwork.objects.get(id=id)
+    except Artwork.DoesNotExist:
+        raise Http404
+
     members = Membership.objects.filter(Artwork=artwork).order_by('Role_id', 'Person__Name')
 
     data = { 'artwork': artwork,
              'members': members }
 
     return render(request, 'core/artworkdata.html', data)
-
 
 
