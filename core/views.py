@@ -49,7 +49,7 @@ def search(request):
     strtoSearch = request.GET['texttoSearch'].strip()
 
     artworks = Artwork.objects.filter(
-        Q( OriginalTitle__contains = strtoSearch ) |
+        Q( OriginalTitle__icontains = strtoSearch ) |
         Q( TitleEN__contains = strtoSearch ) |
         Q( TitlePT_BR__contains = strtoSearch) |
         Q( ReleaseYear__contains = strtoSearch) |
@@ -64,7 +64,7 @@ def search(request):
     pageart_obj = pagArtwork.get_page(page_number)
 
     persons = Person.objects.filter(
-        Q( Name__contains = strtoSearch ) |
+        Q( Name__icontains = strtoSearch ) |
         Q( DateOfBirth__contains = strtoSearch) |
         Q( DateOfDeath__contains = strtoSearch) |
         Q( CountryOfBirth__NameEN__iexact = strtoSearch) |
