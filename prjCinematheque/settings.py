@@ -126,10 +126,10 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'dbcinematheque_3e37_82w4',
+            'NAME': 'dbcinematheque_t8sl',
             'USER': 'admin',
-            'PASSWORD': 'lSdbq1W2IuZs9B9VNumEj5i3ZKzT7wxq',
-            'HOST': 'dpg-cpocdleehbks73eh4kk0-a.oregon-postgres.render.com',
+            'PASSWORD': 'qwzz9iIF0f8umCTPmVq58PJ1psow1p6h',
+            'HOST': 'dpg-cr0g1g3qf0us738dcde0-a.oregon-postgres.render.com',
             'PORT': '5432',
         }
 }
